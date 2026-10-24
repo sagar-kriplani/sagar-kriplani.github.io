@@ -1,0 +1,15 @@
+# Build & Scratch scripts
+*.txt
+build_*.py
+build_*.js
+make_*.py
+assemble_index.py
+inspect_*.js
+read_*.js
+test_*.py
+verify_*.py
+generate_portfolio.py
+reference/
+__pycache__/
+.DS_Store
+Thumbs.db

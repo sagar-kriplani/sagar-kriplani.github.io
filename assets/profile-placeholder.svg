@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" aria-label="Sagar Kriplani Monogram Technical Stamp" role="img">
+  <title>Sagar Kriplani - Mechanical Design Engineer</title>
+  <defs>
+    <pattern id="stampGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <!-- Background circle with technical grid -->
+  <circle cx="80" cy="80" r="74" fill="var(--color-paper-card, #FFFFFF)" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="80" cy="80" r="70" fill="url(#stampGrid)" stroke="currentColor" stroke-width="0.75" opacity="0.8"/>
+  <circle cx="80" cy="80" r="66" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.5"/>
+  
+  <!-- Optical alignment crosshairs -->
+  <line x1="80" y1="6" x2="80" y2="24" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="80" y1="136" x2="80" y2="154" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="6" y1="80" x2="24" y2="80" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="136" y1="80" x2="154" y2="80" stroke="currentColor" stroke-width="1.2"/>
+  
+  <!-- Graduation marks -->
+  <circle cx="80" cy="80" r="72" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1,7.37" opacity="0.4"/>
+  
+  <!-- Central monogram text -->
+  <text x="80" y="88" text-anchor="middle" font-family="'Geist Mono', 'IBM Plex Mono', monospace" font-size="34" font-weight="700" fill="currentColor" letter-spacing="2">SK</text>
+  <text x="80" y="108" text-anchor="middle" font-family="'Geist Mono', 'IBM Plex Mono', monospace" font-size="7.5" font-weight="500" fill="var(--color-accent, #E8590C)" letter-spacing="1.5">INGENIEUR · M.SC.</text>
+  <text x="80" y="48" text-anchor="middle" font-family="'Geist Mono', 'IBM Plex Mono', monospace" font-size="7" font-weight="400" fill="currentColor" opacity="0.6" letter-spacing="2">DIN EN ISO 7200</text>
+</svg>

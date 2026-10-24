@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar Kriplani — Konstrukteur Maschinenbau &amp; R&amp;D Ingenieur (M.Sc.)</title>
+<meta name="description" content="Sagar Kriplani (M.Sc. Scientific Instrumentation) — Konstrukteur Maschinenbau, Halbleiter-Equipment, Hochvakuum, Sondermaschinenbau und R&D Engineering.">
+<meta name="author" content="Sagar Kriplani">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sagar Kriplani — Konstrukteur Maschinenbau &amp; R&amp;D Ingenieur (M.Sc.)">
+<meta property="og:description" content="Portfolio von Sagar Kriplani: Halbleiter-Equipment (Brooks Automation), Sondermaschinenbau (NeSt GmbH), Hochvakuum &amp; CAD/FEA.">
+<meta property="og:url" content="https://sagar-kriplani.github.io/">
+<meta property="og:site_name" content="Sagar Kriplani">
+
+<!-- Schema.org Person Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sagar Kriplani",
+  "alternateName": "Sahil",
+  "jobTitle": "Mechanical Design Engineer & R&D Engineer",
+  "alumniOf": "Ernst-Abbe-Hochschule Jena",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Heidenheim an der Brenz",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "email": "mailto:sagar.kriplani@outlook.com",
+  "url": "https://sagar-kriplani.github.io/",
+  "sameAs": [
+    "https://www.linkedin.com/in/sagar-kriplani/",
+    "https://github.com/sagar-kriplani"
+  ],
+  "knowsAbout": [
+    "Mechanical Design", "Semiconductor Equipment", "High Vacuum Systems",
+    "Autodesk Inventor", "PTC Creo Parametric", "Siemens NX", "ANSYS Workbench FEA",
+    "SEMI S2/S8", "DIN EN ISO 16089", "GD&T DIN EN ISO 1101", "DFM/DFA"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-view="mech">
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-mark">Sagar<span>.</span></a>
+    
+    <!-- Signature Profile Switcher -->
+    <div class="view-switch" role="tablist" aria-label="Profile View Selector">
+      <button class="view-btn active" id="btnMech" onclick="setView('mech')" role="tab" aria-selected="true">
+        <span class="lang-de">Konstruktion</span>
+        <span class="lang-en">Mechanical Design</span>
+      </button>
+      <button class="view-btn" id="btnRD" onclick="setView('rd')" role="tab" aria-selected="false">
+        <span class="lang-de">F&amp;E Ingenieur</span>
+        <span class="lang-en">R&amp;D Engineer</span>
+      </button>
+    </div>
+
+    <!-- Nav Right Controls -->
+    <div class="nav-right">
+      <!-- Language Switcher -->
+      <div class="lang-switch" role="group" aria-label="Language Selector">
+        <button class="lang-btn active" id="btnLangDE" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" id="btnLangEN" onclick="setLang('en')">EN</button>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" title="Menu" aria-label="Menü öffnen" onclick="toggleMobileMenu()">
+        <span aria-hidden="true">☰</span>
+      </button>
+      <button class="theme-toggle" id="profileToggle" title="Profil &amp; Kontakt" aria-label="Profil &amp; Kontakt" onclick="openProfile()">
+        <span aria-hidden="true">👤</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-panel" id="mobileNavPanel">
+    <div class="mnp-set" id="mnp-mech" style="display: flex;">
+      <a href="javascript:void(0)" onclick="jumpTo('mech-scope')"><span class="lang-de">Kennzahlen</span><span class="lang-en">Scope</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('mech-projects')"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('mech-experience')"><span class="lang-de">Werdegang</span><span class="lang-en">Experience</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('mech-stack')"><span class="lang-de">CAD &amp; Methoden</span><span class="lang-en">CAD &amp; Stack</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('mech-edu')"><span class="lang-de">Ausbildung</span><span class="lang-en">Education</span></a>
+    </div>
+    <div class="mnp-set" id="mnp-rd" style="display: none;">
+      <a href="javascript:void(0)" onclick="jumpTo('rd-scope')"><span class="lang-de">F&amp;E Kennzahlen</span><span class="lang-en">R&amp;D Scope</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('rd-cases')"><span class="lang-de">Fallstudien &amp; Thesis</span><span class="lang-en">Case Studies</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('rd-experience')"><span class="lang-de">Werdegang</span><span class="lang-en">Experience</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('rd-stack')"><span class="lang-de">Labor &amp; Stack</span><span class="lang-en">Lab &amp; Stack</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('rd-edu')"><span class="lang-de">Ausbildung</span><span class="lang-en">Education</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ PROFILE & CONTACT MODAL ═══════════════════ -->
+<div class="profile-backdrop" id="profileBackdrop" onclick="closeProfile(event)">
+  <div class="profile-card" onclick="event.stopPropagation()">
+    <div class="profile-top">
+      <div class="profile-avatar">SK</div>
+      <div>
+        <div class="profile-name">Sagar Kriplani</div>
+        <div class="profile-role">
+          <span class="lang-de">Konstrukteur · M.Sc. Scientific Instrumentation</span>
+          <span class="lang-en">Mechanical Design Engineer · M.Sc. Scientific Instrumentation</span>
+        </div>
+      </div>
+      <button class="profile-close" onclick="closeProfile()" aria-label="Schließen"><span aria-hidden="true">✕</span></button>
+    </div>
+    <div class="profile-links">
+      <a href="tel:+4915758290324" class="profile-link">
+        <span class="pl-icon" aria-hidden="true">📞</span>
+        <div class="pl-text">
+          <div class="pl-label"><span class="lang-de">Telefon</span><span class="lang-en">Phone</span></div>
+          <div class="pl-value">+49 157 582 90324</div>
+        </div>
+      </a>
+      <a href="mailto:sagar.kriplani@outlook.com" class="profile-link">
+        <span class="pl-icon" aria-hidden="true">✉️</span>
+        <div class="pl-text">
+          <div class="pl-label">Email</div>
+          <div class="pl-value">sagar.kriplani@outlook.com</div>
+        </div>
+      </a>
+      <div class="profile-link" style="cursor:default;">
+        <span class="pl-icon" aria-hidden="true">📍</span>
+        <div class="pl-text">
+          <div class="pl-label"><span class="lang-de">Standort</span><span class="lang-en">Location</span></div>
+          <div class="pl-value">Heidenheim, Germany (BW / BY / NRW)</div>
+        </div>
+      </div>
+      <div class="profile-link" style="cursor:default;">
+        <span class="pl-icon" aria-hidden="true">🛡️</span>
+        <div class="pl-text">
+          <div class="pl-label"><span class="lang-de">Arbeitserlaubnis</span><span class="lang-en">Work Permit</span></div>
+          <div class="pl-value"><span class="lang-de">Blaue Karte EU (Sofort verfügbar)</span><span class="lang-en">EU Blue Card (Immediate)</span></div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/sagar-kriplani/" class="profile-link" target="_blank" rel="noopener noreferrer">
+        <span class="pl-icon" aria-hidden="true">💼</span>
+        <div class="pl-text">
+          <div class="pl-label">LinkedIn</div>
+          <div class="pl-value">linkedin.com/in/sagar-kriplani</div>
+        </div>
+      </a>
+      <a href="https://github.com/sagar-kriplani" class="profile-link" target="_blank" rel="noopener noreferrer">
+        <span class="pl-icon" aria-hidden="true">💻</span>
+        <div class="pl-text">
+          <div class="pl-label">GitHub</div>
+          <div class="pl-value">@sagar-kriplani</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Direct 4-CV Downloads in Modal -->
+    <div class="profile-cv-box">
+      <div class="profile-cv-title">
+        <span class="lang-de">Direkter Lebenslauf-Download (4 Versionen)</span>
+        <span class="lang-en">Direct CV Downloads (4 Variants)</span>
+      </div>
+      <div class="profile-cv-grid">
+        <a href="./assets/docs/mechanical-design-de.pdf" class="profile-cv-btn" target="_blank" rel="noopener noreferrer">
+          <span class="icon">📄</span>
+          <span>Konstruktion (DE)</span>
+        </a>
+        <a href="./assets/docs/mechanical-design-en.pdf" class="profile-cv-btn" target="_blank" rel="noopener noreferrer">
+          <span class="icon">📄</span>
+          <span>Mech Design (EN)</span>
+        </a>
+        <a href="./assets/docs/rd-engineer-de.pdf" class="profile-cv-btn" target="_blank" rel="noopener noreferrer">
+          <span class="icon">📄</span>
+          <span>F&amp;E Ingenieur (DE)</span>
+        </a>
+        <a href="./assets/docs/rd-engineer-en.pdf" class="profile-cv-btn" target="_blank" rel="noopener noreferrer">
+          <span class="icon">📄</span>
+          <span>R&amp;D Engineer (EN)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LEGAL MODAL (IMPRESSUM & DATENSCHUTZ) ═══════════════════ -->
+<div class="legal-backdrop" id="legalBackdrop" onclick="closeLegal(event)">
+  <div class="legal-card" onclick="event.stopPropagation()">
+    <div class="profile-top">
+      <div>
+        <div class="profile-name"><span class="lang-de">Impressum &amp; Datenschutz</span><span class="lang-en">Legal &amp; Privacy Notice</span></div>
+        <div class="profile-role"><span class="lang-de">Angaben gemäß § 5 TMG</span><span class="lang-en">Information according to § 5 TMG</span></div>
+      </div>
+      <button class="legal-close" onclick="closeLegal()" aria-label="Schließen"><span aria-hidden="true">✕</span></button>
+    </div>
+    <div class="legal-content">
+      <div class="lang-de">
+        <h3>Angaben gemäß § 5 TMG</h3>
+        <p><strong>Sagar Kriplani (M.Sc.)</strong><br>
+        Heidenheim an der Brenz, Baden-Württemberg, Deutschland<br>
+        E-Mail: sagar.kriplani@outlook.com<br>
+        Telefon: +49 157 582 90324</p>
+
+        <h3>Berufsbezeichnung</h3>
+        <p>M.Sc. Scientific Instrumentation (verliehen in Deutschland, Ernst-Abbe-Hochschule Jena)<br>
+        B.E. Mechanical Engineering (Gujarat Technological University, Indien)</p>
+
+        <h3>Haftung für Inhalte</h3>
+        <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Projektbeschreibungen unterliegen vertraglichen Geheimhaltungsvereinbarungen (NDA); vertrauliche Kunden- und Firmendaten sind anonymisiert.</p>
+
+        <h3>Datenschutz</h3>
+        <p>Diese Website wird statisch über GitHub Pages gehostet. Es werden keine Tracking-Cookies, Werbenetzwerke oder Analyse-Tools von Drittanbietern eingesetzt.</p>
+      </div>
+      <div class="lang-en">
+        <h3>Information according to § 5 TMG</h3>
+        <p><strong>Sagar Kriplani (M.Sc.)</strong><br>
+        Heidenheim an der Brenz, Baden-Württemberg, Germany<br>
+        Email: sagar.kriplani@outlook.com<br>
+        Phone: +49 157 582 90324</p>
+
+        <h3>Professional Qualifications</h3>
+        <p>M.Sc. Scientific Instrumentation (Ernst-Abbe-Hochschule Jena, Germany)<br>
+        B.E. Mechanical Engineering (Gujarat Technological University, India)</p>
+
+        <h3>Disclaimer</h3>
+        <p>As a service provider, we are responsible for our own content on these pages under § 7 (1) TMG in accordance with general law. Confidential employer details and intellectual property are subject to Non-Disclosure Agreements (NDA) and presented in anonymized form.</p>
+
+        <h3>Privacy Notice</h3>
+        <p>This website is statically hosted via GitHub Pages. No tracking cookies, marketing scripts, or third-party analytics are used.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ═══════════════════ MECHANICAL DESIGN ENGINEER VIEW ═══════════════════ -->
+  <div class="view-content active" id="view-mech">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-name">Sagar Kriplani <span style="font-size:13px;font-weight:500;opacity:0.75;">(Sahil)</span></div>
+        <h1>
+          <span class="lang-de">Konstrukteur Maschinenbau &amp; <span class="accent">Sondermaschinen.</span></span>
+          <span class="lang-en">Mechanical Design Engineer &amp; <span class="accent">Special Machinery.</span></span>
+        </h1>
+        <p class="hero-sub">
+          <span class="lang-de"><strong>Über 3 Jahre Erfahrung</strong> in der CAD-Konstruktion (Inventor, Creo, NX), Blech- und Schweißbaugruppen sowie DFM/DFA für Sondermaschinen und Halbleiter-Equipment. Bis zu <strong>70% Fertigungskostensenkung</strong> und <strong>200+ Fertigungszeichnungen/Monat</strong> nach DIN/ISO.</span>
+          <span class="lang-en"><strong>Over 3 years of experience</strong> in mechanical CAD design (Inventor, Creo, NX), sheet-metal and welded structures, and DFM/DFA for custom machinery and semiconductor equipment. Proven <strong>up to 70% component cost reduction</strong> and <strong>200+ production drawings/month</strong> per DIN/ISO.</span>
+        </p>
+        <div class="hero-meta">
+          <span class="pill green"><span class="lang-de">200+ Zeichnungen/Monat (DIN/ISO)</span><span class="lang-en">200+ Drawings/Month (DIN/ISO)</span></span>
+          <span class="pill green"><span class="lang-de">Bis zu -70% Fertigungskosten</span><span class="lang-en">Up to -70% Cost Reduction</span></span>
+          <span class="pill green"><span class="lang-de">8+ Maschinenplattformen</span><span class="lang-en">8+ Machine Platforms</span></span>
+          <span class="pill blue"><span class="lang-de">Blaue Karte EU (Sofort verfügbar)</span><span class="lang-en">EU Blue Card (Immediate)</span></span>
+        </div>
+        <div class="hero-links">
+          <a href="javascript:void(0)" onclick="jumpTo('mech-projects')" class="hl-btn primary">
+            <span class="lang-de">Projekte ansehen</span>
+            <span class="lang-en">View Projects</span>
+          </a>
+          <a href="./assets/docs/mechanical-design-de.pdf" id="heroCvBtnMech" class="hl-btn cv-btn" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">📄</span>
+            <span class="lang-de">Lebenslauf herunterladen (PDF)</span>
+            <span class="lang-en">Download CV (PDF)</span>
+          </a>
+          <button class="hl-btn" onclick="openProfile()">
+            <span class="lang-de">Kontakt &amp; Profil</span>
+            <span class="lang-en">Contact &amp; Profile</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE & METRICS -->
+    <section id="mech-scope">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Profil &amp; Kennzahlen</span><span class="lang-en">At a glance</span></div>
+        <div class="sec-title"><span class="lang-de">Ingenieur-Kennzahlen</span><span class="lang-en">Scope &amp; Track Record</span></div>
+        <div class="scope-grid">
+          <div class="scope-stat">
+            <div class="scope-num">200+</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Zeichnungen / Monat<br>(DIN/ISO konform)</span>
+              <span class="lang-en">Drawings / Month<br>(DIN/ISO Standard)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">-70%</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Fertigungskosten<br>(DFM/DFA Optimierung)</span>
+              <span class="lang-en">Manufacturing Cost<br>(DFM/DFA Optimization)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">8+</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Maschinenplattformen<br>(Konzept bis Serie)</span>
+              <span class="lang-en">Machine Platforms<br>(Concept to Series)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">100k+</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Bauteile / Monat<br>(Präzisions-Werkzeuge)</span>
+              <span class="lang-en">Parts / Month<br>(Precision Tooling)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS -->
+    <section id="mech-projects">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Ausgewählte Arbeiten</span><span class="lang-en">Selected Work</span></div>
+        <div class="sec-title"><span class="lang-de">Konstruktionsprojekte</span><span class="lang-en">Featured Projects</span></div>
+
+        <!-- Featured Bridge Project -->
+        <div class="proj bridge">
+          <div class="proj-top">
+            <span class="proj-title">
+              <span class="lang-de">Modulare Plattform-Standardisierung &amp; Maschinengehäuse</span>
+              <span class="lang-en">Modular Machine Platform &amp; Enclosure Harmonization</span>
+            </span>
+            <span class="pill purple">NeSt GmbH · Sondermaschinenbau</span>
+          </div>
+          <p class="proj-tagline">
+            <span class="lang-de">Vollständige Konzept-bis-Freigabe-Konstruktion für 5 modularisierte Maschinenbaureihen (Weil Technology / ATAS Plattform). Konstruktion robuster <strong>Blechgehäuse mit Trumpf-Abwicklungen</strong>, schwingungsdämpfender Schweißrahmen und ergonomischer Schiebetürsysteme in <strong>Autodesk Inventor 2024</strong>. Durch strikte Anwendung von <strong>DFM/DFA</strong> und Bauteilstandardisierung wurden die <strong>Fertigungskosten um bis zu 70%</strong> und das Baugruppengewicht um 60% gesenkt. Revisionssichere Verwaltung im SAGE ERP.</span>
+            <span class="lang-en">Sole concept-to-release mechanical design harmonizing 5 custom machinery series (Weil Technology / ATAS platform). Engineered high-precision <strong>sheet-metal enclosures (Trumpf unfolding)</strong>, vibration-damped welded steel frames, and ergonomic sliding door mechanics in <strong>Autodesk Inventor 2024</strong>. Rigorous <strong>DFM/DFA</strong> and parts standardization achieved <strong>up to 70% component cost reduction</strong> and 60% weight reduction. Revisions managed in SAGE ERP.</span>
+          </p>
+          <div class="proj-tags">
+            <span class="ptag">Autodesk Inventor 2024</span>
+            <span class="ptag"><span class="lang-de">Blechkonstruktion (Trumpf)</span><span class="lang-en">Sheet Metal (Trumpf)</span></span>
+            <span class="ptag"><span class="lang-de">Schweißbaugruppen</span><span class="lang-en">Welded Assemblies</span></span>
+            <span class="ptag">DFM / DFA</span>
+            <span class="ptag">GD&amp;T DIN EN ISO 1101</span>
+            <span class="ptag">SAGE ERP &amp; PDM</span>
+            <span class="ptag"><span class="lang-de">Kostensenkung bis -70%</span><span class="lang-en">Cost Cut up to -70%</span></span>
+          </div>
+        </div>
+
+        <div class="capsule-divider">
+          <span class="capsule">
+            <span class="lang-de">Weitere Industrie- &amp; Entwicklungsprojekte</span>
+            <span class="lang-en">Further Engineering &amp; Tooling Projects</span>
+          </span>
+        </div>
+
+        <div class="proj-grid">
+          <!-- Project 2 -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Transportrahmen &amp; Labyrinthdichtung</span>
+                <span class="lang-en">Transport Frame &amp; Labyrinth Seal</span>
+              </span>
+              <span class="pill green">Danobat / NeSt</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Konstruktion eines universellen Lastaufnahmemittels für schwere Schleifmaschinenmodule und Entwicklung einer berührungslosen <strong>4-Stufen-Labyrinthdichtung nach DIN EN ISO 16089</strong> zur KSS-Kühlschmierstoff-Abdichtung. Montage- und Rüstzeiten vor Ort halbiert.</span>
+              <span class="lang-en">Engineered universal handling frame for heavy grinding machine modules and developed a contact-free <strong>4-stage labyrinth seal per DIN EN ISO 16089</strong> for cutting fluid aerosol containment. Field installation time cut by 50%.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">DIN EN ISO 16089</span>
+              <span class="ptag">Inventor</span>
+              <span class="ptag">ANSYS FEA</span>
+              <span class="ptag"><span class="lang-de">Lastaufnahmemittel</span><span class="lang-en">Rigging Tooling</span></span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Präzisions-Roboterarm (Handhabungstool)</span>
+                <span class="lang-en">High-Precision Robotic Handling Arm</span>
+              </span>
+              <span class="pill green"><span class="lang-de">EAH Jena · Note 1,3</span><span class="lang-en">EAH Jena · Grade 1.3</span></span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Entwicklung eines automatisierten Manipulationsarms für Hochgeschwindigkeits-Förderstrecken in Autodesk Inventor. Erreichte eine <strong>Wiederholgenauigkeit von ±50 µm</strong> durch spielfreie Harmonic-Drive-Getriebeauslegung und hochfeste Aluminiumlegierungen.</span>
+              <span class="lang-en">Designed an automated robotic manipulator in Autodesk Inventor for high-speed conveyor systems. Achieved <strong>±50 µm positioning repeatability</strong> using zero-backlash harmonic drive sizing and high-strength aluminum alloys.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Autodesk Inventor</span>
+              <span class="ptag">±50 µm Repeatability</span>
+              <span class="ptag"><span class="lang-de">Kinematik &amp; Dynamik</span><span class="lang-en">Kinematics</span></span>
+              <span class="ptag"><span class="lang-de">Note 1,3</span><span class="lang-en">Grade 1.3</span></span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Steckverbinder &amp; Werkzeugkonstruktion</span>
+                <span class="lang-en">Precision Connectors &amp; Tooling</span>
+              </span>
+              <span class="pill green">Ravi Brass Industries</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Konstruktion von 4 Folgeverbund- und Spritzgusswerkzeugen in <strong>PTC Creo Parametric</strong> für über 100.000 Bauteile/Monat. Senkung der <strong>Ausschussquote um 20%</strong> durch GD&amp;T-Toleranzoptimierung an Kupfer- und Messingkontakten.</span>
+              <span class="lang-en">Tooling design of 4 progressive stamping and injection molds in <strong>PTC Creo Parametric</strong> for &gt;100k parts/month. Cut <strong>scrap rates by 20%</strong> through GD&amp;T tolerance chain optimization for brass and copper alloy connectors.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">PTC Creo Parametric</span>
+              <span class="ptag"><span class="lang-de">Werkzeugbau</span><span class="lang-en">Mold &amp; Die</span></span>
+              <span class="ptag">&gt;100k Parts/Month</span>
+              <span class="ptag">-20% Scrap</span>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Getriebekonstruktion Landmaschinen</span>
+                <span class="lang-en">Agricultural Transmission &amp; Gearbox</span>
+              </span>
+              <span class="pill green">Smit Engineering</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">3D-CAD-Auslegung von Stirn- und Kegelradgetrieben für Bodenbearbeitungsgeräte (Rotavatoren). Wellen- und Wälzlagerlebensdauerberechnung nach DIN 743 und ISO 281 unter extremen Stoß- und Torsionsbelastungen.</span>
+              <span class="lang-en">3D CAD design of spur and bevel gear train assemblies for tractor implements (rotavators). Shaft strength and bearing fatigue life calculations compliant with DIN 743 and ISO 281 under shock torsional loads.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">AutoCAD / 3D CAD</span>
+              <span class="ptag">DIN 743</span>
+              <span class="ptag"><span class="lang-de">Getriebe &amp; Wellen</span><span class="lang-en">Gears &amp; Shafts</span></span>
+              <span class="ptag"><span class="lang-de">Gussgehäuse</span><span class="lang-en">Cast Housings</span></span>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">CAD Automation &amp; Simulation Hub</span>
+                <span class="lang-en">CAD Automation &amp; Simulation Hub</span>
+              </span>
+              <span class="pill blue">Open Source · GitHub</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Entwicklung von Python-Automatisierungsskripten für FreeCAD, STEP/STL-Exportpipelines und Interoperabilitätsbrücken zu Siemens NX, Fusion 360 und ANSYS. Verkürzung der Geometrievorbereitungszeit um 80%.</span>
+              <span class="lang-en">Built Python automation pipelines for FreeCAD, batch STEP/STL conversions, and interoperability bridges for Siemens NX and ANSYS FEA. Reduced geometry preparation cycles by over 80%.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Python</span>
+              <span class="ptag">FreeCAD API</span>
+              <span class="ptag">STEP / STL</span>
+              <span class="ptag">FEA Pipeline</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/sagar-kriplani/gemini-cadam-freecad" target="_blank" rel="noopener noreferrer">
+                <span class="lang-de">Auf GitHub ansehen →</span><span class="lang-en">View on GitHub →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="mech-experience">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Praxiserfahrung</span><span class="lang-en">Track Record</span></div>
+        <div class="sec-title"><span class="lang-de">Beruflicher Werdegang</span><span class="lang-en">Professional Experience</span></div>
+
+        <!-- Exp 1 -->
+        <div class="exp-row">
+          <div class="exp-period">09/2025 — 09/2026</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Konstrukteur / Entwicklungsingenieur</span>
+              <span class="lang-en">Mechanical Design &amp; Development Engineer</span>
+            </div>
+            <div class="exp-co">NeSt GmbH Sondermaschinenbau &amp; Anlagenbau · Herbrechtingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Eigenverantwortliche Konstruktion von über <strong>8 Sondermaschinen-Plattformen</strong> (~200 DIN/ISO Fertigungszeichnungen/Monat). Auslegung komplexer Maschinengehäuse, Schweißkonstruktionen und Trumpf-Blechbaugruppen unter strikter <strong>DFM/DFA-Optimierung (bis zu -70% Kosten, -60% Gewicht)</strong>. Struktur- und thermomechanische FEM-Simulationen mit ANSYS Workbench; Datenmanagement in SAGE ERP und PDM.</span>
+              <span class="lang-en">Full concept-to-release design cycles for <strong>8+ custom machine platforms</strong> (~200 DIN/ISO production drawings/month). Engineered complex machine enclosures, welded structures, and Trumpf sheet-metal assemblies strictly applying <strong>DFM/DFA (up to -70% cost, -60% weight reduction)</strong>. Structural/thermal FEA in ANSYS Workbench; BOMs managed in SAGE ERP and PDM.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="exp-row">
+          <div class="exp-period">02/2024 — 06/2024</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Werkstudent Konstruktion (Halbleiter-Spezialequipment)</span>
+              <span class="lang-en">Working Student (Mechanical Design - Semiconductor Equipment)</span>
+            </div>
+            <div class="exp-co">Brooks Automation (Deutschland) GmbH · Steißlingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Konstruktion partikelkritischer Hochvakuumkammern und mechatronischer Baugruppen für FOUP-Reinigungsanlagen (Reinraumklasse 1 µm, SEMI S2/S8). Optothermisches Re-Engineering der Infrarot-Quarzheizerhalterung (-80% Abschattung, 3-fache Gewichtsreduktion). Pflege von Stücklisten und Änderungsanträgen (ECN) in Agile PLM und Inventor.</span>
+              <span class="lang-en">Mechanical design of cleanroom particle-sensitive high-vacuum chambers and mechatronics for FOUP cleaners (Cleanroom Class 1 µm, SEMI S2/S8). Re-engineered IR quartz heater mounting brackets (-80% thermal shadowing, 3x weight cut). Handled BOM structures and ECN workflows in Agile PLM and Autodesk Inventor.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="exp-row">
+          <div class="exp-period">01/2023 — 06/2023</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Praktikant Mechanische Konstruktion &amp; Systemintegration</span>
+              <span class="lang-en">Mechanical Design &amp; System Integration Intern</span>
+            </div>
+            <div class="exp-co">Brooks Automation (Deutschland) GmbH · Steißlingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Thermodynamische Neuauslegung und CAD-Konstruktion der Process Air Unit (PAU) für EUV-Pod-Reiniger von Konzept bis Prototypenprüfung. <strong>50% Energieeinsparung (48 kW auf 18 kW)</strong>, <strong>21% Herstellkostensenkung</strong>, <strong>90% Druckverlustsenkung</strong> (500 auf 50 mbar). Werkstoffauswahl Edelstahl 304/316Ti nach ASME B31.3 und SEMI S8. Arbeitszeugnis-Bewertung: <em>„stets zur vollsten Zufriedenheit“</em>.</span>
+              <span class="lang-en">Thermodynamic layout and mechanical redesign of the Process Air Unit (PAU) for EUV Pod Cleaners from concept through physical prototype validation. <strong>~50% energy cut (48 to 18 kW)</strong>, <strong>21% manufacturing cost reduction</strong>, <strong>90% pressure drop reduction</strong> (500 to 50 mbar). Stainless steel (304/316Ti) selection compliant with ASME B31.3 &amp; SEMI S8. Evaluated: <em>"consistently to our complete satisfaction"</em>.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 4 -->
+        <div class="exp-row">
+          <div class="exp-period">08/2020 — 08/2021</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Konstruktions- &amp; Entwicklungsingenieur</span>
+              <span class="lang-en">Design &amp; Development Engineer</span>
+            </div>
+            <div class="exp-co">Ravi Brass Industries · Jamnagar, Indien</div>
+            <div class="exp-desc">
+              <span class="lang-de">Entwicklung von Präzisions-Steckverbindern und Mikroteilen aus Kupferlegierungen in PTC Creo Parametric. Konstruktion von 4 Serienwerkzeugen für &gt;100.000 Teile/Monat. Senkung der Ausschussquote um 20% durch gezielte Form- und Lagetolerierung.</span>
+              <span class="lang-en">Engineered precision electrical connectors and micro-components using PTC Creo Parametric per DIN/IEC. Designed 4 custom forming and injection molds for series volumes &gt;100k parts/month. Decreased scrap rate by 20% via tolerance chain optimization.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK & TOOLS -->
+    <section id="mech-stack">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Werkzeuge &amp; Methoden</span><span class="lang-en">Tools in Active Use</span></div>
+        <div class="sec-title"><span class="lang-de">CAD- &amp; Fertigungs-Stack</span><span class="lang-en">CAD &amp; Manufacturing Stack</span></div>
+        <div class="stack-grid">
+          <div class="stack-item"><div class="stack-cat">CAD Primary</div><div class="stack-name">Autodesk Inventor 2024</div></div>
+          <div class="stack-item"><div class="stack-cat">CAD Parametric</div><div class="stack-name">PTC Creo Parametric</div></div>
+          <div class="stack-item"><div class="stack-cat">CAD Industrial</div><div class="stack-name">Siemens NX</div></div>
+          <div class="stack-item"><div class="stack-cat">CAD 2D / Detailing</div><div class="stack-name">AutoCAD Mechanical</div></div>
+          <div class="stack-item"><div class="stack-cat">FEA Simulation</div><div class="stack-name">ANSYS Workbench</div></div>
+          <div class="stack-item"><div class="stack-cat">Tolerancing</div><div class="stack-name">GD&amp;T (DIN EN ISO 1101)</div></div>
+          <div class="stack-item"><div class="stack-cat">Fabrication</div><div class="stack-name">Blech / Trumpf Unfolding</div></div>
+          <div class="stack-item"><div class="stack-cat">Methodology</div><div class="stack-name">DFM / DFA / FMEA</div></div>
+          <div class="stack-item"><div class="stack-cat">Safety Standard</div><div class="stack-name">DIN EN ISO 16089</div></div>
+          <div class="stack-item"><div class="stack-cat">ERP / BOM</div><div class="stack-name">SAGE ERP</div></div>
+          <div class="stack-item"><div class="stack-cat">PLM / Release</div><div class="stack-name">Agile PLM / Vault</div></div>
+          <div class="stack-item"><div class="stack-cat">Automation</div><div class="stack-name">Python CAD Automation</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section id="mech-edu">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Qualifikationen</span><span class="lang-en">Credentials</span></div>
+        <div class="sec-title"><span class="lang-de">Ausbildung &amp; Zertifikate</span><span class="lang-en">Education &amp; Credentials</span></div>
+
+        <div class="edu-row">
+          <div class="edu-period">10/2021 — 03/2025</div>
+          <div class="edu-body">
+            <div class="edu-title">
+              M.Sc. Scientific Instrumentation
+              <span class="edu-grade"><span class="lang-de">Note 1,8</span><span class="lang-en">Grade 1.8</span></span>
+            </div>
+            <div class="edu-inst">Ernst-Abbe-Hochschule Jena, Deutschland</div>
+            <div class="edu-desc">
+              <span class="lang-de">Schwerpunkte: Präzisionsmaschinenbau, Hochvakuumtechnik, thermomechanische FEM-Simulation (ANSYS), Werkstofftechnik und optische Messtechnik. Masterarbeit (Note 1,3) bei Brooks Automation.</span>
+              <span class="lang-en">Focus: Precision mechanical engineering, high vacuum systems, thermomechanical FEA (ANSYS), materials selection and optical metrology. Master's Thesis (Grade 1.3) with Brooks Automation.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-row">
+          <div class="edu-period">08/2017 — 08/2020</div>
+          <div class="edu-body">
+            <div class="edu-title">
+              B.E. Mechanical Engineering
+              <span class="edu-grade"><span class="lang-de">Note 1,9</span><span class="lang-en">Grade 1.9</span></span>
+            </div>
+            <div class="edu-inst">Gujarat Technological University, Indien</div>
+            <div class="edu-desc">
+              <span class="lang-de">Schwerpunkte: Technische Mechanik, Konstruktionslehre, Strömungsmechanik und Thermodynamik. Bachelorarbeit mit Bestnote 1,0 (AA).</span>
+              <span class="lang-en">Focus: Applied mechanics, machine design, fluid mechanics, and thermodynamics. Bachelor's thesis with top honors (Grade 1.0 / AA).</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-tier-label"><span class="lang-de">Zertifizierungen</span><span class="lang-en">Certifications</span></div>
+        <div class="cert-strip cert-strip-main">
+          <span class="cert-chip cert-chip-main">CAD &amp; FEM AI Automation (2026)</span>
+          <span class="cert-chip cert-chip-main">ANSYS FEA Professional — ELEATION (Score 325/325)</span>
+          <span class="cert-chip cert-chip-main">Siemens NX: 3-Axis NC Programming</span>
+          <span class="cert-chip cert-chip-main">Semiconductor Innovation — Tech Diplomacy</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══════════════════ R&D ENGINEER VIEW ═══════════════════ -->
+  <div class="view-content" id="view-rd">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-name">Sagar Kriplani <span style="font-size:13px;font-weight:500;opacity:0.75;">(Sahil)</span></div>
+        <h1>
+          <span class="lang-de">R&amp;D Ingenieur für <span class="accent">Vakuum- &amp; Thermosysteme.</span></span>
+          <span class="lang-en">R&amp;D Engineer for <span class="accent">Vacuum &amp; Thermal Systems.</span></span>
+        </h1>
+        <p class="hero-sub">
+          <span class="lang-de"><strong>M.Sc. Scientific Instrumentation</strong> (Note 1,8). Spezialisiert auf Halbleiter-Equipment (FOUP/EUV-Pod-Reiniger), Hochvakuum-Thermodesign, optische Metrologie und gekoppelte ANSYS FEA/CFD-Simulation. Nachgewiesene <strong>50% Energieeinsparung</strong> und <strong>90% Druckverlustsenkung</strong>.</span>
+          <span class="lang-en"><strong>M.Sc. Scientific Instrumentation</strong> (Grade 1.8). Specialized in semiconductor equipment (FOUP/EUV Pod cleaners), high-vacuum thermal design, optical metrology, and coupled ANSYS FEA/CFD simulation. Proven <strong>50% energy reduction</strong> and <strong>90% pressure drop cut</strong>.</span>
+        </p>
+        <div class="hero-meta">
+          <span class="pill purple"><span class="lang-de">M.Sc. Scientific Instrumentation (1,8)</span><span class="lang-en">M.Sc. Scientific Instrumentation (1.8)</span></span>
+          <span class="pill green"><span class="lang-de">±2 °C Temperaturhomogenität (Vakuum)</span><span class="lang-en">±2 °C Thermal Uniformity (Vacuum)</span></span>
+          <span class="pill green"><span class="lang-de">~50% Heizenergie-Einsparung</span><span class="lang-en">~50% Energy Savings</span></span>
+          <span class="pill blue"><span class="lang-de">Reinraumklasse 1 µm · SEMI S2/S8</span><span class="lang-en">Cleanroom Class 1 µm · SEMI S2/S8</span></span>
+        </div>
+        <div class="hero-links">
+          <a href="javascript:void(0)" onclick="jumpTo('rd-cases')" class="hl-btn primary">
+            <span class="lang-de">F&amp;E Fallstudien ansehen</span>
+            <span class="lang-en">View Case Studies</span>
+          </a>
+          <a href="./assets/docs/rd-engineer-de.pdf" id="heroCvBtnRD" class="hl-btn cv-btn" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">📄</span>
+            <span class="lang-de">F&amp;E Lebenslauf herunterladen (PDF)</span>
+            <span class="lang-en">Download R&amp;D CV (PDF)</span>
+          </a>
+          <button class="hl-btn" onclick="openProfile()">
+            <span class="lang-de">Kontakt &amp; Profil</span>
+            <span class="lang-en">Contact &amp; Profile</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE & METRICS -->
+    <section id="rd-scope">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Profil &amp; Kennzahlen</span><span class="lang-en">At a glance</span></div>
+        <div class="sec-title"><span class="lang-de">Forschung &amp; Labor-Kennzahlen</span><span class="lang-en">R&amp;D Scope &amp; Track Record</span></div>
+        <div class="scope-grid">
+          <div class="scope-stat">
+            <div class="scope-num">±2 °C</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Temperaturhomogenität<br>(Hochvakuum-Kammer)</span>
+              <span class="lang-en">Thermal Uniformity<br>(High Vacuum Chamber)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">-50%</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Heizenergie-Einsparung<br>(48 kW auf 18 kW Downsizing)</span>
+              <span class="lang-en">Energy Reduction<br>(48 kW to 18 kW Downsizing)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">-90%</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Druckverlust-Reduktion<br>(500 auf 50 mbar Strömung)</span>
+              <span class="lang-en">Pressure Drop Cut<br>(500 to 50 mbar Fluidics)</span>
+            </div>
+          </div>
+          <div class="scope-stat">
+            <div class="scope-num">1 µm</div>
+            <div class="scope-lbl">
+              <span class="lang-de">Reinraumklasse<br>(SEMI S2 / S8 Standard)</span>
+              <span class="lang-en">Cleanroom Class<br>(SEMI S2 / S8 Standard)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED CASE STUDIES -->
+    <section id="rd-cases">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Wissenschaftliche Fallstudien</span><span class="lang-en">Concrete Examples</span></div>
+        <div class="sec-title"><span class="lang-de">F&amp;E Projekte &amp; Masterarbeit</span><span class="lang-en">R&amp;D Projects &amp; Case Studies</span></div>
+
+        <!-- Featured Bridge Case Study: Master Thesis -->
+        <div class="proj bridge">
+          <div class="proj-top">
+            <span class="proj-title">
+              <span class="lang-de">Masterarbeit: LED vs. Infrarotstrahler zur Polymererwärmung im Hochvakuum</span>
+              <span class="lang-en">Master's Thesis: LED vs. IR Radiant Heating in High-Vacuum Chambers</span>
+            </span>
+            <span class="pill purple"><span class="lang-de">Brooks Automation / EAH Jena · Note 1,3</span><span class="lang-en">Brooks / EAH Jena · Grade 1.3</span></span>
+          </div>
+          <p class="proj-tagline">
+            <span class="lang-de">Vergleichende Untersuchung innovativer LED-Heizsysteme gegenüber konventionellen Quarz-Infrarotstrahlern für die thermische Behandlung von Polymer-Waferträgern in <strong>FOUP-Reinigungsvakuumkammern</strong> (in industrieller Kooperation mit <strong>Brooks Automation GmbH</strong>). Thermomechanische Modellierung in <strong>ANSYS Workbench FEA</strong>, Aufbau eines Hochvakuum-Prüfstands und experimentelle Validierung mittels <strong>FLIR-Thermografie</strong>. Nachweis einer <strong>Temperaturhomogenität von ±2 °C</strong> und signifikant reduzierter Prozesszykluszeiten. Abschlussnote: <strong>1,3</strong>.</span>
+            <span class="lang-en">Comparative study of innovative LED heating vs. conventional quartz IR radiant heaters for polymer heating inside <strong>FOUP cleaner vacuum chambers</strong> (in industrial collaboration with <strong>Brooks Automation GmbH</strong>). Coupled thermal/optical simulation in <strong>ANSYS Workbench FEA</strong>, high-vacuum test bench instrumentation, and validation via <strong>FLIR thermography</strong>. Demonstrated <strong>±2 °C temperature uniformity</strong> across polymer substrates with sharply reduced cycle times. Thesis Grade: <strong>1.3</strong>.</span>
+          </p>
+          <div class="proj-tags">
+            <span class="ptag"><span class="lang-de">Hochvakuum (HV)</span><span class="lang-en">High Vacuum (HV)</span></span>
+            <span class="ptag">ANSYS Workbench FEA</span>
+            <span class="ptag">FLIR Thermography</span>
+            <span class="ptag">±2 °C Uniformity</span>
+            <span class="ptag">SEMI S2 / S8</span>
+            <span class="ptag">Brooks Automation</span>
+            <span class="ptag"><span class="lang-de">Masterarbeit Note 1,3</span><span class="lang-en">Thesis Grade 1.3</span></span>
+          </div>
+        </div>
+
+        <div class="capsule-divider">
+          <span class="capsule">
+            <span class="lang-de">Halbleiter-Forschung &amp; Experimentelle Entwicklung</span>
+            <span class="lang-en">Semiconductor R&amp;D &amp; Experimental Work</span>
+          </span>
+        </div>
+
+        <div class="proj-grid">
+          <!-- Case 2: PAU Redesign -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Process Air Unit (PAU) Redesign (EUV-Pod)</span>
+                <span class="lang-en">Process Air Unit Redesign (EUV Pod)</span>
+              </span>
+              <span class="pill green">Brooks Automation</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Thermodynamische Neukonzeption des Strömungskanals für EUV-Pod-Reiniger. <strong>21% Herstellkostensenkung</strong>, <strong>90% Druckverlustsenkung</strong> (500 auf 50 mbar), 34% Bauraumersparnis und Downsizing von 48 kW auf 18 kW (~50% Energieersparnis). Werkstoffauswahl 304/316Ti nach <strong>ASME B31.3 und SEMI S8</strong>.</span>
+              <span class="lang-en">Thermodynamic redesign of flow channels for EUV Pod Cleaners. Achieved <strong>21% unit cost reduction</strong>, <strong>90% pressure drop cut</strong> (500 to 50 mbar), 34% chassis footprint saving, and heating downsized from 48 kW to 18 kW (~50% energy savings) per <strong>ASME B31.3 &amp; SEMI S8</strong>.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">ASME B31.3</span>
+              <span class="ptag">SEMI S8</span>
+              <span class="ptag">Edelstahl 304/316Ti</span>
+              <span class="ptag">4-nm Filter</span>
+              <span class="ptag">-50% Energy</span>
+            </div>
+          </div>
+
+          <!-- Case 3: IR Quartz Bracket -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Optothermisches Re-Engineering Quarzheizer</span>
+                <span class="lang-en">Optothermal Quartz Heater Re-Engineering</span>
+              </span>
+              <span class="pill green">Brooks Automation</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Re-Engineering der IR-Strahlerhalterung in FOUP-Reinigungskammern. Reduktion der thermischen Abschattung um <strong>80%</strong> und <strong>3-fache Gewichtsreduktion</strong>. Validierung mittels FLIR-Thermografie und optischer Metrologie in Reinraumklasse 1 µm.</span>
+              <span class="lang-en">Re-engineered IR quartz heater brackets in FOUP cleaning chambers. Reduced thermal shadowing by <strong>80%</strong> with <strong>3x weight reduction</strong>. Validated via FLIR thermography and optical metrology under Cleanroom Class 1 µm conditions.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Autodesk Inventor</span>
+              <span class="ptag">FLIR Thermografie</span>
+              <span class="ptag">-80% Abschattung</span>
+              <span class="ptag">Agile PLM</span>
+            </div>
+          </div>
+
+          <!-- Case 4: Bachelor Thesis -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Frostwachstum auf Platten — CFD &amp; Modellierung</span>
+                <span class="lang-en">Frost Growth Modeling — CFD &amp; MATLAB</span>
+              </span>
+              <span class="pill green"><span class="lang-de">Bachelorarbeit · Note 1,0</span><span class="lang-en">Bachelor's · Grade 1.0</span></span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Mathematische und numerische Modellierung von Frostwachstum auf gekühlten Platten für kryogene und Kältesysteme. Simulation gekoppelter Wärme- und Stoffübertragung in <strong>MATLAB und CFD</strong> mit unter 5% Abweichung zu experimentellen Literaturwerten. Note 1,0 (AA).</span>
+              <span class="lang-en">Mathematical and numerical modeling of frost growth on flat plates for cryogenic and HVAC systems. Coupled heat and mass transfer simulation in <strong>MATLAB and CFD</strong> matching experimental literature within 5%. Final Grade 1.0 / AA.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">MATLAB Numerical</span>
+              <span class="ptag">CFD Modeling</span>
+              <span class="ptag"><span class="lang-de">Wärme- &amp; Stoffübertragung</span><span class="lang-en">Heat &amp; Mass Transfer</span></span>
+              <span class="ptag"><span class="lang-de">Note 1,0 / AA</span><span class="lang-en">Grade 1.0</span></span>
+            </div>
+          </div>
+
+          <!-- Case 5: ML & FTIR Hub -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">FTIR-Spektroskopie &amp; ML Datenpipeline</span>
+                <span class="lang-en">FTIR Spectroscopy &amp; ML Pipeline</span>
+              </span>
+              <span class="pill blue">EAH Jena · GitHub</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Entwicklung von Python-Datenanalyse- und Machine-Learning-Pipelines (NumPy, SciPy, Scikit-Learn) für physikalische Messreihen und optische <strong>FTIR-Spektroskopiedaten</strong>. Automatisierte Rauschfilterung und multivariate Regression (Projektbewertung Note 2,0).</span>
+              <span class="lang-en">Built Python data analysis and machine learning pipelines (NumPy, SciPy, Scikit-Learn) for physical measurement series and <strong>FTIR spectroscopy data</strong>. Automated baseline correction and regression (Master's project grade 2.0).</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">Python</span>
+              <span class="ptag">FTIR Spectroscopy</span>
+              <span class="ptag">NumPy / SciPy</span>
+              <span class="ptag">Scikit-Learn</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/sagar-kriplani/engineering-ml-portfolio" target="_blank" rel="noopener noreferrer">
+                <span class="lang-de">Auf GitHub ansehen →</span><span class="lang-en">View on GitHub →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Case 6: Vacuum Chamber Integration -->
+          <div class="proj">
+            <div class="proj-top">
+              <span class="proj-title">
+                <span class="lang-de">Vakuumkammer- &amp; Flansch-Integration</span>
+                <span class="lang-en">Vacuum Chamber &amp; Flange Integration</span>
+              </span>
+              <span class="pill green">Brooks Automation</span>
+            </div>
+            <p class="proj-tagline">
+              <span class="lang-de">Auslegung partikelfreier Hochvakuumkammern mit <strong>ISO-K und CF Flanschverbindungen</strong>, Differenzialpumpstufen und Elastomer-/Kupferdichtungen nach SEMI S2/S8. Gewährleistung von Leckraten unter 10⁻⁹ mbar·l/s.</span>
+              <span class="lang-en">Engineering of particle-free high-vacuum chambers with <strong>ISO-K and CF flange interfaces</strong>, differential pumping stages, and elastomer/copper seals compliant with SEMI S2/S8. Verified helium leak rates &lt; 10⁻⁹ mbar·l/s.</span>
+            </p>
+            <div class="proj-tags">
+              <span class="ptag">ISO-K / CF Flanges</span>
+              <span class="ptag">SEMI S2 / S8</span>
+              <span class="ptag">Differenzialpumpen</span>
+              <span class="ptag">Reinraum 1 µm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="rd-experience">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Praxiserfahrung</span><span class="lang-en">Track Record</span></div>
+        <div class="sec-title"><span class="lang-de">Forschung &amp; Werdegang</span><span class="lang-en">R&amp;D Experience</span></div>
+
+        <!-- Exp 1 -->
+        <div class="exp-row">
+          <div class="exp-period">02/2024 — 06/2024</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Werkstudent F&amp;E / Halbleiter-Vakuumtechnik</span>
+              <span class="lang-en">Working Student R&amp;D / Semiconductor Vacuum Systems</span>
+            </div>
+            <div class="exp-co">Brooks Automation (Deutschland) GmbH · Steißlingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Hochpräzise Vakuumkammermodule und mechatronische Baugruppen für FOUP-Reinigungsanlagen nach SEMI-Standards (Reinraumklasse 1 µm). Re-Engineering von Infrarot-Quarzstrahlerhalterungen (-80% Abschattung, 3-fache Gewichtsreduktion); optische Validierung und FLIR-Thermografie. Dokumentation und Änderungsmanagement (ECN) in Agile PLM.</span>
+              <span class="lang-en">High-precision vacuum chamber modules and mechatronic assemblies for FOUP cleaners per SEMI standards (Cleanroom Class 1 µm). Re-engineered IR quartz heater brackets (-80% thermal shadowing, 3x weight cut); validated via FLIR thermography and optical metrology. PLM change orders (ECN) in Agile PLM.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="exp-row">
+          <div class="exp-period">01/2023 — 06/2023</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Praktikant Systemintegration &amp; Thermodynamik</span>
+              <span class="lang-en">System Integration &amp; Thermodynamics Intern</span>
+            </div>
+            <div class="exp-co">Brooks Automation (Deutschland) GmbH · Steißlingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Redesign und thermodynamische Auslegung der Process Air Unit (PAU) für EUV-Pod-Reiniger von Konzept bis Prototypenprüfung. <strong>50% Energieeinsparung (48 kW auf 18 kW)</strong>, <strong>21% Herstellkostensenkung</strong>, <strong>90% Druckverlustsenkung</strong> (500 auf 50 mbar). Werkstoffauswahl Edelstahl 304/316Ti nach ASME B31.3 und SEMI S8. Arbeitszeugnis-Bewertung: <em>„stets zur vollsten Zufriedenheit“</em>.</span>
+              <span class="lang-en">Thermodynamic layout and mechanical redesign of the Process Air Unit (PAU) for EUV Pod Cleaners from concept through physical prototype validation. <strong>~50% energy cut (48 to 18 kW)</strong>, <strong>21% manufacturing cost reduction</strong>, <strong>90% pressure drop reduction</strong> (500 to 50 mbar). Stainless steel (304/316Ti) selection compliant with ASME B31.3 &amp; SEMI S8. Evaluated: <em>"consistently to our complete satisfaction"</em>.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="exp-row">
+          <div class="exp-period">10/2021 — 03/2025</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Masterand &amp; Wissenschaftlicher Mitarbeiter</span>
+              <span class="lang-en">Master's Researcher &amp; Scientific Project Lead</span>
+            </div>
+            <div class="exp-co">Ernst-Abbe-Hochschule Jena · Jena</div>
+            <div class="exp-desc">
+              <span class="lang-de">Forschungsprojekte in wissenschaftlicher Instrumentierung, Hochvakuumprüfständen, optischer Spektroskopie (FTIR, UV-Vis/NIR) und thermomechanischen ANSYS Workbench Simulationen. Masterarbeit (Note 1,3) in Zusammenarbeit mit Brooks Automation.</span>
+              <span class="lang-en">Research in scientific instrumentation, high-vacuum test benches, optical spectroscopy (FTIR, UV-Vis/NIR) and thermomechanical ANSYS Workbench FEA. Master's thesis (Grade 1.3) conducted in collaboration with Brooks Automation.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 4 -->
+        <div class="exp-row">
+          <div class="exp-period">09/2025 — 09/2026</div>
+          <div class="exp-body">
+            <div class="exp-role">
+              <span class="lang-de">Entwicklungsingenieur &amp; Thermomechanische FEA</span>
+              <span class="lang-en">R&amp;D Engineer &amp; Thermomechanical FEA</span>
+            </div>
+            <div class="exp-co">NeSt GmbH Sondermaschinenbau &amp; Anlagenbau · Herbrechtingen</div>
+            <div class="exp-desc">
+              <span class="lang-de">Kopplung numerischer FEM-Struktur- und thermischer Simulationen (ANSYS Workbench) mit praktischer Konstruktion im Sondermaschinenbau. Form- und Lagetoleranzketten (GD&amp;T DIN EN ISO 1101), experimentelle Schwingungsmessungen und DFM/DFA-Prozessoptimierung.</span>
+              <span class="lang-en">Coupled structural/thermal FEA simulation in ANSYS Workbench with precision machinery development. Form and position tolerance stack-ups (GD&amp;T DIN EN ISO 1101), vibration validation, and DFM/DFA process optimization.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK & METHODS -->
+    <section id="rd-stack">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Instrumentierung &amp; Methoden</span><span class="lang-en">Instrumentation &amp; Methods</span></div>
+        <div class="sec-title"><span class="lang-de">Labor- &amp; Simulations-Stack</span><span class="lang-en">Lab &amp; Simulation Stack</span></div>
+        <div class="stack-grid">
+          <div class="stack-item"><div class="stack-cat">Vacuum Tech</div><div class="stack-name">Hochvakuum (HV/UHV)</div></div>
+          <div class="stack-item"><div class="stack-cat">Vacuum Standard</div><div class="stack-name">ISO-K / CF Flanges</div></div>
+          <div class="stack-item"><div class="stack-cat">Semiconductor</div><div class="stack-name">SEMI S2 / S8 / E47.1</div></div>
+          <div class="stack-item"><div class="stack-cat">Cleanroom</div><div class="stack-name">Cleanroom Class 1 µm</div></div>
+          <div class="stack-item"><div class="stack-cat">Piping Code</div><div class="stack-name">ASME B31.3 High-Purity</div></div>
+          <div class="stack-item"><div class="stack-cat">Thermal Simulation</div><div class="stack-name">ANSYS Workbench FEA</div></div>
+          <div class="stack-item"><div class="stack-cat">Metrology</div><div class="stack-name">FLIR Thermography</div></div>
+          <div class="stack-item"><div class="stack-cat">Spectroscopy</div><div class="stack-name">FTIR &amp; UV-Vis/NIR</div></div>
+          <div class="stack-item"><div class="stack-cat">Numerical Tools</div><div class="stack-name">MATLAB &amp; Simulink</div></div>
+          <div class="stack-item"><div class="stack-cat">Data &amp; ML</div><div class="stack-name">Python (NumPy, SciPy)</div></div>
+          <div class="stack-item"><div class="stack-cat">Materials</div><div class="stack-name">Edelstahl 304 / 316Ti</div></div>
+          <div class="stack-item"><div class="stack-cat">Vacuum Sensorik</div><div class="stack-name">Pirani &amp; Penning Gauges</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section id="rd-edu">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Qualifikationen</span><span class="lang-en">Credentials</span></div>
+        <div class="sec-title"><span class="lang-de">Akademische Ausbildung &amp; Zertifikate</span><span class="lang-en">Academic Education &amp; Credentials</span></div>
+
+        <div class="edu-row">
+          <div class="edu-period">10/2021 — 03/2025</div>
+          <div class="edu-body">
+            <div class="edu-title">
+              M.Sc. Scientific Instrumentation
+              <span class="edu-grade"><span class="lang-de">Note 1,8 (ECTS A)</span><span class="lang-en">Grade 1.8 (ECTS A)</span></span>
+            </div>
+            <div class="edu-inst">Ernst-Abbe-Hochschule Jena, Deutschland</div>
+            <div class="edu-desc">
+              <span class="lang-de"><strong>Masterarbeit (Note 1,3):</strong> „Comparative Study of Radiant Heater and LED for Polymer Heating within FOUP Cleaner Vacuum Chambers“ in Kooperation mit Brooks Automation GmbH. Schwerpunkte: Thermisches Systemdesign, gekoppelte ANSYS FEA, Hochvakuum-Prüfstand, FLIR-Thermografie, ±2 °C Homogenität.</span>
+              <span class="lang-en"><strong>Master's Thesis (Grade 1.3):</strong> "Comparative Study of Radiant Heater and LED for Polymer Heating within FOUP Cleaner Vacuum Chambers" with Brooks Automation GmbH. Focus: Thermal system design, coupled ANSYS FEA, high-vacuum test bench, FLIR thermography, ±2 °C uniformity.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-row">
+          <div class="edu-period">08/2017 — 08/2020</div>
+          <div class="edu-body">
+            <div class="edu-title">
+              B.E. Mechanical Engineering
+              <span class="edu-grade"><span class="lang-de">Note 1,9 (CGPA 8,14)</span><span class="lang-en">Grade 1.9 (CGPA 8.14)</span></span>
+            </div>
+            <div class="edu-inst">Gujarat Technological University, Indien</div>
+            <div class="edu-desc">
+              <span class="lang-de"><strong>Bachelorarbeit (Note 1,0 / AA):</strong> Numerische Modellierung von Frostwachstum auf gekühlten Platten (CFD &amp; MATLAB Simulation gekoppelter Wärme- und Stoffübertragung).</span>
+              <span class="lang-en"><strong>Bachelor's Thesis (Grade 1.0 / AA):</strong> Numerical modeling of frost growth on flat plates (CFD &amp; MATLAB simulation of coupled heat and mass transfer).</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-tier-label"><span class="lang-de">Zertifizierungen &amp; Vertiefungen</span><span class="lang-en">Certifications &amp; Professional Specialization</span></div>
+        <div class="cert-strip cert-strip-main">
+          <span class="cert-chip cert-chip-main">Semiconductor Innovation — Tech Diplomacy Academy (2024)</span>
+          <span class="cert-chip cert-chip-main">ANSYS FEA Professional — ELEATION (Score 325/325)</span>
+          <span class="cert-chip cert-chip-main">CAD &amp; FEM AI Automation Workflows (2026)</span>
+          <span class="cert-chip cert-chip-main">Siemens NX: Parametric Solid &amp; NC det.</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div class="footer-mark">© Sagar Kriplani · 2026 · Heidenheim an der Brenz, Germany</div>
+    <div class="footer-links">
+      <a href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com</a>
+      <a href="https://www.linkedin.com/in/sagar-kriplani/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/sagar-kriplani" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="javascript:void(0)" onclick="openLegal()">
+        <span class="lang-de">Impressum &amp; Datenschutz</span>
+        <span class="lang-en">Legal &amp; Privacy</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+  <script>
+  (function(){
+    var root = document.documentElement;
+    var body = document.body;
+    var themeBtn = document.getElementById('themeToggle');
+    var THEME_KEY = 'sagar_portfolio_theme';
+    var VIEW_KEY = 'sagar_portfolio_view';
+    var LANG_KEY = 'sagar_portfolio_lang';
+
+    // State
+    var currentView = 'mech';
+    var currentLang = 'de';
+
+    // Titles dictionary
+    var titles = {
+      mech: {
+        de: 'Sagar Kriplani — Konstrukteur Maschinenbau & Sondermaschinen',
+        en: 'Sagar Kriplani — Mechanical Design Engineer | Special Machinery'
+      },
+      rd: {
+        de: 'Sagar Kriplani — R&D Ingenieur | M.Sc. Scientific Instrumentation',
+        en: 'Sagar Kriplani — R&D Engineer | Scientific Instrumentation & Vacuum'
+      }
+    };
+
+    // CV map
+    var cvUrls = {
+      mech: {
+        de: './assets/docs/mechanical-design-de.pdf',
+        en: './assets/docs/mechanical-design-en.pdf'
+      },
+      rd: {
+        de: './assets/docs/rd-engineer-de.pdf',
+        en: './assets/docs/rd-engineer-en.pdf'
+      }
+    };
+
+    // Theme Management
+    var savedTheme = localStorage.getItem(THEME_KEY);
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(initialTheme);
+
+    function applyTheme(t){
+      if(t === 'dark'){
+        root.setAttribute('data-theme', 'dark');
+        themeBtn.textContent = '☀️';
+      } else {
+        root.removeAttribute('data-theme');
+        themeBtn.textContent = '🌙';
+      }
+    }
+
+    themeBtn.addEventListener('click', function(){
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      var nextTheme = isDark ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    // Modals
+    window.openProfile = function(){
+      document.getElementById('profileBackdrop').classList.add('open');
+      closeMobileMenu();
+    };
+    window.closeProfile = function(e){
+      document.getElementById('profileBackdrop').classList.remove('open');
+    };
+    window.openLegal = function(){
+      document.getElementById('legalBackdrop').classList.add('open');
+      closeMobileMenu();
+    };
+    window.closeLegal = function(e){
+      document.getElementById('legalBackdrop').classList.remove('open');
+    };
+
+    // Keyboard support
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        closeProfile();
+        closeLegal();
+        closeMobileMenu();
+      }
+    });
+
+    // Mobile Menu
+    window.toggleMobileMenu = function(){
+      document.getElementById('mobileNavPanel').classList.toggle('open');
+    };
+    window.closeMobileMenu = function(){
+      document.getElementById('mobileNavPanel').classList.remove('open');
+    };
+    window.jumpTo = function(id){
+      closeMobileMenu();
+      var el = document.getElementById(id);
+      if(el){
+        setTimeout(function(){
+          el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 80);
+      }
+    };
+
+    // Update dynamic CV links
+    function updateCvLinks(){
+      var mechBtn = document.getElementById('heroCvBtnMech');
+      var rdBtn = document.getElementById('heroCvBtnRD');
+      if(mechBtn) mechBtn.href = cvUrls.mech[currentLang];
+      if(rdBtn) rdBtn.href = cvUrls.rd[currentLang];
+    }
+
+    // View Switching
+    window.setView = function(v){
+      currentView = (v === 'rd') ? 'rd' : 'mech';
+      body.setAttribute('data-view', currentView);
+
+      var viewMech = document.getElementById('view-mech');
+      var viewRD = document.getElementById('view-rd');
+      var btnMech = document.getElementById('btnMech');
+      var btnRD = document.getElementById('btnRD');
+      var mnpMech = document.getElementById('mnp-mech');
+      var mnpRD = document.getElementById('mnp-rd');
+
+      if(viewMech) viewMech.classList.toggle('active', currentView === 'mech');
+      if(viewRD) viewRD.classList.toggle('active', currentView === 'rd');
+      if(btnMech){
+        btnMech.classList.toggle('active', currentView === 'mech');
+        btnMech.setAttribute('aria-selected', currentView === 'mech' ? 'true' : 'false');
+      }
+      if(btnRD){
+        btnRD.classList.toggle('active', currentView === 'rd');
+        btnRD.setAttribute('aria-selected', currentView === 'rd' ? 'true' : 'false');
+      }
+      if(mnpMech) mnpMech.style.display = (currentView === 'mech') ? 'flex' : 'none';
+      if(mnpRD) mnpRD.style.display = (currentView === 'rd') ? 'flex' : 'none';
+
+      document.title = titles[currentView][currentLang];
+      updateCvLinks();
+      localStorage.setItem(VIEW_KEY, currentView);
+    };
+
+    // Language Switching
+    window.setLang = function(l){
+      currentLang = (l === 'en') ? 'en' : 'de';
+      root.setAttribute('data-lang', currentLang);
+      root.lang = currentLang;
+
+      var btnDE = document.getElementById('btnLangDE');
+      var btnEN = document.getElementById('btnLangEN');
+      if(btnDE) btnDE.classList.toggle('active', currentLang === 'de');
+      if(btnEN) btnEN.classList.toggle('active', currentLang === 'en');
+
+      document.title = titles[currentView][currentLang];
+      updateCvLinks();
+      localStorage.setItem(LANG_KEY, currentLang);
+    };
+
+    // Initialize from URL parameters or localStorage
+    var urlParams = new URLSearchParams(window.location.search);
+    var paramView = urlParams.get('profile') || urlParams.get('view');
+    var paramLang = urlParams.get('lang');
+
+    var initialLang = paramLang || localStorage.getItem(LANG_KEY) || 'de';
+    var initialView = paramView || localStorage.getItem(VIEW_KEY) || 'mech';
+
+    setLang(initialLang);
+    setView(initialView);
+
+    // Deep link scroll if hash present
+    if(window.location.hash){
+      var targetId = window.location.hash.substring(1);
+      setTimeout(function(){
+        jumpTo(targetId);
+      }, 150);
+    }
+  })();
+  </script>
+</body>
+</html>
