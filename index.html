@@ -72,6 +72,13 @@
         <button class="lang-btn" id="btnLangEN" onclick="setLang('en')">EN</button>
       </div>
 
+      <!-- Blueprint Mode Toggle -->
+      <button class="blueprint-btn" id="blueprintToggle" title="CAD Blueprint Modus umschalten" aria-label="CAD Blueprint Modus umschalten" onclick="toggleBlueprintMode()">
+        <span aria-hidden="true">📐</span>
+        <span class="lang-de">Blueprint</span>
+        <span class="lang-en">Blueprint</span>
+      </button>
+
       <button class="mobile-menu-btn" id="mobileMenuBtn" title="Menu" aria-label="Menü öffnen" onclick="toggleMobileMenu()">
         <span aria-hidden="true">☰</span>
       </button>
@@ -89,6 +96,7 @@
       <a href="javascript:void(0)" onclick="jumpTo('mech-projects')"><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('mech-experience')"><span class="lang-de">Werdegang</span><span class="lang-en">Experience</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('mech-stack')"><span class="lang-de">CAD &amp; Methoden</span><span class="lang-en">CAD &amp; Stack</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('mech-standards')"><span class="lang-de">Normen &amp; DIN</span><span class="lang-en">Standards</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('mech-edu')"><span class="lang-de">Ausbildung</span><span class="lang-en">Education</span></a>
     </div>
     <div class="mnp-set" id="mnp-rd" style="display: none;">
@@ -96,6 +104,7 @@
       <a href="javascript:void(0)" onclick="jumpTo('rd-cases')"><span class="lang-de">Fallstudien &amp; Thesis</span><span class="lang-en">Case Studies</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('rd-experience')"><span class="lang-de">Werdegang</span><span class="lang-en">Experience</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('rd-stack')"><span class="lang-de">Labor &amp; Stack</span><span class="lang-en">Lab &amp; Stack</span></a>
+      <a href="javascript:void(0)" onclick="jumpTo('rd-standards')"><span class="lang-de">Normen &amp; SEMI</span><span class="lang-en">Standards</span></a>
       <a href="javascript:void(0)" onclick="jumpTo('rd-edu')"><span class="lang-de">Ausbildung</span><span class="lang-en">Education</span></a>
     </div>
   </div>
@@ -277,6 +286,32 @@
     </section>
 
     <!-- SCOPE & METRICS -->
+    <!-- MECHANICAL TELEMETRY HUD BAR -->
+    <div class="wrap">
+      <div class="telemetry-bar">
+        <div class="telemetry-item">
+          <span class="t-pulse"></span>
+          <span class="t-label">SYS STATUS:</span>
+          <span class="t-val"><span class="lang-de">EINSATZBEREIT (BW / BY / NRW)</span><span class="lang-en">READY FOR ROLE (GERMANY)</span></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">📐</span>
+          <span class="t-label">CAD STANDARD:</span>
+          <span class="t-val highlight">DIN EN ISO 1101 · 16089</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">⚡</span>
+          <span class="t-label">OUTPUT:</span>
+          <span class="t-val">200+ DWG / MO</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">⚙️</span>
+          <span class="t-label">TOOLING:</span>
+          <span class="t-val">INVENTOR · CREO · NX · TRUMPF</span>
+        </div>
+      </div>
+    </div>
+
     <section id="mech-scope">
       <div class="wrap">
         <div class="sec-label"><span class="lang-de">Profil &amp; Kennzahlen</span><span class="lang-en">At a glance</span></div>
@@ -320,8 +355,28 @@
         <div class="sec-label"><span class="lang-de">Ausgewählte Arbeiten</span><span class="lang-en">Selected Work</span></div>
         <div class="sec-title"><span class="lang-de">Konstruktionsprojekte</span><span class="lang-en">Featured Projects</span></div>
 
+        <!-- Interactive Domain Filter Bar -->
+        <div class="filter-bar" role="group" aria-label="Filter Mechanical Projects">
+          <span class="filter-label"><span class="lang-de">Filter:</span><span class="lang-en">Filter:</span></span>
+          <button class="filter-btn active" onclick="filterProjects('mech', 'all', this)">
+            <span class="lang-de">Alle Arbeiten (6)</span><span class="lang-en">All Work (6)</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('mech', 'sheet-metal', this)">
+            <span class="lang-de">Blech &amp; Sondermaschinen</span><span class="lang-en">Sheet Metal &amp; Custom</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('mech', 'tooling', this)">
+            <span class="lang-de">Werkzeugbau &amp; Präzision</span><span class="lang-en">Tooling &amp; Precision</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('mech', 'fea', this)">
+            <span class="lang-de">FEA &amp; Kinematik</span><span class="lang-en">FEA &amp; Kinematics</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('mech', 'automation', this)">
+            <span class="lang-de">CAD Automation</span><span class="lang-en">CAD Automation</span>
+          </button>
+        </div>
+
         <!-- Featured Bridge Project -->
-        <div class="proj bridge">
+        <div class="proj bridge" data-domain="sheet-metal">
           <div class="proj-top">
             <span class="proj-title">
               <span class="lang-de">Modulare Plattform-Standardisierung &amp; Maschinengehäuse</span>
@@ -329,10 +384,66 @@
             </span>
             <span class="pill purple">NeSt GmbH · Sondermaschinenbau</span>
           </div>
+
+          <!-- Engineering Parameter Micro-Badges -->
+          <div class="param-strip">
+            <span class="param-chip primary"><span class="p-icon">📐</span> CAD: Autodesk Inventor 2024</span>
+            <span class="param-chip success"><span class="p-icon">📉</span> Cost: -70% Component DFM</span>
+            <span class="param-chip"><span class="p-icon">⚖️</span> Mass: -60% Optimization</span>
+            <span class="param-chip"><span class="p-icon">⚙️</span> Trumpf TruBend / TruPunch</span>
+            <span class="param-chip"><span class="p-icon">🛡️</span> Standard: DIN EN ISO 1101</span>
+          </div>
+
           <p class="proj-tagline">
             <span class="lang-de">Vollständige Konzept-bis-Freigabe-Konstruktion für 5 modularisierte Maschinenbaureihen (Weil Technology / ATAS Plattform). Konstruktion robuster <strong>Blechgehäuse mit Trumpf-Abwicklungen</strong>, schwingungsdämpfender Schweißrahmen und ergonomischer Schiebetürsysteme in <strong>Autodesk Inventor 2024</strong>. Durch strikte Anwendung von <strong>DFM/DFA</strong> und Bauteilstandardisierung wurden die <strong>Fertigungskosten um bis zu 70%</strong> und das Baugruppengewicht um 60% gesenkt. Revisionssichere Verwaltung im SAGE ERP.</span>
             <span class="lang-en">Sole concept-to-release mechanical design harmonizing 5 custom machinery series (Weil Technology / ATAS platform). Engineered high-precision <strong>sheet-metal enclosures (Trumpf unfolding)</strong>, vibration-damped welded steel frames, and ergonomic sliding door mechanics in <strong>Autodesk Inventor 2024</strong>. Rigorous <strong>DFM/DFA</strong> and parts standardization achieved <strong>up to 70% component cost reduction</strong> and 60% weight reduction. Revisions managed in SAGE ERP.</span>
           </p>
+
+          <!-- Interactive Engineering Dossier Tabs -->
+          <div class="dossier-wrap">
+            <div class="dossier-nav">
+              <button class="dossier-tab active" onclick="openDossierTab(this, 'mech-dossier-pane1')">
+                <span>📋</span> <span class="lang-de">1. Übersicht &amp; Architektur</span><span class="lang-en">1. Overview</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'mech-dossier-pane2')">
+                <span>📐</span> <span class="lang-de">2. Toleranzen &amp; GD&amp;T (DIN/ISO)</span><span class="lang-en">2. Specs &amp; GD&amp;T</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'mech-dossier-pane3')">
+                <span>⚡</span> <span class="lang-de">3. FEM &amp; Modalanalyse</span><span class="lang-en">3. FEA &amp; Modal</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'mech-dossier-pane4')">
+                <span>📊</span> <span class="lang-de">4. DFM / DFA &amp; Fertigungs-ROI</span><span class="lang-en">4. DFM &amp; Cost ROI</span>
+              </button>
+            </div>
+            <div class="dossier-body">
+              <div class="dossier-pane active" id="mech-dossier-pane1">
+                <p class="lang-de"><strong>Projektziel:</strong> Vereinheitlichung von fünf historisch gewachsenen Sondermaschinen-Baureihen auf eine standardisierte modulare Grundrahmen- und Gehäusearchitektur. Entwicklung von modularen Schiebetürsystemen, ergonomischen Wartungszugängen und KSS-Aerosoldichtungen bei NeSt GmbH.</p>
+                <p class="lang-en"><strong>Objective:</strong> Harmonize five custom machine product lines onto a single modular structural base and enclosure architecture. Engineered modular sliding doors, ergonomic maintenance access hatches, and coolant containment enclosures at NeSt GmbH.</p>
+              </div>
+              <div class="dossier-pane" id="mech-dossier-pane2">
+                <table class="spec-table">
+                  <thead>
+                    <tr><th><span class="lang-de">Parameter</span><span class="lang-en">Parameter</span></th><th><span class="lang-de">Engineering-Spezifikation</span><span class="lang-en">Specification</span></th><th><span class="lang-de">Prüfnorm / Methode</span><span class="lang-en">Standard / Method</span></th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="spec-key">Toleranzklasse</td><td>DIN EN ISO 2768-mK / DIN EN ISO 13920-BF</td><td><span class="spec-badge">DIN EN ISO 1101</span></td></tr>
+                    <tr><td class="spec-key">Blechdicken</td><td>1,5 mm — 4,0 mm (Stahl S235JR &amp; Edelstahl 1.4301)</td><td><span class="spec-badge">Trumpf Laser/Biege</span></td></tr>
+                    <tr><td class="spec-key">Rahmensteifigkeit</td><td>Maximale Durchbiegung &lt; 0,08 mm unter 12 kN dynamischer Last</td><td><span class="spec-badge">ANSYS FEA</span></td></tr>
+                    <tr><td class="spec-key">Türführungen</td><td>Lineare Schwerlast-Teleskopschienen, &gt;50.000 Zyklen wartungsfrei</td><td><span class="spec-badge">DFA Ergonomie</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dossier-pane" id="mech-dossier-pane3">
+                <p class="lang-de"><strong>Struktur- &amp; Schwingungsberechnung:</strong> FEA-Modellierung in ANSYS Workbench zur Beseitigung von Resonanzfrequenzen im Schleifmaschinenbetrieb. Die 1. Eigenfrequenz des Schweißrahmens wurde gezielt über <strong>48 Hz</strong> verschoben, wodurch Mikrovibrationen am Schleifspindelstock vollständig eliminiert wurden. Nachweis der Schweißnahtspannungen nach Eurocode 3.</p>
+                <p class="lang-en"><strong>Structural &amp; Modal FEA:</strong> Finite element simulation in ANSYS Workbench ensuring operational resonance prevention. Shifted the 1st chassis natural frequency safely above <strong>48 Hz</strong>, dampening micro-vibrations at the grinding spindle interface. Verified weld stresses according to Eurocode 3.</p>
+              </div>
+              <div class="dossier-pane" id="mech-dossier-pane4">
+                <p class="lang-de"><strong>Fertigungsoptimierung (DFM/DFA):</strong> Durch intelligente Blechbiegegeometrien konnten <strong>14 aufwendig gefräste Halterungen entfallen</strong> und durch einteilige Kantbiegeteile ersetzt werden. Reduktion der Fertigungsstückkosten um <strong>bis zu 70%</strong>, Verringerung des Baugruppengewichts um <strong>60%</strong> und Senkung der Endmontagezeit von 18 auf 6 Stunden.</p>
+                <p class="lang-en"><strong>Design for Manufacturing ROI:</strong> Integrated smart sheet-metal fold geometries that eliminated <strong>14 complex CNC-milled brackets</strong>, substituting them with single-piece bent components. Delivered <strong>up to 70% component cost savings</strong>, a <strong>60% structural mass reduction</strong>, and slashed final assembly time from 18 to 6 hours.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="proj-tags">
             <span class="ptag">Autodesk Inventor 2024</span>
             <span class="ptag"><span class="lang-de">Blechkonstruktion (Trumpf)</span><span class="lang-en">Sheet Metal (Trumpf)</span></span>
@@ -353,7 +464,7 @@
 
         <div class="proj-grid">
           <!-- Project 2 -->
-          <div class="proj">
+          <div class="proj" data-domain="sheet-metal">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Transportrahmen &amp; Labyrinthdichtung</span>
@@ -361,6 +472,7 @@
               </span>
               <span class="pill green">Danobat / NeSt</span>
             </div>
+            <div class="param-strip"><span class="param-chip"><span class="p-icon">🛡️</span> DIN EN ISO 16089</span><span class="param-chip success"><span class="p-icon">⏱️</span> -50% Field Assembly</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Konstruktion eines universellen Lastaufnahmemittels für schwere Schleifmaschinenmodule und Entwicklung einer berührungslosen <strong>4-Stufen-Labyrinthdichtung nach DIN EN ISO 16089</strong> zur KSS-Kühlschmierstoff-Abdichtung. Montage- und Rüstzeiten vor Ort halbiert.</span>
               <span class="lang-en">Engineered universal handling frame for heavy grinding machine modules and developed a contact-free <strong>4-stage labyrinth seal per DIN EN ISO 16089</strong> for cutting fluid aerosol containment. Field installation time cut by 50%.</span>
@@ -374,7 +486,7 @@
           </div>
 
           <!-- Project 3 -->
-          <div class="proj">
+          <div class="proj" data-domain="fea">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Präzisions-Roboterarm (Handhabungstool)</span>
@@ -382,6 +494,7 @@
               </span>
               <span class="pill green"><span class="lang-de">EAH Jena · Note 1,3</span><span class="lang-en">EAH Jena · Grade 1.3</span></span>
             </div>
+            <div class="param-strip"><span class="param-chip primary"><span class="p-icon">🎯</span> Repeatability: ±50 µm</span><span class="param-chip"><span class="p-icon">⚙️</span> Harmonic Drive</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Entwicklung eines automatisierten Manipulationsarms für Hochgeschwindigkeits-Förderstrecken in Autodesk Inventor. Erreichte eine <strong>Wiederholgenauigkeit von ±50 µm</strong> durch spielfreie Harmonic-Drive-Getriebeauslegung und hochfeste Aluminiumlegierungen.</span>
               <span class="lang-en">Designed an automated robotic manipulator in Autodesk Inventor for high-speed conveyor systems. Achieved <strong>±50 µm positioning repeatability</strong> using zero-backlash harmonic drive sizing and high-strength aluminum alloys.</span>
@@ -395,7 +508,7 @@
           </div>
 
           <!-- Project 4 -->
-          <div class="proj">
+          <div class="proj" data-domain="tooling">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Steckverbinder &amp; Werkzeugkonstruktion</span>
@@ -403,6 +516,7 @@
               </span>
               <span class="pill green">Ravi Brass Industries</span>
             </div>
+            <div class="param-strip"><span class="param-chip success"><span class="p-icon">📉</span> -20% Scrap</span><span class="param-chip"><span class="p-icon">📦</span> &gt;100k Parts/Mo</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Konstruktion von 4 Folgeverbund- und Spritzgusswerkzeugen in <strong>PTC Creo Parametric</strong> für über 100.000 Bauteile/Monat. Senkung der <strong>Ausschussquote um 20%</strong> durch GD&amp;T-Toleranzoptimierung an Kupfer- und Messingkontakten.</span>
               <span class="lang-en">Tooling design of 4 progressive stamping and injection molds in <strong>PTC Creo Parametric</strong> for &gt;100k parts/month. Cut <strong>scrap rates by 20%</strong> through GD&amp;T tolerance chain optimization for brass and copper alloy connectors.</span>
@@ -416,7 +530,7 @@
           </div>
 
           <!-- Project 5 -->
-          <div class="proj">
+          <div class="proj" data-domain="tooling">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Getriebekonstruktion Landmaschinen</span>
@@ -424,6 +538,7 @@
               </span>
               <span class="pill green">Smit Engineering</span>
             </div>
+            <div class="param-strip"><span class="param-chip"><span class="p-icon">⚙️</span> DIN 743 &amp; ISO 281</span><span class="param-chip"><span class="p-icon">🚜</span> Shock Torsion Fatigue</span></div>
             <p class="proj-tagline">
               <span class="lang-de">3D-CAD-Auslegung von Stirn- und Kegelradgetrieben für Bodenbearbeitungsgeräte (Rotavatoren). Wellen- und Wälzlagerlebensdauerberechnung nach DIN 743 und ISO 281 unter extremen Stoß- und Torsionsbelastungen.</span>
               <span class="lang-en">3D CAD design of spur and bevel gear train assemblies for tractor implements (rotavators). Shaft strength and bearing fatigue life calculations compliant with DIN 743 and ISO 281 under shock torsional loads.</span>
@@ -437,7 +552,7 @@
           </div>
 
           <!-- Project 6 -->
-          <div class="proj">
+          <div class="proj" data-domain="automation">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">CAD Automation &amp; Simulation Hub</span>
@@ -445,6 +560,7 @@
               </span>
               <span class="pill blue">Open Source · GitHub</span>
             </div>
+            <div class="param-strip"><span class="param-chip primary"><span class="p-icon">⚡</span> -80% CAD Prep Time</span><span class="param-chip"><span class="p-icon">🐍</span> Python FreeCAD API</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Entwicklung von Python-Automatisierungsskripten für FreeCAD, STEP/STL-Exportpipelines und Interoperabilitätsbrücken zu Siemens NX, Fusion 360 und ANSYS. Verkürzung der Geometrievorbereitungszeit um 80%.</span>
               <span class="lang-en">Built Python automation pipelines for FreeCAD, batch STEP/STL conversions, and interoperability bridges for Siemens NX and ANSYS FEA. Reduced geometry preparation cycles by over 80%.</span>
@@ -559,6 +675,75 @@
       </div>
     </section>
 
+    <!-- GERMAN & INTERNATIONAL ENGINEERING STANDARDS MATRIX -->
+    <section id="mech-standards">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Normen &amp; Konformität</span><span class="lang-en">Regulatory &amp; Engineering Standards</span></div>
+        <div class="sec-title"><span class="lang-de">Industrie- &amp; Konstruktionsnormen</span><span class="lang-en">Standards Compliance Matrix</span></div>
+        <div class="standards-grid">
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">DIN EN ISO 1101</span>
+              <span class="standard-badge">GD&amp;T GPS</span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Geometrische Produktspezifikation</span><span class="lang-en">Geometrical Product Specifications</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Form-, Richtungs-, Orts- und Lauftoleranzen auf Fertigungszeichnungen. Revisionssichere Festlegung von Bezügen, Hüll- und Maximum-Material-Bedingungen (MMB).</span>
+              <span class="lang-en">Form, orientation, location, and runout tolerancing on 200+ monthly manufacturing drawings. Strict datum definitions and MMC/LMC condition implementation.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> NeSt GmbH, Ravi Brass Industries</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">DIN EN ISO 16089</span>
+              <span class="standard-badge"><span class="lang-de">Sicherheit</span><span class="lang-en">Safety</span></span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Sicherheit von Schleifmaschinen</span><span class="lang-en">Grinding Machine Safety</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Konstruktive Auslegung von Schutzhauben, Fangvorrichtungen, Schleifraumabdichtungen und Verriegelungsmechanismen gegen Späne- und Aerosolflug.</span>
+              <span class="lang-en">Mechanical safety design of containment enclosures, high-impact safety shielding, labyrinth seals, and interlocks for precision grinding machine modules.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Danobat / NeSt Sondermaschinen</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">DIN EN ISO 2768</span>
+              <span class="standard-badge"><span class="lang-de">Fertigung</span><span class="lang-en">Tolerances</span></span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Allgemeintoleranzen Spanend &amp; Blech</span><span class="lang-en">General Tolerances Machining/Sheet</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Toleranzklassen mK und cL für spanende Bearbeitung, Laserschneiden, Abkanten und Schweißbaugruppen nach DIN EN ISO 13920.</span>
+              <span class="lang-en">Application of tolerance classes mK and cL for subtractive CNC machining, laser cutting, press-brake folding, and welded frames per ISO 13920.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> 8+ Maschinenbaureihen</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">DIN 743 &amp; ISO 281</span>
+              <span class="standard-badge"><span class="lang-de">Antrieb</span><span class="lang-en">Drives</span></span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Wellenfestigkeit &amp; Wälzlagerlebensdauer</span><span class="lang-en">Shafts &amp; Bearing Fatigue Life</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Rechnerischer Festigkeitsnachweis von Getriebewellen gegen Dauerbruch bei Stoßbelastungen sowie nominelle L10h-Lebensdauerberechnung von Wälzlagern.</span>
+              <span class="lang-en">Calculation of shaft fatigue limits under alternating torsional and bending shock loads, alongside nominal L10h rolling bearing life calculations.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Smit Engineering Getriebekonstruktion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EDUCATION & CERTS -->
     <section id="mech-edu">
       <div class="wrap">
@@ -605,6 +790,32 @@
       </div>
     </section>
 
+    <!-- ISO 7200 Blueprint Title Block (Active in Blueprint Mode) -->
+    <div class="wrap">
+      <div class="blueprint-title-block">
+        <div class="btb-cell">
+          <span class="btb-label">DOCUMENT TYPE</span>
+          <span class="btb-val">ENGINEERING PORTFOLIO SPECIFICATION</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">DRAWING NO.</span>
+          <span class="btb-val">SK-2026-MECH-01</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">ENGINEER / AUTHOR</span>
+          <span class="btb-val">SAGAR KRIPLANI (M.SC.)</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">CAD STANDARD</span>
+          <span class="btb-val">DIN EN ISO 1101 · ISO 5459</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">REVISION / STATUS</span>
+          <span class="btb-val">REV 2.4 — RELEASED</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ═══════════════════ R&D ENGINEER VIEW ═══════════════════ -->
@@ -647,6 +858,32 @@
     </section>
 
     <!-- SCOPE & METRICS -->
+    <!-- R&D TELEMETRY HUD BAR -->
+    <div class="wrap">
+      <div class="telemetry-bar">
+        <div class="telemetry-item">
+          <span class="t-pulse t-pulse-rd"></span>
+          <span class="t-label">LAB STATUS:</span>
+          <span class="t-val"><span class="lang-de">EINSATZBEREIT F&amp;E (BW / BY / NRW)</span><span class="lang-en">READY FOR R&amp;D (GERMANY)</span></span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">⚡</span>
+          <span class="t-label">VACUUM BASE:</span>
+          <span class="t-val highlight">HIGH VACUUM &lt; 10⁻⁶ mbar</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">🔥</span>
+          <span class="t-label">THERMAL GRADIENT:</span>
+          <span class="t-val">±2.0 °C UNIFORMITY</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="t-icon">🔬</span>
+          <span class="t-label">CLEANROOM:</span>
+          <span class="t-val">CLASS 1 µm · SEMI S2 / S8</span>
+        </div>
+      </div>
+    </div>
+
     <section id="rd-scope">
       <div class="wrap">
         <div class="sec-label"><span class="lang-de">Profil &amp; Kennzahlen</span><span class="lang-en">At a glance</span></div>
@@ -690,8 +927,25 @@
         <div class="sec-label"><span class="lang-de">Wissenschaftliche Fallstudien</span><span class="lang-en">Concrete Examples</span></div>
         <div class="sec-title"><span class="lang-de">F&amp;E Projekte &amp; Masterarbeit</span><span class="lang-en">R&amp;D Projects &amp; Case Studies</span></div>
 
+        <!-- Interactive Domain Filter Bar -->
+        <div class="filter-bar" role="group" aria-label="Filter R&D Case Studies">
+          <span class="filter-label"><span class="lang-de">Filter:</span><span class="lang-en">Filter:</span></span>
+          <button class="filter-btn active" onclick="filterProjects('rd', 'all', this)">
+            <span class="lang-de">Alle Fallstudien (6)</span><span class="lang-en">All Studies (6)</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('rd', 'vacuum', this)">
+            <span class="lang-de">Vakuum &amp; Halbleiter</span><span class="lang-en">Vacuum &amp; Semiconductor</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('rd', 'thermal', this)">
+            <span class="lang-de">Thermik &amp; FEA</span><span class="lang-en">Thermal &amp; FEA</span>
+          </button>
+          <button class="filter-btn" onclick="filterProjects('rd', 'optics', this)">
+            <span class="lang-de">Optik &amp; Analytik</span><span class="lang-en">Optics &amp; Analytics</span>
+          </button>
+        </div>
+
         <!-- Featured Bridge Case Study: Master Thesis -->
-        <div class="proj bridge">
+        <div class="proj bridge" data-domain="vacuum thermal">
           <div class="proj-top">
             <span class="proj-title">
               <span class="lang-de">Masterarbeit: LED vs. Infrarotstrahler zur Polymererwärmung im Hochvakuum</span>
@@ -699,10 +953,66 @@
             </span>
             <span class="pill purple"><span class="lang-de">Brooks Automation / EAH Jena · Note 1,3</span><span class="lang-en">Brooks / EAH Jena · Grade 1.3</span></span>
           </div>
+
+          <!-- Engineering Parameter Micro-Badges -->
+          <div class="param-strip">
+            <span class="param-chip primary"><span class="p-icon">🔬</span> High Vacuum &lt; 10⁻⁵ mbar</span>
+            <span class="param-chip success"><span class="p-icon">🎯</span> Uniformity: ±2.0 °C</span>
+            <span class="param-chip amber"><span class="p-icon">⚡</span> Heating: Downsized 48 kW → 18 kW</span>
+            <span class="param-chip"><span class="p-icon">📷</span> FLIR A655sc Thermography</span>
+            <span class="param-chip"><span class="p-icon">🛡️</span> SEMI S2 / S8 &amp; ISO Class 5</span>
+          </div>
+
           <p class="proj-tagline">
             <span class="lang-de">Vergleichende Untersuchung innovativer LED-Heizsysteme gegenüber konventionellen Quarz-Infrarotstrahlern für die thermische Behandlung von Polymer-Waferträgern in <strong>FOUP-Reinigungsvakuumkammern</strong> (in industrieller Kooperation mit <strong>Brooks Automation GmbH</strong>). Thermomechanische Modellierung in <strong>ANSYS Workbench FEA</strong>, Aufbau eines Hochvakuum-Prüfstands und experimentelle Validierung mittels <strong>FLIR-Thermografie</strong>. Nachweis einer <strong>Temperaturhomogenität von ±2 °C</strong> und signifikant reduzierter Prozesszykluszeiten. Abschlussnote: <strong>1,3</strong>.</span>
             <span class="lang-en">Comparative study of innovative LED heating vs. conventional quartz IR radiant heaters for polymer heating inside <strong>FOUP cleaner vacuum chambers</strong> (in industrial collaboration with <strong>Brooks Automation GmbH</strong>). Coupled thermal/optical simulation in <strong>ANSYS Workbench FEA</strong>, high-vacuum test bench instrumentation, and validation via <strong>FLIR thermography</strong>. Demonstrated <strong>±2 °C temperature uniformity</strong> across polymer substrates with sharply reduced cycle times. Thesis Grade: <strong>1.3</strong>.</span>
           </p>
+
+          <!-- Interactive Engineering Dossier Tabs -->
+          <div class="dossier-wrap">
+            <div class="dossier-nav">
+              <button class="dossier-tab active" onclick="openDossierTab(this, 'rd-dossier-pane1')">
+                <span>📋</span> <span class="lang-de">1. Forschungsaufbau &amp; Fragestellung</span><span class="lang-en">1. Research Scope</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'rd-dossier-pane2')">
+                <span>🔬</span> <span class="lang-de">2. Vakuum- &amp; Reinraumspezifikation</span><span class="lang-en">2. Vacuum Specs</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'rd-dossier-pane3')">
+                <span>🔥</span> <span class="lang-de">3. ANSYS FEM &amp; Thermografie</span><span class="lang-en">3. Coupled FEA &amp; FLIR</span>
+              </button>
+              <button class="dossier-tab" onclick="openDossierTab(this, 'rd-dossier-pane4')">
+                <span>🌱</span> <span class="lang-de">4. Energieeffizienz &amp; Zykluszeit</span><span class="lang-en">4. Energy ROI &amp; Cycles</span>
+              </button>
+            </div>
+            <div class="dossier-body">
+              <div class="dossier-pane active" id="rd-dossier-pane1">
+                <p class="lang-de"><strong>Forschungsgegenstand:</strong> Vergleichsstudie innovativer LED-Infrarotarrays gegenüber traditionellen Quarzglas-Infrarotstrahlern für die homogene Ausheizung von Polymer-Waferkassetten (FOUPs) in Vakuumtrocknungskammern bei Brooks Automation GmbH. Ziel war die Vermeidung lokaler Überhitzung (Hot-Spots) bei gleichzeitiger Prozesszeitverkürzung.</p>
+                <p class="lang-en"><strong>Research Scope:</strong> Comparative evaluation of high-power infrared LED emitter arrays against traditional quartz IR radiant tube heaters for homogeneous thermal desorption of polymer wafer carriers (FOUPs) in vacuum drying chambers at Brooks Automation GmbH. Objective: eliminate localized thermal hot-spots while cutting cycle time.</p>
+              </div>
+              <div class="dossier-pane" id="rd-dossier-pane2">
+                <table class="spec-table">
+                  <thead>
+                    <tr><th><span class="lang-de">Parameter</span><span class="lang-en">Parameter</span></th><th><span class="lang-de">Engineering-Spezifikation</span><span class="lang-en">Specification</span></th><th><span class="lang-de">Prüfnorm / Methode</span><span class="lang-en">Standard / Method</span></th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="spec-key">Vakuumdruck</td><td>Hochvakuum p &lt; 10⁻⁵ mbar (Turbomolekularpumpstand)</td><td><span class="spec-badge">DIN 28400</span></td></tr>
+                    <tr><td class="spec-key">Reinraumklasse</td><td>ISO 14644-1 Klasse 5 / Partikel &lt; 1 µm</td><td><span class="spec-badge">SEMI S2 / S8</span></td></tr>
+                    <tr><td class="spec-key">Substratmaterial</td><td>Hochleistungspolymere (PEEK, Polycarbonat, Fluorpolymere)</td><td><span class="spec-badge">ASTM E595 (CVCM &lt;0.1%)</span></td></tr>
+                    <tr><td class="spec-key">Temperaturfenster</td><td>Prozessbereich 80 °C bis 180 °C mit maximal ±2,0 °C Abweichung</td><td><span class="spec-badge">FLIR IR + NiCr-Ni</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dossier-pane" id="rd-dossier-pane3">
+                <p class="lang-de"><strong>Gekoppelte Simulation &amp; Messtechnik:</strong> Thermische Strahlungssimulation in <strong>ANSYS Workbench</strong> unter Berücksichtigung richtungsabhängiger Emissionsgrade und Geometriefaktoren. Validierung im Labor mittels kalibrierter <strong>FLIR-Infrarotkamera</strong> und 12-Kanal NiCr-Ni Thermoelement-Messketten. Nachweis der exakten Einhaltung der <strong>±2,0 °C</strong> Temperaturgrenze über das gesamte FOUP-Substrat.</p>
+                <p class="lang-en"><strong>Coupled Simulation &amp; Metrology:</strong> Transient thermal radiation modeling in <strong>ANSYS Workbench</strong> integrating wavelength-dependent surface emissivity and view factors. Validated in high vacuum via calibrated <strong>FLIR thermal imaging</strong> and a 12-channel thermocouple logging matrix, demonstrating strict compliance with <strong>±2.0 °C</strong> limits.</p>
+              </div>
+              <div class="dossier-pane" id="rd-dossier-pane4">
+                <p class="lang-de"><strong>F&amp;E Ergebnis &amp; Nachhaltigkeit:</strong> Durch die zielgerichtete spektrale Abstimmung der LED-Emission auf die Absorptionsbanden des Polymers konnte die benötigte elektrische Anschlussleistung von <strong>48 kW auf 18 kW gesenkt</strong> werden (~50% Energieersparnis). Die thermische Aufheizphase verkürzte sich um <strong>35%</strong>, ohne jegliche Schädigung empfindlicher Waferführungslamellen. Abschlussnote der Masterarbeit: <strong>1,3</strong>.</p>
+                <p class="lang-en"><strong>R&amp;D Impact &amp; Sustainability:</strong> Tuning the LED emission spectrum to the precise polymer infrared absorption bands allowed electrical heating power to be downsized from <strong>48 kW to 18 kW</strong> (~50% energy cut). Thermal ramp time decreased by <strong>35%</strong> without thermal distortion of delicate wafer guide ribs. Master's thesis awarded top grade <strong>1.3</strong>.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="proj-tags">
             <span class="ptag"><span class="lang-de">Hochvakuum (HV)</span><span class="lang-en">High Vacuum (HV)</span></span>
             <span class="ptag">ANSYS Workbench FEA</span>
@@ -723,7 +1033,7 @@
 
         <div class="proj-grid">
           <!-- Case 2: PAU Redesign -->
-          <div class="proj">
+          <div class="proj" data-domain="vacuum thermal">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Process Air Unit (PAU) Redesign (EUV-Pod)</span>
@@ -731,6 +1041,7 @@
               </span>
               <span class="pill green">Brooks Automation</span>
             </div>
+            <div class="param-strip"><span class="param-chip success"><span class="p-icon">📉</span> ΔP: -90% (500→50 mbar)</span><span class="param-chip amber"><span class="p-icon">⚡</span> -50% Energy (18 kW)</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Thermodynamische Neukonzeption des Strömungskanals für EUV-Pod-Reiniger. <strong>21% Herstellkostensenkung</strong>, <strong>90% Druckverlustsenkung</strong> (500 auf 50 mbar), 34% Bauraumersparnis und Downsizing von 48 kW auf 18 kW (~50% Energieersparnis). Werkstoffauswahl 304/316Ti nach <strong>ASME B31.3 und SEMI S8</strong>.</span>
               <span class="lang-en">Thermodynamic redesign of flow channels for EUV Pod Cleaners. Achieved <strong>21% unit cost reduction</strong>, <strong>90% pressure drop cut</strong> (500 to 50 mbar), 34% chassis footprint saving, and heating downsized from 48 kW to 18 kW (~50% energy savings) per <strong>ASME B31.3 &amp; SEMI S8</strong>.</span>
@@ -745,7 +1056,7 @@
           </div>
 
           <!-- Case 3: IR Quartz Bracket -->
-          <div class="proj">
+          <div class="proj" data-domain="vacuum thermal">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Optothermisches Re-Engineering Quarzheizer</span>
@@ -753,6 +1064,7 @@
               </span>
               <span class="pill green">Brooks Automation</span>
             </div>
+            <div class="param-strip"><span class="param-chip primary"><span class="p-icon">📉</span> -80% Thermal Shadowing</span><span class="param-chip"><span class="p-icon">⚖️</span> 3x Mass Reduction</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Re-Engineering der IR-Strahlerhalterung in FOUP-Reinigungskammern. Reduktion der thermischen Abschattung um <strong>80%</strong> und <strong>3-fache Gewichtsreduktion</strong>. Validierung mittels FLIR-Thermografie und optischer Metrologie in Reinraumklasse 1 µm.</span>
               <span class="lang-en">Re-engineered IR quartz heater brackets in FOUP cleaning chambers. Reduced thermal shadowing by <strong>80%</strong> with <strong>3x weight reduction</strong>. Validated via FLIR thermography and optical metrology under Cleanroom Class 1 µm conditions.</span>
@@ -766,7 +1078,7 @@
           </div>
 
           <!-- Case 4: Bachelor Thesis -->
-          <div class="proj">
+          <div class="proj" data-domain="thermal">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Frostwachstum auf Platten — CFD &amp; Modellierung</span>
@@ -774,6 +1086,7 @@
               </span>
               <span class="pill green"><span class="lang-de">Bachelorarbeit · Note 1,0</span><span class="lang-en">Bachelor's · Grade 1.0</span></span>
             </div>
+            <div class="param-strip"><span class="param-chip success"><span class="p-icon">❄️</span> &lt;5% Error to Lit.</span><span class="param-chip"><span class="p-icon">📊</span> MATLAB &amp; CFD</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Mathematische und numerische Modellierung von Frostwachstum auf gekühlten Platten für kryogene und Kältesysteme. Simulation gekoppelter Wärme- und Stoffübertragung in <strong>MATLAB und CFD</strong> mit unter 5% Abweichung zu experimentellen Literaturwerten. Note 1,0 (AA).</span>
               <span class="lang-en">Mathematical and numerical modeling of frost growth on flat plates for cryogenic and HVAC systems. Coupled heat and mass transfer simulation in <strong>MATLAB and CFD</strong> matching experimental literature within 5%. Final Grade 1.0 / AA.</span>
@@ -787,7 +1100,7 @@
           </div>
 
           <!-- Case 5: ML & FTIR Hub -->
-          <div class="proj">
+          <div class="proj" data-domain="optics">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">FTIR-Spektroskopie &amp; ML Datenpipeline</span>
@@ -795,6 +1108,7 @@
               </span>
               <span class="pill blue">EAH Jena · GitHub</span>
             </div>
+            <div class="param-strip"><span class="param-chip primary"><span class="p-icon">🔬</span> FTIR Baseline Filter</span><span class="param-chip"><span class="p-icon">🐍</span> SciPy / Scikit</span></div>
             <p class="proj-tagline">
               <span class="lang-de">Entwicklung von Python-Datenanalyse- und Machine-Learning-Pipelines (NumPy, SciPy, Scikit-Learn) für physikalische Messreihen und optische <strong>FTIR-Spektroskopiedaten</strong>. Automatisierte Rauschfilterung und multivariate Regression (Projektbewertung Note 2,0).</span>
               <span class="lang-en">Built Python data analysis and machine learning pipelines (NumPy, SciPy, Scikit-Learn) for physical measurement series and <strong>FTIR spectroscopy data</strong>. Automated baseline correction and regression (Master's project grade 2.0).</span>
@@ -813,7 +1127,7 @@
           </div>
 
           <!-- Case 6: Vacuum Chamber Integration -->
-          <div class="proj">
+          <div class="proj" data-domain="vacuum">
             <div class="proj-top">
               <span class="proj-title">
                 <span class="lang-de">Vakuumkammer- &amp; Flansch-Integration</span>
@@ -930,6 +1244,75 @@
       </div>
     </section>
 
+    <!-- SEMICONDUCTOR & SCIENTIFIC INSTRUMENTATION STANDARDS MATRIX -->
+    <section id="rd-standards">
+      <div class="wrap">
+        <div class="sec-label"><span class="lang-de">Normen &amp; Konformität</span><span class="lang-en">Regulatory &amp; Cleanroom Standards</span></div>
+        <div class="sec-title"><span class="lang-de">Halbleiter-, Reinraum- &amp; Vakuum-Standards</span><span class="lang-en">Semiconductor &amp; Vacuum Standards</span></div>
+        <div class="standards-grid">
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">SEMI S2 &amp; SEMI S8</span>
+              <span class="standard-badge">Cleanroom EHS</span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Sicherheit &amp; Ergonomie für Halbleiter-Equipment</span><span class="lang-en">Safety &amp; Ergonomics for Semi Equipment</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Umwelt-, Gesundheits- und Sicherheitsrichtlinien (EHS) sowie ergonomische Gestaltungsprinzipien für Halbleiterfertigungsanlagen, FOUP-Reiniger und Reinraumzugänge.</span>
+              <span class="lang-en">Environmental, Health, Safety guidelines and ergonomic design compliance for semiconductor automated wafer processing and FOUP cleanroom interfaces.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Brooks Automation FOUP/EUV Cleaners</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">ASME B31.3</span>
+              <span class="standard-badge">High-Purity</span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Prozessrohrleitungen für Reinstmedien</span><span class="lang-en">Process Piping for High-Purity Gases</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Druckbehälter- und Rohrleitungsbemessung für korrosionsbeständige Edelstähle (304 / 316Ti) in Halbleiter-Prozessgas- und Vakuumentlüftungssystemen.</span>
+              <span class="lang-en">Piping design, pressure ratings, and orbital welding specifications for 304/316Ti stainless steel process media lines in semiconductor tools.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Process Air Unit (PAU) Redesign</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">DIN 28400 &amp; ISO 3567</span>
+              <span class="standard-badge">Vacuum Tech</span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Hochvakuumflansche &amp; Leckratenspezifikation</span><span class="lang-en">Vacuum Flanges &amp; Leak-Rate Testing</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Konstruktive Auslegung von CF-, KF- und ISO-K Flanschverbindungen, Differenzialpumpstufen und heliumdichten Dichtungen für Leckraten &lt; 10⁻⁹ mbar·l/s.</span>
+              <span class="lang-en">High vacuum chamber design using CF/KF/ISO-K flange geometries, differential pumping seals, and helium mass spectrometer leak testing down to &lt; 10⁻⁹ mbar·l/s.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Hochvakuum-Prüfstand EAH Jena / Brooks</span>
+            </div>
+          </div>
+
+          <div class="standard-card">
+            <div class="standard-header">
+              <span class="standard-code">ISO 14644-1 (Class 5)</span>
+              <span class="standard-badge">Cleanroom</span>
+            </div>
+            <div class="standard-title"><span class="lang-de">Reinraumtechnik &amp; Partikelkontrolle</span><span class="lang-en">Cleanroom Airborne Particle Control</span></div>
+            <div class="standard-desc">
+              <span class="lang-de">Klassifizierung luftgetragener Partikel (Klasse 1 µm) zur Vermeidung von Substratkontamination bei der thermischen Behandlung von 300 mm Waferträgern.</span>
+              <span class="lang-en">Airborne particle control and contamination mitigation standards for 300 mm wafer transport carriers under ISO Class 5 cleanroom conditions.</span>
+            </div>
+            <div class="standard-meta">
+              <span><strong><span class="lang-de">Einsatz:</span><span class="lang-en">Applied in:</span></strong> Halbleiter-Labor &amp; FLIR-Messungen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EDUCATION & CERTS -->
     <section id="rd-edu">
       <div class="wrap">
@@ -975,6 +1358,32 @@
         </div>
       </div>
     </section>
+
+    <!-- ISO 7200 Blueprint Title Block (Active in Blueprint Mode) -->
+    <div class="wrap">
+      <div class="blueprint-title-block">
+        <div class="btb-cell">
+          <span class="btb-label">DOCUMENT TYPE</span>
+          <span class="btb-val">SCIENTIFIC INSTRUMENTATION DOSSIER</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">DRAWING NO.</span>
+          <span class="btb-val">SK-2026-RD-02</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">RESEARCH ENGINEER</span>
+          <span class="btb-val">SAGAR KRIPLANI (M.SC.)</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">SEMI / CLEANROOM STANDARD</span>
+          <span class="btb-val">SEMI S2/S8 · ISO 14644-1 CLASS 5</span>
+        </div>
+        <div class="btb-cell">
+          <span class="btb-label">REVISION / STATUS</span>
+          <span class="btb-val">REV 2.4 — VERIFIED</span>
+        </div>
+      </div>
+    </div>
 
   </div>
 
@@ -1159,6 +1568,61 @@
 
     setLang(initialLang);
     setView(initialView);
+
+    // ───── BLUEPRINT CAD MODE TOGGLE ─────
+    var CAD_MODE_KEY = 'sagar_cad_mode';
+    function applyBlueprintMode(isBp){
+      var bpBtn = document.getElementById('blueprintToggle');
+      if(isBp){
+        body.setAttribute('data-cad-mode', 'blueprint');
+        if(bpBtn) bpBtn.classList.add('active');
+      } else {
+        body.removeAttribute('data-cad-mode');
+        if(bpBtn) bpBtn.classList.remove('active');
+      }
+    }
+    window.toggleBlueprintMode = function(){
+      var isBp = body.getAttribute('data-cad-mode') === 'blueprint';
+      var nextState = !isBp;
+      localStorage.setItem(CAD_MODE_KEY, nextState ? 'blueprint' : 'normal');
+      applyBlueprintMode(nextState);
+    };
+
+    // ───── DOSSIER TAB SWITCHER ─────
+    window.openDossierTab = function(btn, paneId){
+      var wrap = btn.closest('.dossier-wrap');
+      if(!wrap) return;
+      var tabs = wrap.querySelectorAll('.dossier-tab');
+      var panes = wrap.querySelectorAll('.dossier-pane');
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      panes.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var target = document.getElementById(paneId);
+      if(target) target.classList.add('active');
+    };
+
+    // ───── INTERACTIVE DOMAIN FILTER ─────
+    window.filterProjects = function(view, domain, btn){
+      var container = document.getElementById(view === 'rd' ? 'rd-cases' : 'mech-projects');
+      if(!container) return;
+      var filterBtns = container.querySelectorAll('.filter-btn');
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      if(btn) btn.classList.add('active');
+
+      var cards = container.querySelectorAll('.proj');
+      cards.forEach(function(card){
+        var cardDomains = (card.getAttribute('data-domain') || '').split(' ');
+        if(domain === 'all' || cardDomains.indexOf(domain) !== -1){
+          card.classList.remove('hidden-by-filter');
+        } else {
+          card.classList.add('hidden-by-filter');
+        }
+      });
+    };
+
+    // Restore blueprint mode on load
+    var initialCadMode = localStorage.getItem(CAD_MODE_KEY) === 'blueprint';
+    applyBlueprintMode(initialCadMode);
 
     // Deep link scroll if hash present
     if(window.location.hash){

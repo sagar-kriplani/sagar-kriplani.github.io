@@ -964,3 +964,424 @@ html[data-lang="en"] .lang-de{display:none !important;}
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
   html{scroll-behavior:auto;}
 }
+
+
+/* ==========================================================================
+   CREATIVE ENGINEERING PORTFOLIO ENHANCEMENTS
+   Inspired by top hardware & mechanical portfolios (TJ Watson, Thanh Tran, etc.)
+   ========================================================================== */
+
+/* ───── 1. TELEMETRY HUD BAR ───── */
+.telemetry-bar {
+  margin: 20px 0 32px 0;
+  padding: 11px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  position: relative;
+  z-index: 2;
+}
+.telemetry-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.t-pulse {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: pulse-emerald 2s infinite;
+}
+.t-pulse-rd {
+  background: #06b6d4;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+  animation: pulse-cyan 2s infinite;
+}
+@keyframes pulse-emerald {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+@keyframes pulse-cyan {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(6, 182, 212, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+}
+.t-label {
+  font-weight: 700;
+  color: var(--hint);
+  letter-spacing: 0.05em;
+}
+.t-val {
+  font-weight: 600;
+  color: var(--text);
+}
+.t-val.highlight {
+  color: var(--blue);
+}
+
+/* ───── 2. INTERACTIVE DOMAIN FILTER BAR ───── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0 24px 0;
+}
+.filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--hint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
+}
+.filter-btn {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .16s ease;
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.filter-btn:hover {
+  border-color: var(--blue-line);
+  color: var(--blue);
+}
+.filter-btn.active {
+  background: var(--blue-bg);
+  border-color: var(--blue);
+  color: var(--blue);
+  font-weight: 700;
+}
+.proj.hidden-by-filter {
+  display: none !important;
+}
+
+/* ───── 3. ENGINEERING DOSSIER TABS (IN FEATURED BRIDGE PROJECTS) ───── */
+.dossier-wrap {
+  margin-top: 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.dossier-nav {
+  display: flex;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.dossier-tab {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dossier-tab:hover {
+  color: var(--text);
+  background: var(--bg2);
+}
+.dossier-tab.active {
+  color: var(--blue);
+  background: var(--bg2);
+  border-bottom: 2px solid var(--blue);
+  font-weight: 700;
+}
+.dossier-body {
+  padding: 16px;
+}
+.dossier-pane {
+  display: none;
+  animation: fadein .2s ease;
+}
+.dossier-pane.active {
+  display: block;
+}
+
+/* Technical Specification Table inside Dossier */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.spec-table th,
+.spec-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+}
+.spec-table th {
+  font-size: 10.5px;
+  font-family: var(--mono);
+  color: var(--hint);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-weight: 700;
+  background: var(--bg3);
+}
+.spec-table td {
+  color: var(--muted);
+}
+.spec-table tr:hover td {
+  background: rgba(28, 124, 152, 0.03);
+  color: var(--text);
+}
+.spec-table .spec-key {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+.spec-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--blue-bg);
+  color: var(--blue);
+  display: inline-block;
+}
+
+/* Visual Engineering Parameter Micro-Badges */
+.param-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 12px 0;
+}
+.param-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.param-chip .p-icon {
+  font-size: 12px;
+}
+.param-chip.primary {
+  border-color: var(--blue-line);
+  background: var(--blue-bg);
+  color: var(--blue);
+}
+.param-chip.success {
+  border-color: var(--green-line);
+  background: var(--green-bg);
+  color: var(--green);
+}
+.param-chip.amber {
+  border-color: var(--amber-line);
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+/* ───── 4. GERMAN & INTERNATIONAL ENGINEERING STANDARDS MATRIX ───── */
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.standard-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  transition: all .18s ease;
+  position: relative;
+}
+.standard-card:hover {
+  border-color: var(--blue-line);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+.standard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.standard-code {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: .02em;
+}
+.standard-badge {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--bg3);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.standard-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.standard-desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.standard-meta {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--hint);
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.standard-meta strong {
+  color: var(--text);
+}
+
+/* ───── 5. INTERACTIVE CAD BLUEPRINT DRAFTING MODE ───── */
+.blueprint-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--mono);
+  transition: all .16s ease;
+}
+.blueprint-btn:hover {
+  border-color: var(--blue-line);
+  color: var(--blue);
+}
+.blueprint-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(72, 191, 227, 0.4);
+}
+
+body[data-cad-mode="blueprint"] {
+  --bg: #091f38 !important;
+  --bg2: #0e2a4a !important;
+  --bg3: #14355a !important;
+  --border: #214b77 !important;
+  --border2: #193f66 !important;
+  --text: #e6f1fc !important;
+  --muted: #a3c4e4 !important;
+  --hint: #6e9ac5 !important;
+  --blue: #38bdf8 !important;
+  --blue-bg: rgba(56, 189, 248, 0.15) !important;
+  --blue-line: rgba(56, 189, 248, 0.45) !important;
+  background-color: #091f38 !important;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px) !important;
+  background-size: 24px 24px, 24px 24px !important;
+}
+body[data-cad-mode="blueprint"] .proj,
+body[data-cad-mode="blueprint"] .scope-stat,
+body[data-cad-mode="blueprint"] .standard-card,
+body[data-cad-mode="blueprint"] .stack-item {
+  border-style: dashed !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  position: relative;
+}
+body[data-cad-mode="blueprint"] .proj::after {
+  content: '+';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #38bdf8;
+  opacity: 0.8;
+}
+
+/* Blueprint Title Block (ISO 7200 style) */
+.blueprint-title-block {
+  display: none;
+  margin-top: 36px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  border-radius: 6px;
+}
+body[data-cad-mode="blueprint"] .blueprint-title-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-color: var(--blue-line);
+}
+.btb-cell {
+  display: flex;
+  flex-direction: column;
+}
+.btb-label {
+  font-size: 9px;
+  color: var(--hint);
+  text-transform: uppercase;
+}
+.btb-val {
+  font-weight: 700;
+  color: var(--text);
+}
