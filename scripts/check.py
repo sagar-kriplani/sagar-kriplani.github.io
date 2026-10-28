@@ -40,6 +40,10 @@ for lang in ('en','de'):
     assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
     assert text.count('data-category=')==7
+    assert 'education' in p.ids
+    assert text.count('class="education-step"')==3
+    assert '10/2021 – 03/2025' in text
+    assert 'High School Diploma' not in text
     assert 'Blue Card' not in text
     for date in ['07/2023 – 01/2024','02/2024 – 06/2024','08/2020 – 09/2021']:
         assert date in text, f'Missing canonical career date: {date}'
