@@ -1,3 +1,72 @@
+# Portfolio evidence audit — 28 October 2026
+
+## Current review
+
+Reviewed the supplied application-document folder and LinkedIn folder: 63 top-level/media files comprising 32 PDFs (358 reviewable pages, excluding the identity document), 28 images, an editable Word reference, an archive and a video. The two archive images were also inspected and duplicate the ANSYS certificate / Brooks internship confirmation. All 386 rendered PDF/image pages were screened in contact sheets; selected certificates, references and academic records were inspected at readable resolution. The project-report text was extracted and relevant results and limitations checked. The eight-second video was viewed at multiple timestamps. The identity document was deliberately excluded from portfolio processing.
+
+The live site now includes **29 document excerpts**: 16 training/recognition records, five reference excerpts and eight degree/transcript excerpts. Six additional source-report figures support the project content. Private originals, extracted text, source inventory, review sheets, processing intermediates and OCR results remain in ignored local QA storage. None are included in the commit or Pages artifact.
+
+## Findings that supersede the earlier audit
+
+- **NeSt is now document-supported:** the employment reference dated 30 September 2026 confirms the Konstrukteur role from 1 September 2025 through 30 September 2026, drawings and sheet-metal developments, Autodesk Inventor, complex assemblies, independent product development and documentation. The website uses this scope. Numerical cost/weight/drawing/platform claims remain unsubstantiated by the reference and are omitted.
+- **Final academic records inspected:** M.Sc. Scientific Instrumentation passed 25 March 2025, final grade **1.8**, thesis **1.3**, colloquium **1.3**, **120 ECTS**, and **ECTS grade B**. The older CV's A is incorrect. The earlier provisional transcript is superseded. The final module results are reproduced as an accessible HTML table; personal fields and signatures are excluded from images.
+- **Bachelor and diploma:** the issued certificates and transcripts support **8.14/10** bachelor CGPA and **9.50/10** diploma CGPA. Completion dates and later formal award dates are distinguished; no unverified German grade conversion is advertised.
+- **Brooks cost figures:** employer reference says **20%**, whereas the project report says approximately **21%**. Both are attributed separately, without presenting them as identical measurements.
+- **Student-role start differs:** supplied older CV says February 2024; the newly supplied editable Word reference says March 2024. No issued final student reference resolves it. The public timeline states **2024, until June**. The editable Word document is not used as independently issued employer proof or published.
+- **Ravi end month differs:** CV says August 2021; LinkedIn says September 2021. The April 2021 employer letter confirms the August 2020 start and ongoing employment on its date, not a final departure. Public timeline says **2020–2021**.
+- **German course:** the university language certificate proves **B1-plus coursework**, grade **2.0**, 5 ECTS. German B2 and English C1 remain self-reported working levels. Sindhi was added from the LinkedIn export.
+- **GSECL:** the certificate confirms curriculum training **3–12 June 2019** and explicitly says no independent work was assigned. The website follows this wording, instead of suggesting independent plant-operations work.
+- **Academic handling mechanism:** report shows a cylindrical design with rotary motion, a vertical prismatic axis and a gripper. The actual CAD excerpt replaces the generic arm illustration, with no repeatability guarantee.
+- **Frost-growth project:** a four-student team report with finite-difference MATLAB results. Individual task ownership is not specified; the site does not claim sole authorship. The report acknowledges underprediction because mass transfer was not included.
+- **Diploma machine project:** a five-student academic concept with operation charts, component selection and costing. No tested solar-powered prototype or measured cleaning performance is established.
+- **ANSYS:** the 91-page workbook and ELEATION course-completion certificate support training practice in multiple analysis types, with a training score of 325/325. Training results are not presented as validation of a commercial design.
+
+## All certification / recognition records included
+
+1. NX Basic Design — Siemens Centre of Excellence (2016, 23 h)
+2. Essentials for NX Designers — same centre (2016, 40 h)
+3. NC Numerical Control Programming — same centre (2016, 50 h)
+4. Aristo Robot 6 Axis — same centre (2017, 8 h)
+5. RPT Basics — same centre (2017, 8 h)
+6. FLEXMILL Siemens 828D — same centre (2017, 16 h)
+7. Drafting Essentials — same centre (2017, 24 h)
+8. Synchronous Modelling & Parametric Design — same centre (2017, 24 h)
+9. ANSYS Basic to Professional — ELEATION (2020, 60-day training)
+10. Engineering Drawings for Manufacturing — LinkedIn Learning (31 May 2026)
+11. Learning Siemens NX — LinkedIn Learning (31 May 2026)
+12. The Challenge of Scale: Semiconductor Innovation and Manufacturing — LinkedIn Learning (31 May 2026)
+13. German B1-plus course — Friedrich-Schiller-Universität Jena (2023)
+14. CAD Crater event coordination — ADIT / SPECTRUM ’19 (2019)
+15. GTU Activity Points programme — grade AA (2020). The certificate table says 104 points, while the programme note says 75; the site preserves the distinction.
+16. GSECL Sikka vocational training (June 2019)
+
+LinkedIn also lists **Design Foundations: Prototyping and Manufacturing**, but no corresponding certificate was supplied. It is mentioned as profile-listed learning with no documentary completion claim or invented image.
+
+## References and supporting records
+
+Published privacy-safe excerpts: NeSt employment reference; both pages of Brooks internship reference; Ravi employment confirmation; Ravi recommendation copy. The recommendation PDF has no visible signature and is labelled **unsigned supplied copy**. Supporting Brooks internship confirmations and duplicate scans corroborate the internship period but are not counted as additional achievements. The editable Brooks Word reference is not treated as issued independent evidence. High-school/personal school-leaving records were screened and omitted because they add little to an engineering portfolio while exposing personal details.
+
+## LinkedIn export and post media
+
+The supplied export contributes profile-reported skills, Sindhi, earlier consulting and teaching roles, and learning context. Issued references and final academic records take priority over contradictory profile dates or titles. The supplied folders contained one AI-generated image and an eight-second animation based on it; no post text, timestamps, metrics or direct post URLs were provided. The media is labelled **AI-generated concept illustration & animation**, not real delivered hardware, an authenticated digital twin or a measured result. A silent video-only WebM was re-recorded from the visual track; no original audio or MP4 metadata is published. A photograph containing other people was not republished.
+
+## Privacy and publication controls
+
+- Source documents were rendered locally. Approved excerpt regions were composited/redacted in a temporary PDF and rasterised into new WebP files. No original PDF, hidden text, embedded attachment or recoverable underlying layer is shipped.
+- Personal birth information, student/enrollment numbers, credential identifiers, barcodes, handwritten signatures, third-party private contacts and bank details are removed or excluded. Course titles, issuer marks, the user's name, grades and relevant dates remain where needed.
+- Every public excerpt was visually reviewed; offline Windows OCR checked all 35 public document/project images for known private identifiers. No known identifier pattern was found. OCR is an additional check, not a substitute for visual review.
+- New assets have no EXIF, XMP or ICC personal metadata. The media file includes only the video track.
+- The build allowlists the two reviewed media files; it excludes originals, PDFs, Word files, ZIP archives, private QA data, old CV assets and source reports. No document-service or third-party OCR upload occurred.
+- Existing legal contact information is retained; private scans do not expose additional personal contact data.
+
+## Authentication limits
+
+This is document review and consistency checking of user-supplied copies, not forensic authentication, employer contact or verification against issuer databases. Public language distinguishes issued-looking documents, training completion, unsigned copies and profile-reported information. No Senior title, professional licence, unrestricted immigration status, or independently audited performance claim has been invented.
+
+---
+
+## Earlier review (retained for traceability; current findings above take precedence)
+
 # Portfolio content audit — 28 October 2026
 
 ## Scope and evidence standard

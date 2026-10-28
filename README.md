@@ -14,7 +14,7 @@ python scripts/check.py
 python -m http.server 4174 --directory dist
 ```
 
-Open http://localhost:4174. Source copy and page templates live in `scripts/build.py`; styles and interactions in `assets/site.css` and `assets/site.js`. Locally hosted fonts avoid third-party font requests.
+Open http://localhost:4174. Source copy and page templates live in `scripts/build.py`; reviewed evidence, new project copy and gallery rendering live in `scripts/evidence.py`; styles and interactions in `assets/site.css` and `assets/site.js`. Locally hosted fonts avoid third-party font requests.
 
 ## Routes
 
@@ -22,12 +22,13 @@ Open http://localhost:4174. Source copy and page templates live in `scripts/buil
 - `/de/`: German portfolio
 - `/en/cv/` and `/de/cv/`: corrected printable CVs, with browser Print / Save as PDF
 - `/en/legal/` and `/de/legal/`: operator and privacy information
+- `/en/evidence/` and `/de/evidence/`: searchable evidence gallery with 29 redacted document excerpts
 
 The language selector preserves the CV/legal page type. Project filters, native case-study disclosure, mobile navigation, clipboard copy, theme persistence, and print styles enhance the static content. Content remains readable without JavaScript.
 
 ## Content evidence
 
-Read `CONTENT_AUDIT.md` for corrections, evidence, and remaining limits. The PAU project report and submitted thesis support the featured research narrative. Other role details are identified as supplied-CV information. No unsupported Senior title, generalized energy-saving guarantee, or employment authorization claim is published. No confidential reports or employer CAD drawings ship.
+Read `CONTENT_AUDIT.md` for corrections, evidence, and remaining limits. The PAU project report and submitted thesis support the featured research narrative. Other role details are identified as supplied-CV information. No unsupported Senior title, generalized energy-saving guarantee, or employment authorization claim is published. No raw confidential reports, identity documents or original scans ship. Selected project-report figure excerpts and privacy-redacted certificate/reference/transcript images are explicitly identified. The supplied AI-generated LinkedIn illustration and silent animation are labelled as illustrative.
 
 Older PDFs and previous assets remain in repository history/source for reference, but are excluded from the public artifact. The public CV pages replace the disputed downloads. `IMPLEMENTATION_BRIEF.md` records the structured task prompt.
 
@@ -37,4 +38,4 @@ Push to `main` triggers `.github/workflows/deploy.yml`: build, check, upload **o
 
 ## Optional browser QA
 
-Install Playwright in your development environment and its browser runtime, then run `node scripts/browser-check.cjs`. An existing installation can be selected through `PLAYWRIGHT_MODULE` and `PLAYWRIGHT_BROWSERS_PATH`. The script expects the local preview on port 4174. It checks bilingual routes, asset responses, layouts at 320/390/768/1024/1440 pixels, filters, disclosure, theme persistence, clipboard, mobile navigation, and no-JavaScript content. QA artifacts are ignored by Git.
+Install Playwright in your development environment and its browser runtime, then run `node scripts/browser-check.cjs`. An existing installation can be selected through `PLAYWRIGHT_MODULE` and `PLAYWRIGHT_BROWSERS_PATH`. The script expects the local preview on port 4174. It checks bilingual routes, asset responses, layouts at 320/390/768/1024/1440 pixels, filters, disclosure, theme persistence, clipboard, mobile navigation, evidence search and filters, document-viewer keyboard navigation, silent-video playback, and no-JavaScript content. QA artifacts are ignored by Git.

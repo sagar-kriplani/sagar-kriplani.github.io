@@ -3,6 +3,7 @@ from pathlib import Path
 from html import escape
 import json
 import shutil
+from evidence import enrich_copy, evidence_section, media_section, evidence_page, project_image, viewer, RECORDS
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'dist'
@@ -68,11 +69,13 @@ COPY = {
 'footer':'Durchdachte Konstruktion. Praktische Ergebnisse.','legal':'Impressum & Datenschutz','back':'Zum Portfolio','print':'Drucken / als PDF speichern','cvTitle':'Lebenslauf','cvIntro':'Konstruktion und Entwicklung im Sondermaschinen- und Halbleiteranlagenbau, ergänzt durch ein Masterstudium in Scientific Instrumentation.','cvProjects':'Ausgewählte Entwicklungsprojekte','legalTitle':'Impressum & Datenschutz',
 }}
 
+enrich_copy(COPY)
+
 def header(lang, c, sub=False):
     prefix = '/' + lang + '/'
-    links = ''.join(f'<a href="{prefix}#{i}">{escape(t)}</a>' for i,t in zip(['work','experience','expertise','contact'],c['nav']))
+    links = ''.join(f'<a href="{prefix}#{i}">{escape(t)}</a>' for i,t in zip(['work','experience','expertise','evidence','contact'],c['nav']))
     return f'''<a class="skip" href="#main">{'Skip to content' if lang=='en' else 'Zum Inhalt'}</a>
-    <header class="header"><a class="brand" href="/{lang}/" aria-label="Sagar Kriplani — Home"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{'cv/' if sub=='cv' else 'legal/' if sub=='legal' else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">☰</button></div><nav id="mobile-nav" class="mobile-nav" hidden>{links}</nav></header>'''
+    <header class="header"><a class="brand" href="/{lang}/" aria-label="Sagar Kriplani — Home"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{'cv/' if sub=='cv' else 'legal/' if sub=='legal' else 'evidence/' if sub=='evidence' else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">☰</button></div><nav id="mobile-nav" class="mobile-nav" hidden>{links}</nav></header>'''
 
 def head(lang,c,title=None,path=None):
     path = path or f'/{lang}/'
@@ -102,7 +105,10 @@ def home(lang):
     cards=''
     for n,p in enumerate(c['projects']):
         content=''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
-        cards+=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{art(p['art'])}<span class="art-label">{'CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION'}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p><h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div><details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
+        source_art=project_image(p['id'],lang)
+        visual=source_art or art(p['art'])
+        illustration_label=('CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION') if not source_art else ('SOURCE REPORT EXCERPT' if lang=='en' else 'AUSZUG AUS PROJEKTBERICHT')
+        cards+=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p><h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div><details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
     filters=''.join(f'<button type="button" data-filter="{v}" aria-pressed="{"true" if i==0 else "false"}">{c["filters"][i]}</button>' for i,v in enumerate(['all','machine','thermal','academic']))
     skills=''.join(f'<article class="skill"><span class="skill-no">{s[0]}</span><h3>{s[1]}</h3><p class="skill-tools">{s[2]}</p><p>{s[3]}</p></article>' for s in c['skills'])
     degrees=''.join(f'<div class="degree"><span>{d[0]}</span><div><h3>{d[1]}</h3><p>{d[2]}</p></div></div>' for d in c['degrees'])
@@ -114,6 +120,8 @@ def home(lang):
     <section class="experience section" id="experience"><div class="section-heading"><div><p class="eyebrow">{c['experienceLabel']}</p><h2>{c['experienceTitle']}</h2></div><p>{c['experienceNote']}</p></div><div class="jobs">{jobs(c)}</div></section>
     <section class="expertise section" id="expertise"><p class="eyebrow">{c['expertiseLabel']}</p><h2>{c['expertiseTitle']}</h2><div class="skills">{skills}</div><div class="education"><div><p class="eyebrow">{c['education']}</p>{degrees}</div><div class="languages"><p class="eyebrow">{c['languages']}</p><h3>{c['languageText']}</h3><p>{c['languageNote']}</p><a class="text-link" href="/{lang}/cv/">{c['cv']} ↗</a></div></div></section>
     <section class="contact" id="contact"><p class="eyebrow">{c['contactLabel']}</p><div class="contact-grid"><div><h2>{c['contactTitle']}</h2><p>{c['contactText']}</p></div><div class="contact-links"><a class="email-address" href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com <span>↗</span></a><button class="copy-email" type="button" data-copied="{c['copied']}">{c['copy']}</button><p class="copy-status" role="status" aria-live="polite"></p><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn <span>↗</span></a><a href="https://github.com/sagar-kriplani">GitHub <span>↗</span></a></div></div></section></main>'''+footer(lang,c)
+    result=result.replace('<section class="contact"',evidence_section(lang)+media_section(lang)+'<section class="contact"')
+    result=result.replace('</main>', '</main>'+viewer(lang))
     return result
 
 def cv(lang):
@@ -124,17 +132,19 @@ def cv(lang):
         result+=f'<article class="cv-project"><h3>{p["title"].replace("<br>"," ")}</h3><p class="eyebrow">{p["tag"]}</p><p>{p["approach"]}</p><p>{p["result"]}</p></article>'
     result+=f'<h2>{c["education"]}</h2>'+''.join(f'<p><strong>{d[1]}</strong> · {d[0]}<br>{d[2]}</p>' for d in c['degrees'])
     result+=f'<h2>{c["nav"][2]}</h2>'+''.join(f'<p><strong>{s[1]}:</strong> {s[2]}</p>' for s in c['skills'])+f'<h2>{c["languages"]}</h2><p>{c["languageText"]}</p><p class="source">{c["languageNote"]}</p></main>'+footer(lang,c)
+    training='<h2>'+('Training & recognition' if lang=='en' else 'Weiterbildung & Anerkennung')+'</h2><ul class="cv-certifications">'+''.join(f'<li><a href="/{lang}/evidence/#{r["key"]}">{r["title"]}</a> · {r["date"]} · {r["issuer"]}</li>' for r in RECORDS if r['group']=='certifications')+'</ul><p><a href="/'+lang+'/evidence/">'+('View redacted certificates, references and transcripts' if lang=='en' else 'Bereinigte Zertifikate, Zeugnisse und Notenübersichten ansehen')+' ↗</a></p>'
+    result=result.replace('</main>',training+'</main>')
     return result.replace(header(lang,c),header(lang,c,'cv'))
 
 def legal(lang):
     c=COPY[lang]
-    body='''<h2>Website operator</h2><p>Sagar Kriplani<br>Goethestraße 1<br>89518 Heidenheim an der Brenz, Germany<br>Email: <a href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com</a><br>Telephone: +49 157 582 90324</p><h2>About the content</h2><p>This personal portfolio presents professional experience and academic work. Conceptual illustrations are original diagrams, not employer CAD drawings or photographs of delivered equipment. Project figures describe the stated project context and are not general performance guarantees.</p><h2>Hosting and privacy</h2><p>This static website is hosted on GitHub Pages. GitHub may process technical request data, including IP addresses, to provide and secure the hosting service. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p><p>This site has no analytics, advertising scripts, contact-form database, or tracking cookies. Fonts and images are served from this website. Your theme preference may be stored in your browser’s local storage. Email and external profile links open the relevant service, whose own privacy terms apply. The email copy button uses the clipboard only when you click it.</p><p>For questions about this website or personal data, contact the operator by email.</p>'''
+    body='''<h2>Website operator</h2><p>Sagar Kriplani<br>Goethestraße 1<br>89518 Heidenheim an der Brenz, Germany<br>Email: <a href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com</a><br>Telephone: +49 157 582 90324</p><h2>About the content</h2><p>This personal portfolio presents professional experience and academic work. Conceptual illustrations are original diagrams. Selected report figures and redacted document excerpts are identified by source. Supplied AI-generated LinkedIn media is labelled as illustrative, not as delivered hardware. Project figures describe the stated project context and are not general performance guarantees.</p><h2>Hosting and privacy</h2><p>This static website is hosted on GitHub Pages. GitHub may process technical request data, including IP addresses, to provide and secure the hosting service. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p><p>This site has no analytics, advertising scripts, contact-form database, or tracking cookies. Fonts and images are served from this website. Your theme preference may be stored in your browser’s local storage. Email and external profile links open the relevant service, whose own privacy terms apply. The email copy button uses the clipboard only when you click it.</p><p>For questions about this website or personal data, contact the operator by email.</p>'''
     if lang=='de':
-        body='''<h2>Websitebetreiber</h2><p>Sagar Kriplani<br>Goethestraße 1<br>89518 Heidenheim an der Brenz, Deutschland<br>E-Mail: <a href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com</a><br>Telefon: +49 157 582 90324</p><h2>Zu den Inhalten</h2><p>Dieses persönliche Portfolio stellt berufliche Erfahrung und akademische Arbeiten vor. Schematische Illustrationen sind eigenständig erstellte Diagramme, keine CAD-Zeichnungen von Arbeitgebern oder Fotos ausgelieferter Anlagen. Projektkennzahlen gelten im jeweils beschriebenen Kontext und sind keine allgemeinen Leistungszusagen.</p><h2>Hosting und Datenschutz</h2><p>Diese statische Website wird über GitHub Pages bereitgestellt. GitHub kann technische Zugriffsdaten einschließlich IP-Adressen verarbeiten, um das Hosting bereitzustellen und abzusichern. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p><p>Diese Website verwendet keine Analysewerkzeuge, Werbeskripte, Kontaktformular-Datenbank oder Tracking-Cookies. Schriftarten und Bilder werden von dieser Website geladen. Die gewählte Darstellung kann im lokalen Browserspeicher gespeichert werden. E-Mail- und externe Profillinks führen zum jeweiligen Dienst; dort gelten dessen Datenschutzbedingungen. Die Kopierfunktion nutzt die Zwischenablage nur nach einem Klick.</p><p>Bei Fragen zur Website oder zu personenbezogenen Daten wenden Sie sich per E-Mail an den Betreiber.</p>'''
+        body='''<h2>Websitebetreiber</h2><p>Sagar Kriplani<br>Goethestraße 1<br>89518 Heidenheim an der Brenz, Deutschland<br>E-Mail: <a href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com</a><br>Telefon: +49 157 582 90324</p><h2>Zu den Inhalten</h2><p>Dieses persönliche Portfolio stellt berufliche Erfahrung und akademische Arbeiten vor. Schematische Illustrationen sind eigenständig erstellte Diagramme. Ausgewählte Berichtsabbildungen und bereinigte Dokumentauszüge sind nach Quelle gekennzeichnet. Bereitgestellte KI-generierte LinkedIn-Medien sind als Illustration und nicht als ausgelieferte Hardware ausgewiesen. Projektkennzahlen gelten im jeweils beschriebenen Kontext und sind keine allgemeinen Leistungszusagen.</p><h2>Hosting und Datenschutz</h2><p>Diese statische Website wird über GitHub Pages bereitgestellt. GitHub kann technische Zugriffsdaten einschließlich IP-Adressen verarbeiten, um das Hosting bereitzustellen und abzusichern. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p><p>Diese Website verwendet keine Analysewerkzeuge, Werbeskripte, Kontaktformular-Datenbank oder Tracking-Cookies. Schriftarten und Bilder werden von dieser Website geladen. Die gewählte Darstellung kann im lokalen Browserspeicher gespeichert werden. E-Mail- und externe Profillinks führen zum jeweiligen Dienst; dort gelten dessen Datenschutzbedingungen. Die Kopierfunktion nutzt die Zwischenablage nur nach einem Klick.</p><p>Bei Fragen zur Website oder zu personenbezogenen Daten wenden Sie sich per E-Mail an den Betreiber.</p>'''
     return (head(lang,c,c['legalTitle']+' | Sagar Kriplani',f'/{lang}/legal/')+f'<main id="main" class="legal-page"><a href="/{lang}/">← {c["back"]}</a><h1>{c["legalTitle"]}</h1>{body}</main>'+footer(lang,c)).replace(header(lang,c),header(lang,c,'legal'))
 
 for lang in COPY:
-    for sub,html in [('',home(lang)),('cv',cv(lang)),('legal',legal(lang))]:
+    for sub,html in [('',home(lang)),('cv',cv(lang)),('legal',legal(lang)),('evidence',evidence_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'evidence')))]:
         target=OUT/lang/sub
         target.mkdir(parents=True,exist_ok=True)
         (target/'index.html').write_text(html,encoding='utf-8')
@@ -143,11 +153,14 @@ for lang in COPY:
 (ROOT/'index.html').write_text((OUT/'index.html').read_text(encoding='utf-8'),encoding='utf-8')
 for name in ['site.css','site.js','favicon.svg']:
     shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name) if (OUT/'assets').exists() else ((OUT/'assets').mkdir(),shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name))
-for directory in ['images','fonts']:
+for directory in ['images','fonts','evidence']:
     shutil.copytree(ROOT/'assets'/directory,OUT/'assets'/directory,dirs_exist_ok=True)
+(OUT/'assets/media').mkdir(exist_ok=True)
+for filename in ['linkedin-concept.webp','linkedin-concept.webm']:
+    shutil.copy2(ROOT/'assets/media'/filename,OUT/'assets/media'/filename)
 (OUT/'.nojekyll').write_text('',encoding='utf-8')
 (OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://sagar-kriplani.github.io/sitemap.xml\n',encoding='utf-8')
-urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/']
+urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/evidence/','/de/evidence/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://sagar-kriplani.github.io'+u+'</loc></url>' for u in urls)+'</urlset>',encoding='utf-8')
 (OUT/'404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Sagar Kriplani</title><link rel="stylesheet" href="/assets/site.css"><main class="legal-page"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>Let’s get you<br>back on track.</h1><a class="button primary" href="/">Back to portfolio ↗</a></main></html>',encoding='utf-8')
 print('Built bilingual portfolio, CV pages, legal pages, sitemap and 404 in dist/.')

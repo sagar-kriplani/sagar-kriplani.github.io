@@ -2,6 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
+import re
 
 ROOT=Path(__file__).resolve().parent.parent/'dist'
 class Page(HTMLParser):
@@ -36,8 +37,21 @@ for lang in ('en','de'):
     p=pages[(ROOT/lang/'index.html').resolve()]
     assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
-    assert text.count('data-category=')==4
+    assert text.count('data-category=')==7
     assert '70%' not in text and '200+' not in text and 'Blue Card' not in text
+    from sys import path as module_path
+    module_path.insert(0,str(ROOT.parent/'scripts'))
+    from evidence import RECORDS
+    library=pages[(ROOT/lang/'evidence/index.html').resolve()]
+    assert len(RECORDS)==29
+    assert all(r['key'] in library.ids for r in RECORDS)
+    assert len([r for r in RECORDS if r['group']=='certifications'])==16
+    public_text=library.path.read_text(encoding='utf-8')
+    # Generic patterns avoid placing the user's actual private identifiers in source control.
+    for pattern in [r'(?i)(student id|enrollment number|matrikelnummer)\s*[:=]\s*\d{5,}',r'\b[A-Z]{2}\d{2}(?: ?\d){15,}\b']:
+        assert not re.search(pattern, public_text), 'Private-identifier pattern in evidence HTML'
+assert not list(ROOT.rglob('*.mp4')), 'Only silent reviewed WebM ships'
+assert not list(ROOT.rglob('*.docx'))
 assert not (ROOT/'reference').exists()
 assert not list(ROOT.rglob('*.pdf')), 'Do not republish legacy CV claims'
 assert not (ROOT/'.git').exists()
