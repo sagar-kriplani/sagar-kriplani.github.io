@@ -39,9 +39,23 @@ for lang in ('en','de'):
     p=pages[(ROOT/lang/'index.html').resolve()]
     assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
-    assert text.count('data-category=')==7
+    assert text.count('data-category=')==8
+    assert text.count('class="project-period"')==8
+    assert text.count('<dt>')==5
+    assert 'ai-cad' in p.ids
     assert 'education' in p.ids
     assert text.count('class="education-step"')==3
+    assert 'SK / 01' not in text
+    assert 'class="icon icon-' in text
+    for route in ('legal','privacy'):
+        policy=pages[(ROOT/lang/route/'index.html').resolve()]
+        assert policy.lang==lang
+        assert f'/{lang}/privacy/' in text and f'/{lang}/legal/' in text
+    legal=(ROOT/lang/'legal/index.html').read_text(encoding='utf-8')
+    assert 'sagar.kriplani@outlook.com' in legal
+    assert '89518' not in legal
+    privacy=(ROOT/lang/'privacy/index.html').read_text(encoding='utf-8')
+    assert 'reset-theme' in privacy
     assert '10/2021 – 03/2025' in text
     assert 'High School Diploma' not in text
     assert 'Blue Card' not in text
@@ -54,6 +68,10 @@ for lang in ('en','de'):
     library=pages[(ROOT/lang/'evidence/index.html').resolve()]
     assert len(RECORDS)==29
     assert all(r['key'] in library.ids for r in RECORDS)
+    for record in RECORDS:
+        assert (ROOT/'assets/evidence'/(record['key']+'.webp')).exists(), 'Public preview must remain visible'
+        assert (ROOT/'assets/protected'/(record['key']+'.skvault')).exists()
+    assert library.path.read_text(encoding='utf-8').count('data-download')==29
     assert len([r for r in RECORDS if r['group']=='certifications'])==16
     public_text=library.path.read_text(encoding='utf-8')
     # Generic patterns avoid placing the user's actual private identifiers in source control.
@@ -71,6 +89,12 @@ assert not list(ROOT.rglob('*.docx'))
 assert not (ROOT/'reference').exists()
 assert {p.name for p in ROOT.rglob('*.pdf')} == {f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}, 'Only six reviewed CVs may ship'
 assert not (ROOT/'.git').exists()
+protected=json.loads((ROOT/'assets/protected/manifest.json').read_text())
+assert len(protected)==132
+for record in protected:
+    assert (ROOT/record['preview'].lstrip('/')).exists(), 'Public image preview missing'
+    assert hashlib.sha256((ROOT/'assets/protected'/(record['key']+'.skvault')).read_bytes()).hexdigest()==record['encrypted_sha256']
+assert not list(ROOT.rglob('*password*')), 'No password file may be published'
 manifest=json.loads((ROOT/'assets/cv/manifest.json').read_text())
 assert manifest['source_sha256']==hashlib.sha256((ROOT.parent/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest(), 'Regenerate CVs after career content changes'
 for name,digest in manifest['pdfs'].items():

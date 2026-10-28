@@ -17,3 +17,7 @@ dist/
 qa/
 node_modules/
 debug.log
+
+# Access credentials and plaintext evidence backups must never enter Git.
+private-portfolio-access/
+evidence-password.txt

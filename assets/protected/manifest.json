@@ -1,0 +1,794 @@
+[
+  {
+    "key": "nx-basic",
+    "preview": "/assets/evidence/nx-basic.webp",
+    "source_sha256": "2f721878964a5b54a5da6b2ea4d88abe753dfde648b64bd1a4ba760f52aaf150",
+    "encrypted_sha256": "b10298f50c766cd57887e6d32b26e346c7ef77343491810311e53bd110afca5f"
+  },
+  {
+    "key": "nx-essentials",
+    "preview": "/assets/evidence/nx-essentials.webp",
+    "source_sha256": "b5ba600d1efb2ddf2ee8b85e379f7a1afc8e8ef06a8dd9a86bee557dbf140a99",
+    "encrypted_sha256": "70d19bbeb2587e55b5ce715fb668be671918ed8564be7452a76f93a750a3ee26"
+  },
+  {
+    "key": "nc-programming",
+    "preview": "/assets/evidence/nc-programming.webp",
+    "source_sha256": "9b022c85c86281955cbba362381cd0ed858d0953d6490e0e8f3e52a6d12c9867",
+    "encrypted_sha256": "62f5fe4a29c1d2a2b47702f95dcb7753f7b09251c6558e67ab2e9acd876db3a4"
+  },
+  {
+    "key": "robot-six-axis",
+    "preview": "/assets/evidence/robot-six-axis.webp",
+    "source_sha256": "ed359a77963c707bbba28a609c50f0fe3a89ad8f9fb543faccd0a132b7fab361",
+    "encrypted_sha256": "a7d21d40d501ccc7f705504799024521ba9de684c2bdf354736a8a3e72bfeb7a"
+  },
+  {
+    "key": "rpt-basics",
+    "preview": "/assets/evidence/rpt-basics.webp",
+    "source_sha256": "9eea0f4028eeb14a828d4abee0d7ba6ed1a8a69604683a274b8d00ae02d52917",
+    "encrypted_sha256": "1360046757916363269dbfc8b67765c17d2dde4b4e084db4e180465ea5b536bf"
+  },
+  {
+    "key": "flexmill",
+    "preview": "/assets/evidence/flexmill.webp",
+    "source_sha256": "a82e4f745bae63e4acc7b50e5fcf810a605534d56fb6ba5472412e5c3839eb07",
+    "encrypted_sha256": "4ac1c7586ea19321eafbca55043863744bf4bb02fe6847c3b88dbc35cab57b2d"
+  },
+  {
+    "key": "drafting-essentials",
+    "preview": "/assets/evidence/drafting-essentials.webp",
+    "source_sha256": "395cc4a83459117b22ed42e9f4b384a0984b72a4b4214dea29e3de281b19f3ae",
+    "encrypted_sha256": "18510b2662cf28201638dd44719f9a0342ef247071b6a13620f1f134418a1dfd"
+  },
+  {
+    "key": "synchronous-modelling",
+    "preview": "/assets/evidence/synchronous-modelling.webp",
+    "source_sha256": "7ad41261437aeb31e55ecd27790787af98068ca3c1726ae32133aa3656d30b07",
+    "encrypted_sha256": "2562f86ae82cabac9cd3433532666b8c9cf89f0be35b1bce87de92204866f18c"
+  },
+  {
+    "key": "ansys-training",
+    "preview": "/assets/evidence/ansys-training.webp",
+    "source_sha256": "19279e82ba75699191b3873ce94b2cd86a83406a632eee10bc75843dd7453b18",
+    "encrypted_sha256": "0349205addeaa0e437b9543a131b97bd8a165aca3f4bc496dabd238b4a2a79b4"
+  },
+  {
+    "key": "engineering-drawings",
+    "preview": "/assets/evidence/engineering-drawings.webp",
+    "source_sha256": "57c82213e598ba94a1a79eee7cf3af43888ea430be40ce83573071ebc263084e",
+    "encrypted_sha256": "fb9112a7860ce4509ac6e0319f9a1b0d154426169c2b92bfb4e59af668ec10db"
+  },
+  {
+    "key": "learning-nx",
+    "preview": "/assets/evidence/learning-nx.webp",
+    "source_sha256": "edbb33594b8e7fc1385fb88436b9cab17d449f64e035736565d0baab2450a6e3",
+    "encrypted_sha256": "f8b8dc7a5143554072dbcfc64bb9fed65ed98a8162c417169703ddf43858d325"
+  },
+  {
+    "key": "semiconductor-scale",
+    "preview": "/assets/evidence/semiconductor-scale.webp",
+    "source_sha256": "5f6571ebe79669be2d62416edee05d5f9352e2fdb46022ddb2e51f75ed6f7bbb",
+    "encrypted_sha256": "d79ae9d608932d16811ca4ae1d432f4962c467d1ae732263523d7dd57bb00927"
+  },
+  {
+    "key": "german-b1-plus",
+    "preview": "/assets/evidence/german-b1-plus.webp",
+    "source_sha256": "010dc635797c2dfe4bab482e99926a8faf1456aecf3a2b7ad5a0c4ae34e88e81",
+    "encrypted_sha256": "b1204d1f0f1d0b842111ec0e6edeb00801b72131a0c7ef1db406bd7dd2dc62a3"
+  },
+  {
+    "key": "cad-event-coordinator",
+    "preview": "/assets/evidence/cad-event-coordinator.webp",
+    "source_sha256": "f92fa33ac744efdff2c40ef98e1b3f44a4f8acfb5cf4907f2b4606e7a7e98d41",
+    "encrypted_sha256": "174fb7d04bae22e2936e5f3a1451a36e860b365ab21408ca3ef83c61e9fdc49d"
+  },
+  {
+    "key": "activity-points",
+    "preview": "/assets/evidence/activity-points.webp",
+    "source_sha256": "439165ae8ccd3d3f48f1fe81968e57f1f9caa4fa9e46a3784856203818a1e9a8",
+    "encrypted_sha256": "d754b28b1999acdb9b2d2d769479c91bfb3dab806164c5b5f3a4b3a435fb7a26"
+  },
+  {
+    "key": "gsecl-training",
+    "preview": "/assets/evidence/gsecl-training.webp",
+    "source_sha256": "9dad2b13c8810f251b883adeba783e95f8260047753cd4df8b57e983a5d5ec6a",
+    "encrypted_sha256": "c1729e2ef24391706f0bbc8be10695d3bd3b14eee1e7a2afdb6a19ec7e4292f8"
+  },
+  {
+    "key": "nest-reference",
+    "preview": "/assets/evidence/nest-reference.webp",
+    "source_sha256": "d780d53d1e72d60d01abd72a4a2dd691d003d6541ca087967fc5f96508056209",
+    "encrypted_sha256": "5bc44aaea87ee5b20c68e1755c7cc836dcf1585cdaec6321b7e9b0d07e52ae40"
+  },
+  {
+    "key": "brooks-reference-1",
+    "preview": "/assets/evidence/brooks-reference-1.webp",
+    "source_sha256": "3b5a292a2ba572fe5f366fabbbbcfdb7a8de306f5993187bd82860be3e62a42e",
+    "encrypted_sha256": "7a8010c40d168f71212c07ab824c867f1a3371dadcc8a4ce05b53c32c5935405"
+  },
+  {
+    "key": "brooks-reference-2",
+    "preview": "/assets/evidence/brooks-reference-2.webp",
+    "source_sha256": "5a2e5be42e232d4b8d474f67923d39a0db2c8fafaef3cb0e7037115eb5bb3a74",
+    "encrypted_sha256": "b80b94eacbf64d519eef9111e60b25208e613fa626c212c434ee278fb157292f"
+  },
+  {
+    "key": "ravi-reference",
+    "preview": "/assets/evidence/ravi-reference.webp",
+    "source_sha256": "71c8dd63572392cb12cdd1fffc8ae1edaeb40f113b4d987876297a938b78ba52",
+    "encrypted_sha256": "5add9156c10a6ea02bc03589b8757a91a26b044d511beb99b68c6630a7ce57fc"
+  },
+  {
+    "key": "ravi-recommendation",
+    "preview": "/assets/evidence/ravi-recommendation.webp",
+    "source_sha256": "2017b54d4fbf8c88847f8e1a9e86e344b9d26b3ed4ffca9ada8c2bf5cd2412bb",
+    "encrypted_sha256": "d6df1dfec55cb281419a167d8698d8af772027f55ff439cfbf4088b614c52625"
+  },
+  {
+    "key": "master-degree",
+    "preview": "/assets/evidence/master-degree.webp",
+    "source_sha256": "2d19dd46d48f2e7d9e8c7016b3e4e048a9eedf70a382b405eae79df09c41939d",
+    "encrypted_sha256": "925e1bc751c869b0cf80e137174ddc90a4dc0daa5e8bcbcb2747e5f71cef54a1"
+  },
+  {
+    "key": "master-grades",
+    "preview": "/assets/evidence/master-grades.webp",
+    "source_sha256": "7f2eecf20f6352d424dfe5e7942305313487bfefd6cacbf4cd2818f5ab371edd",
+    "encrypted_sha256": "0c2b648d035469541531bdbd15af93b5a02198ff328cfb4b451de2172d050706"
+  },
+  {
+    "key": "master-transcript",
+    "preview": "/assets/evidence/master-transcript.webp",
+    "source_sha256": "7edd4207187bae6d8629bc505e0f508b66cb1a8db0ed77bd2ed306e606d23c7e",
+    "encrypted_sha256": "b6730d176327989896fc0f7aa5a858018028bed64a5c2289c6348416e026f78f"
+  },
+  {
+    "key": "ects-grade",
+    "preview": "/assets/evidence/ects-grade.webp",
+    "source_sha256": "47d46f92af989e8c23c16bdd2f929674f330c22d26d2df4c8a5acd8b00c7cb1a",
+    "encrypted_sha256": "cc34e31558af50418e4f3e30b176e629c0c2e7ffe283e5f5f00735568452bd1a"
+  },
+  {
+    "key": "bachelor-degree",
+    "preview": "/assets/evidence/bachelor-degree.webp",
+    "source_sha256": "1311fe414cb6169bc78cc6aa53d990948b38f35a2b4a4f469ec5904e7126e320",
+    "encrypted_sha256": "d2209f4560835b6c205dcfa54bc546b0a609ed77129192d7f1212ab0c79a1050"
+  },
+  {
+    "key": "bachelor-transcript",
+    "preview": "/assets/evidence/bachelor-transcript.webp",
+    "source_sha256": "412c7fbdcdb73910f453fd9d8131722708b623b9b153ac5fdfdf4b1cb3ff146e",
+    "encrypted_sha256": "2e5c4af3480a9d6621a074c22381bbb7c6cf3b4e9be86941b15bf0bff206ffe4"
+  },
+  {
+    "key": "diploma-degree",
+    "preview": "/assets/evidence/diploma-degree.webp",
+    "source_sha256": "1f8c1c273cb33385f1f73d5036943d63c51d65136f54c90e3c32c8a60fe47df4",
+    "encrypted_sha256": "1ab914276921becf34e1cf0edef820ba57f6265765d6c2c02ee0ed69647c0fb7"
+  },
+  {
+    "key": "diploma-transcript",
+    "preview": "/assets/evidence/diploma-transcript.webp",
+    "source_sha256": "054175a502154fcdf662d51588d4a787e5b0d6f6cad5672ec9d2b0ccf92eddc1",
+    "encrypted_sha256": "5475a38255986c123d8acca9451945598dec4403a661f020ce5b5d174652f0b8"
+  },
+  {
+    "key": "gallery-ansys-01",
+    "preview": "/assets/gallery/ansys-01.webp",
+    "source_sha256": "51bba36d4bde40436c3d66b802548f0ffe4923537b2c08999c0265630b219134",
+    "encrypted_sha256": "d496ab2855bc7f3e6b3dde9d7e8e30f74881d48d8e33b891d2dd3a292656c0fd"
+  },
+  {
+    "key": "gallery-ansys-02",
+    "preview": "/assets/gallery/ansys-02.webp",
+    "source_sha256": "92360716d0b58b5df4604a180a986561b4804e6f155ea44aef6ac042702e7d3c",
+    "encrypted_sha256": "75192796b254ad7a6325cbb32c623cbd40eea377d3b2c1f8362adc97e99bc49b"
+  },
+  {
+    "key": "gallery-ansys-03",
+    "preview": "/assets/gallery/ansys-03.webp",
+    "source_sha256": "0fbbff6006ec59cfb45af2261e0548ea74d088740ee18ea1634d43f7bfc9a0f8",
+    "encrypted_sha256": "5c168c787521947fcbf04922fde3b695da7f88b84a47d396411e622d0bcd83fe"
+  },
+  {
+    "key": "gallery-ansys-04",
+    "preview": "/assets/gallery/ansys-04.webp",
+    "source_sha256": "8654dee292bbb4ac9dc1f803a8518851e8c3c60d68c2a18c83d9b8684dbd9db2",
+    "encrypted_sha256": "bdab4145d1148ad9d028974d5838ea9d2b45ed9e81cfe06ae6c7e71bb9b63452"
+  },
+  {
+    "key": "gallery-ansys-05",
+    "preview": "/assets/gallery/ansys-05.webp",
+    "source_sha256": "0e8961cc34f4b1cee77dfe9157e84b9952705fbf4e4edde4933a5330c0b15b12",
+    "encrypted_sha256": "f6c674017996548ab38962cda3a2c67244922994a57fd1285d9efeec3db0f3f6"
+  },
+  {
+    "key": "gallery-ansys-06",
+    "preview": "/assets/gallery/ansys-06.webp",
+    "source_sha256": "ff85446a2e36ccecb9a9a51e9b864dea52cc109a01c1e6a5a7c8ba79c34bc8d2",
+    "encrypted_sha256": "d46bd708480cd7836b52a3cb95035f52135115a98e1c9a025979fcc69c6d2036"
+  },
+  {
+    "key": "gallery-ansys-07",
+    "preview": "/assets/gallery/ansys-07.webp",
+    "source_sha256": "ecf5a09a3bd8a09191e74f03e1aeb9d9912cf950b5655aa818b47b074d4c9014",
+    "encrypted_sha256": "f889fffbb566dbc5b4f5e4605cecba855ce87b0b798af69d37aa5b8d71704df7"
+  },
+  {
+    "key": "gallery-ansys-08",
+    "preview": "/assets/gallery/ansys-08.webp",
+    "source_sha256": "29d2f9eacdc9b75fa0ef40eb1b839f82dacfc3a0e7570b63b966f452780470c3",
+    "encrypted_sha256": "607a74ba242c782f7bb79ff3aaa41d6ed7c0d93d7fee09fa4f9fc60ffbfbd3a9"
+  },
+  {
+    "key": "gallery-ansys-09",
+    "preview": "/assets/gallery/ansys-09.webp",
+    "source_sha256": "d8f05e13da0ec3ad73fc7971c5dd3ca41548b67cb84887bba22189239049e2c6",
+    "encrypted_sha256": "7ae4d9a3e7e80f2519a436944fcf4583e1891a59523239269914f31beee6d514"
+  },
+  {
+    "key": "gallery-ansys-10",
+    "preview": "/assets/gallery/ansys-10.webp",
+    "source_sha256": "c38325240b721e7b071419897970852af2f5743e493c00cea53e4ac0c3621411",
+    "encrypted_sha256": "9e7d17fdf1be3ad4fcf4dc5224343db9093e846e4515c148f1139a46297ad3e3"
+  },
+  {
+    "key": "gallery-ansys-11",
+    "preview": "/assets/gallery/ansys-11.webp",
+    "source_sha256": "d65f1a6c83c47279b3557a3e2b65086f30026155736c78a28fdab262d1ec32f8",
+    "encrypted_sha256": "6d8b3eea323811fd118c095ad5162ed62f1331701486daa090f8a3d6e0fbef69"
+  },
+  {
+    "key": "gallery-ansys-12",
+    "preview": "/assets/gallery/ansys-12.webp",
+    "source_sha256": "ecefdd62c097be401aaf622eda562211c4c5ccfd7b7e2285b56d5b9393ae555d",
+    "encrypted_sha256": "e1972dc719bd13b803ef5786b59318ff663caf4e9d49fda0a0f35a313e5da5a0"
+  },
+  {
+    "key": "gallery-ansys-13",
+    "preview": "/assets/gallery/ansys-13.webp",
+    "source_sha256": "15bdbd07e773df928b51f34288a10450b1aa5a87f03a0c61b5457b8bbd0fad86",
+    "encrypted_sha256": "f001991e6e0121875d330fa15a0466d6e090feab4967c871ba4923b7c1b8dbe6"
+  },
+  {
+    "key": "gallery-ansys-14",
+    "preview": "/assets/gallery/ansys-14.webp",
+    "source_sha256": "bbe58364084bbf159ce2ea4ccb0f6d7be7fe786a77206b32dc19ea90afb87bef",
+    "encrypted_sha256": "4561dae49534def7d00e00a2adb6b34c11c63f5d8fea00a7a8d37691cdd77ee8"
+  },
+  {
+    "key": "gallery-ansys-15",
+    "preview": "/assets/gallery/ansys-15.webp",
+    "source_sha256": "8aef9b364bde93df1eb49408c3a5f63a91b11a4e2ad094daf6380ed5dbea8177",
+    "encrypted_sha256": "9a37c082223adcdc2069fa6cd69d3c45a9b3f0038a4d3e315493687ba3e3ade3"
+  },
+  {
+    "key": "gallery-ansys-16",
+    "preview": "/assets/gallery/ansys-16.webp",
+    "source_sha256": "f0708cf00b37849a99cb13c16a3176ed5400437a49515d91e406912c4f98a672",
+    "encrypted_sha256": "5edd24990e43343fa6a1457d21d42dc46f1497078d959d16a0ed401974e3082e"
+  },
+  {
+    "key": "gallery-ansys-17",
+    "preview": "/assets/gallery/ansys-17.webp",
+    "source_sha256": "c28aa224fad1ba8934f6652b1c6624921b0882fc738ebfc83e18f45a604aa889",
+    "encrypted_sha256": "c3334bf7bc32d09a34013a5f1f5a04347fea404902cd0bac4fc3144b9aa4dfe8"
+  },
+  {
+    "key": "gallery-ansys-18",
+    "preview": "/assets/gallery/ansys-18.webp",
+    "source_sha256": "1d1df1f7c774ab7ca57e36d7a98826b6c0463de4de9e556ce9d1c927d9ca917c",
+    "encrypted_sha256": "1a5e80da44fc175202f7802b9871159298e1f89a28a79a4e71b33fb6a3c123f7"
+  },
+  {
+    "key": "gallery-ansys-19",
+    "preview": "/assets/gallery/ansys-19.webp",
+    "source_sha256": "3472241b72c0b3fdd58b83d55a8202dbdbfb32338d2c6624be08eb1343b476e9",
+    "encrypted_sha256": "cfd0f0a11dd11e00e2bab33ee7531fffcbdfce3a3998de5640d286e307318495"
+  },
+  {
+    "key": "gallery-ansys-20",
+    "preview": "/assets/gallery/ansys-20.webp",
+    "source_sha256": "4dd73b4dc675b2b896968904c1db1c6bf16204b4ce8d7b0bef1c277be1ce1d29",
+    "encrypted_sha256": "288da1b53ed465f4b7753efe57124f187319abaec8b32400082ba93faef6a8d8"
+  },
+  {
+    "key": "gallery-ansys-21",
+    "preview": "/assets/gallery/ansys-21.webp",
+    "source_sha256": "672482efff42c3925ee7b0199639b6df447421bcd18eedec016f0a6fa2d3d96e",
+    "encrypted_sha256": "d6fe6d12cd809eed508254fb1725cad1badef4a1615930a7e5df4526fa3986e9"
+  },
+  {
+    "key": "gallery-ansys-22",
+    "preview": "/assets/gallery/ansys-22.webp",
+    "source_sha256": "ae5924d19dc1aabbd68708958899c397ff6b754ce402fc5d7031cbdb62add5ad",
+    "encrypted_sha256": "24c66802d693628a00f52700e610ff51a0874ccc4e8454cace8fef9500b1ad31"
+  },
+  {
+    "key": "gallery-ansys-23",
+    "preview": "/assets/gallery/ansys-23.webp",
+    "source_sha256": "f5ed453c1aa46f7b23dd4cddef825ae85a3e832538727ec9be18a9a22da2d841",
+    "encrypted_sha256": "fa61edf16ab273dc78e5cc6fdb802de4c023f2ac9442e1d53f1a4f7da5a1d930"
+  },
+  {
+    "key": "gallery-ansys-24",
+    "preview": "/assets/gallery/ansys-24.webp",
+    "source_sha256": "5555de925a965176ab53ff5e3589252503629a030e318c9a206b876d832e1b21",
+    "encrypted_sha256": "abe051d529fd7ad879207cd5b4c91e4de8176e22906e625bef7688beddf5ce1c"
+  },
+  {
+    "key": "gallery-ansys-25",
+    "preview": "/assets/gallery/ansys-25.webp",
+    "source_sha256": "600e23fa744b1ec58f95f741ff21768f2c3757b4e10166fdc241244b9a9715b6",
+    "encrypted_sha256": "635cb6a927e3008e763eaaf5b8b8787d298fd7cfca56432599ff06157d123eb4"
+  },
+  {
+    "key": "gallery-ansys-26",
+    "preview": "/assets/gallery/ansys-26.webp",
+    "source_sha256": "98d786a60ee4fd437005fa848c755a3863d6f2c484a6873ec1bbae26691fdfaf",
+    "encrypted_sha256": "390c934c5619ee9c09d0c36e3aefa3f3b3942baa9aec56bfe662990776dde688"
+  },
+  {
+    "key": "gallery-ansys-27",
+    "preview": "/assets/gallery/ansys-27.webp",
+    "source_sha256": "e2d3285f320829a10a19d9ed036cc0170a2e6cac9ca4a434a5f6773e8d3b5ca7",
+    "encrypted_sha256": "f2fbda97c3ae047ada8526b9a58080807a8a64a1a505a99b07f56b369bcc3a54"
+  },
+  {
+    "key": "gallery-ansys-28",
+    "preview": "/assets/gallery/ansys-28.webp",
+    "source_sha256": "1a2f8e417e82307bf2aab71b00f034bc1adfd0d9815b21ce93bb2fa76052c243",
+    "encrypted_sha256": "e59e2867d277675a315ce7a13df49c9f2f14ec1d6c4ac277c3a9a1791222f1ef"
+  },
+  {
+    "key": "gallery-ansys-29",
+    "preview": "/assets/gallery/ansys-29.webp",
+    "source_sha256": "d7220ae54a0f6b77e918968440bfcdc0ec7053de6f7813e57a423c35fdde452e",
+    "encrypted_sha256": "5c1fa71b1f772b79e1820fe0b63909c7fada3bd3c81e8938592863738b0ef3ad"
+  },
+  {
+    "key": "gallery-ansys-30",
+    "preview": "/assets/gallery/ansys-30.webp",
+    "source_sha256": "fa53c29e3eb03ea6a4be0aede25f27f3973a2d97fef4b2fb19ceff7adad6a150",
+    "encrypted_sha256": "6c04430a181053f56001c1d9c9a087f2dc1c7fd0e745a43123e51c20614d868d"
+  },
+  {
+    "key": "gallery-ansys-31",
+    "preview": "/assets/gallery/ansys-31.webp",
+    "source_sha256": "af9a1d4015291bd46320836df295f7f2f9961916d70b73938c4a645003344793",
+    "encrypted_sha256": "ddc7aaaa9fd6e8628c5a9437caadf63ab00cce2361b6bd70a7e842ec32d5362d"
+  },
+  {
+    "key": "gallery-ansys-32",
+    "preview": "/assets/gallery/ansys-32.webp",
+    "source_sha256": "85c85cf77476157e4cba2ea7f41ea2648b36d62d8185f916d067a4503c56ac7b",
+    "encrypted_sha256": "c64d3b3b67be08397970c0a3e8e672226f2e8de9c2f4979f683006fd447f7a33"
+  },
+  {
+    "key": "gallery-ansys-33",
+    "preview": "/assets/gallery/ansys-33.webp",
+    "source_sha256": "8da66fcbf1ed2c3c62fafcf9fbb34dbe4e2b68c6ede60b4441f2070294379db8",
+    "encrypted_sha256": "5ceec477c8f7262f4de80935d2ceb4baa519d35427370edb534db2b249085059"
+  },
+  {
+    "key": "gallery-ansys-34",
+    "preview": "/assets/gallery/ansys-34.webp",
+    "source_sha256": "84dcfb6dc159c3e5060ef9ff28f605ae759d712a8c0bcc73bae1a53254443406",
+    "encrypted_sha256": "3ac31fdca84531ad8e2454dc9ebd892c864febd2181e916bda1bc917722ac41f"
+  },
+  {
+    "key": "gallery-ansys-35",
+    "preview": "/assets/gallery/ansys-35.webp",
+    "source_sha256": "9ce2155452dd5dea9376ece129d272f20780f4475ded60ab0928b64b20069524",
+    "encrypted_sha256": "168a01fa0b46c3249b708ea52da657fdbe0af2c89ad2cfbf3f9e184616a87325"
+  },
+  {
+    "key": "gallery-ansys-36",
+    "preview": "/assets/gallery/ansys-36.webp",
+    "source_sha256": "2994c6d82f53e1ef53b3b394ab668d5b87bb1e517c908dfd74c0f678e2865e94",
+    "encrypted_sha256": "76e78fe8b7c9d24e3e73289dc6d656ee5d42249fa3163665dc242561bd5ca787"
+  },
+  {
+    "key": "gallery-ansys-37",
+    "preview": "/assets/gallery/ansys-37.webp",
+    "source_sha256": "eafcdef282378b19501a999c236c3981e0f00e9dfe382f4cf24fb47ec84c341d",
+    "encrypted_sha256": "f350c64ec02077afeea7b84b3e10fc5c72d23d5ed44f62e36c1e226a754ca2bf"
+  },
+  {
+    "key": "gallery-ansys-38",
+    "preview": "/assets/gallery/ansys-38.webp",
+    "source_sha256": "2d73236be54b203f15abee597da5de265b4b844f05781ce0d53ad1f69ada61c7",
+    "encrypted_sha256": "7e21b795944ce9b285241a6bd3cd0229db4279214d0f9b11be11a4aea15de92e"
+  },
+  {
+    "key": "gallery-ansys-39",
+    "preview": "/assets/gallery/ansys-39.webp",
+    "source_sha256": "8c6cfcd9519838704e90c7dcbf1c676c860f4ed79e1de3a3a3d8a49ecc81b256",
+    "encrypted_sha256": "6ff640fc7a6f0db4fd53809804401b23049bdd8ce1438d62563bac859c5bc7b6"
+  },
+  {
+    "key": "gallery-ansys-40",
+    "preview": "/assets/gallery/ansys-40.webp",
+    "source_sha256": "ba18585a2ff9f235562a078f0fb97166d25c20e20450a129958bea51e0c7b21c",
+    "encrypted_sha256": "53f90763b0a409036fbc5107ca6ffd62cf9fb81b7670055d74f3361d04216417"
+  },
+  {
+    "key": "gallery-ansys-41",
+    "preview": "/assets/gallery/ansys-41.webp",
+    "source_sha256": "14115f1001dca5d507f002d529717dbf3d68a5f1752f33b9b461d42a754195a8",
+    "encrypted_sha256": "35c1b99740e4499464800500d35f6b4cbe2cfdb1cbe7fc011609e8075e243f98"
+  },
+  {
+    "key": "gallery-ansys-42",
+    "preview": "/assets/gallery/ansys-42.webp",
+    "source_sha256": "6b8c60ca2b193ae3d7cd06ce93fa5b2bd5380800239c84a2153f137bf4eb514a",
+    "encrypted_sha256": "45777b5bc490de81e28ef70d11619095306869f61e93696fa6a302066883f1c7"
+  },
+  {
+    "key": "gallery-ansys-43",
+    "preview": "/assets/gallery/ansys-43.webp",
+    "source_sha256": "333e89a71590b23a87de28acd4881b0f409758ec22007c762817f41a75399304",
+    "encrypted_sha256": "91c7693f11ba06a420a338fc987a82d9cedad33091e14a43b3aaa62d73f036aa"
+  },
+  {
+    "key": "gallery-ansys-44",
+    "preview": "/assets/gallery/ansys-44.webp",
+    "source_sha256": "e197bf7e91a9d7e66b905f5f12360a5404643dd06734a80448c07abfb6f5cf11",
+    "encrypted_sha256": "6e11e133efdc21e77f985631383b4af7e0bcd113543056de0ce92171a55bae52"
+  },
+  {
+    "key": "gallery-ansys-45",
+    "preview": "/assets/gallery/ansys-45.webp",
+    "source_sha256": "cf55d1b008942a76ac1523ddf3c5b56184eb6550dabf100457c7537e1ace94f2",
+    "encrypted_sha256": "c9495cb8574c9174bbdd2b6fef61c10568631200f15add8a0c7dd812df8a0a75"
+  },
+  {
+    "key": "gallery-ansys-46",
+    "preview": "/assets/gallery/ansys-46.webp",
+    "source_sha256": "bb5145610343899018ec72acdcd1a03e65f44a19fe110433c239c9902f30b892",
+    "encrypted_sha256": "7f7c75ac9c8533e7e5c15c1a83f2345e619f8e9ae406727377d7be25edfc209b"
+  },
+  {
+    "key": "gallery-frost-01",
+    "preview": "/assets/gallery/frost-01.webp",
+    "source_sha256": "64290879a9228ce2298e727f293a61ebae889a5202571bfe03b15e06f792ca19",
+    "encrypted_sha256": "c79a8289875c4e7c4338e44e753846087068d0cd38ffeacd31638c431624f8f9"
+  },
+  {
+    "key": "gallery-frost-02",
+    "preview": "/assets/gallery/frost-02.webp",
+    "source_sha256": "39e2754495da698489d0239153dab51c2a23bff98ed8752ca29462eab8a10460",
+    "encrypted_sha256": "4f408ea3465121a06ecf415fe5914f90679ba6cc18b53c3d909267b51b4ac52f"
+  },
+  {
+    "key": "gallery-frost-03",
+    "preview": "/assets/gallery/frost-03.webp",
+    "source_sha256": "70aeb3119321f2843fa9d941750d133219e91d4831c06277fd6bbaac66a1ecbe",
+    "encrypted_sha256": "ae2dc69723646dbc537ff5062ccda25a29a45052fc381e2805c199ebceb48177"
+  },
+  {
+    "key": "gallery-frost-04",
+    "preview": "/assets/gallery/frost-04.webp",
+    "source_sha256": "ab376c8793dd48b2f24a9b20bc954c26577335f70ba41b53bd44d026d628d2b0",
+    "encrypted_sha256": "db8ba7d4993d9c37e8534dc748972d9903202f6594fb1daab4acb76d20316228"
+  },
+  {
+    "key": "gallery-frost-05",
+    "preview": "/assets/gallery/frost-05.webp",
+    "source_sha256": "ec383e1e4588eec5cca3a30b7b300708a9bd8d4889980369eb3f63314fc0e47e",
+    "encrypted_sha256": "b77e995f9bce5d463bb3809aa3a60797f7b92948b5bc83f2026af513975265d7"
+  },
+  {
+    "key": "gallery-frost-06",
+    "preview": "/assets/gallery/frost-06.webp",
+    "source_sha256": "ce04928aa904260f28ffb4126d1b2c03a64fd7ceda84ef632f0f3dd32158c22c",
+    "encrypted_sha256": "1dd0edc656e984c0bb01f343f0c82818fc754c7f832fa21ff3f20dfa4dc5dbe0"
+  },
+  {
+    "key": "gallery-frost-07",
+    "preview": "/assets/gallery/frost-07.webp",
+    "source_sha256": "e1781d88d84a6464400c9e2e1151f30c16305106213f38753a1e7555db8f6534",
+    "encrypted_sha256": "e825f10ebe15e91d8e7abb0dae983f85a2c177f78e56194e7f7514ba76340281"
+  },
+  {
+    "key": "gallery-frost-08",
+    "preview": "/assets/gallery/frost-08.webp",
+    "source_sha256": "44ec4548981ea0def6ee368ff53ac87da6292aecff92dcc7596ba8b058738fd1",
+    "encrypted_sha256": "f77d8295b39856929faaee7ea606076cfc8b29f1a1121b687b164ba65d9283d0"
+  },
+  {
+    "key": "gallery-handling-01",
+    "preview": "/assets/gallery/handling-01.webp",
+    "source_sha256": "5847ba2a153156dd537bc118ed1c553a831527320cb641e36d410b114918165b",
+    "encrypted_sha256": "d6616ec5145b85f034536249a0adf2eec23f5cb0790f2dbf8b249a2e8b348b3d"
+  },
+  {
+    "key": "gallery-handling-02",
+    "preview": "/assets/gallery/handling-02.webp",
+    "source_sha256": "d192a67277b089fffcb1a6fe467e56380f1e5016e3d3863fb6d603ef49c62e76",
+    "encrypted_sha256": "c08e8cf41e847b4d5bf21c2fee7bbe21a3a3a5b10007b303db632bd96ac173f0"
+  },
+  {
+    "key": "gallery-handling-03",
+    "preview": "/assets/gallery/handling-03.webp",
+    "source_sha256": "9105b96c0caae6af0a31e128fbdc4e6fbc8a2f6e16aca2332965a8676e8ad1b5",
+    "encrypted_sha256": "8e8da1314bdd1eed9c8a43233ac8e6d20041ebe2b9db243f73bcfb397e3699c9"
+  },
+  {
+    "key": "gallery-handling-04",
+    "preview": "/assets/gallery/handling-04.webp",
+    "source_sha256": "85db56081a0d643323370c08a138b08bfea2a67b433664914a8fdf0219b212b3",
+    "encrypted_sha256": "572765dd50f33dc10394f787228b07d1a2da38d18d583aef638aa95753ee1948"
+  },
+  {
+    "key": "gallery-handling-05",
+    "preview": "/assets/gallery/handling-05.webp",
+    "source_sha256": "282779b76c6b94471713c0904d3fbe3db1243c15697a8d140f0c9d3b65aee592",
+    "encrypted_sha256": "00fb74c4d994d7683881d898708fc8d9a16a46763d1372c78e90be19fef5df3e"
+  },
+  {
+    "key": "gallery-handling-06",
+    "preview": "/assets/gallery/handling-06.webp",
+    "source_sha256": "d8373211a5c46e6936916d75da02348b53ebaba9c8419f641e68513dd2184063",
+    "encrypted_sha256": "bfa63f974ad3296804277640aef4f3b3f834ce315a143395150f752e11839fdd"
+  },
+  {
+    "key": "gallery-handling-07",
+    "preview": "/assets/gallery/handling-07.webp",
+    "source_sha256": "39d0bdec4f2bf0443df72aab05524d16455ff781cf4f7ad262f864fdd5b77c8f",
+    "encrypted_sha256": "dc9f4b5d44dbecc3991f0edb052eebd97c1d75d3b1236bf53cefe0879f3dc37b"
+  },
+  {
+    "key": "gallery-handling-08",
+    "preview": "/assets/gallery/handling-08.webp",
+    "source_sha256": "2e747f9c5be653397ad4e23697fa04beca3a79d2af814bb09e237669f57db2cc",
+    "encrypted_sha256": "9634f6ea8dbd9a6abcc4da0faffc908355ba54d20e73407614c3bde82b0f8f0b"
+  },
+  {
+    "key": "gallery-handling-09",
+    "preview": "/assets/gallery/handling-09.webp",
+    "source_sha256": "d7a32d592e6c19ce14f81e96d1af2eb0b37253207d16c68c76c7d474e22752f4",
+    "encrypted_sha256": "9988dff03b4520965c21636664f304ba5001ab8a07923c0fcc96a926f36e9e1c"
+  },
+  {
+    "key": "gallery-handling-10",
+    "preview": "/assets/gallery/handling-10.webp",
+    "source_sha256": "22a8248829f23c0afbc01daa29805de2d1f556309bb7e999f2e68db604a0e84f",
+    "encrypted_sha256": "710886d403806a406fcc0a46b75bb5ddf844ac0c90d6b300081cea5d25573412"
+  },
+  {
+    "key": "gallery-handling-11",
+    "preview": "/assets/gallery/handling-11.webp",
+    "source_sha256": "41adb2debfbc2df2cd1099d10453174a773d879563faf905ff85536e70dde5ad",
+    "encrypted_sha256": "ddfc844a1b7f8f74f6a2b993553454fd0523a666abb1b4351bb0380d49f4b3f6"
+  },
+  {
+    "key": "gallery-handling-12",
+    "preview": "/assets/gallery/handling-12.webp",
+    "source_sha256": "43a39d0701994aa11685dc4f7750d7d73ab739bc4812fd1dd7674efc745ed2f3",
+    "encrypted_sha256": "ff30415286a3c3e5678f4b5a19e76c899ea6960c08d985b6d20b17ae87e6dea4"
+  },
+  {
+    "key": "gallery-handling-13",
+    "preview": "/assets/gallery/handling-13.webp",
+    "source_sha256": "b5209ab935465d7dd7146ebc5a68e5b0e06fb72b62614b9605b6083ef0e4a121",
+    "encrypted_sha256": "72212d4b3e7ad5742813a047423a797b5b86e52f00a537149d39dda4ac84a99b"
+  },
+  {
+    "key": "gallery-handling-14",
+    "preview": "/assets/gallery/handling-14.webp",
+    "source_sha256": "301372dcec4817c323c18c93eca763fed93e0b2fa94631f1ce0a040aed260534",
+    "encrypted_sha256": "b6c821127325590c7f1cfa64a3b5abcd37108b74d497965a4de8ed36d6eb4c89"
+  },
+  {
+    "key": "gallery-handling-15",
+    "preview": "/assets/gallery/handling-15.webp",
+    "source_sha256": "31ccd670217f3aae5c359e2f969290039f85cbf19f50f539a3ffd68b0b647b11",
+    "encrypted_sha256": "1365aab01cb72c1233d09b592fd4a518e04a50782268d0d4d64dd88183125690"
+  },
+  {
+    "key": "gallery-handling-16",
+    "preview": "/assets/gallery/handling-16.webp",
+    "source_sha256": "313e9e1207b4461eca1e437fe45be051a7f5c428b7466d698d8b8fe60556f091",
+    "encrypted_sha256": "e703e3ac5a4cc5bc0379856040f4e7a57779b4293814b4a426bd905d7b1efbbd"
+  },
+  {
+    "key": "gallery-handling-17",
+    "preview": "/assets/gallery/handling-17.webp",
+    "source_sha256": "855e7d1ae35a4a5be303916f7db3d66c81fba83bf39233072ffa3542c19da60a",
+    "encrypted_sha256": "f0ee21a71c69d9f62108aecad098f345c547b8ab84403fb8ecd229fce5009915"
+  },
+  {
+    "key": "gallery-handling-18",
+    "preview": "/assets/gallery/handling-18.webp",
+    "source_sha256": "f95f18d688789af426ad53e9e6c4cdbea50b935cba83d5fed56ac2789078298b",
+    "encrypted_sha256": "d31013087a0a15551fad5b09f2c712f9d56763d41bc9e774f139cafe31929b05"
+  },
+  {
+    "key": "gallery-handling-19",
+    "preview": "/assets/gallery/handling-19.webp",
+    "source_sha256": "65d1791f143ecdc3c715c254f7be976d6c823466ce291425e3a9b41dd5af082e",
+    "encrypted_sha256": "724fb7054371ac892b4d8aeaaf58c5e2d7d48f3289c67231fd3e3d429617a99d"
+  },
+  {
+    "key": "gallery-handling-20",
+    "preview": "/assets/gallery/handling-20.webp",
+    "source_sha256": "7842a5cb1506b384efc18e4469643de42434cdca43fd6d7713f2f404ec2036b4",
+    "encrypted_sha256": "12a8e75ac4f5806ca156054cd8216b528cfc4c8009a6cdaee6fdd9085776e40c"
+  },
+  {
+    "key": "gallery-handling-21",
+    "preview": "/assets/gallery/handling-21.webp",
+    "source_sha256": "2ed7b6e097d748a962270a8677b1318a56230b2d4b502728ea3965f804ea1f48",
+    "encrypted_sha256": "e13d15b34f7a4ae34d896058428d1d66ddb8065b21ec6610f705623dd609b2c1"
+  },
+  {
+    "key": "gallery-handling-22",
+    "preview": "/assets/gallery/handling-22.webp",
+    "source_sha256": "635c9abe4e30ec69620b1d2e51593b36f3617a0338936b13996b458887e96bff",
+    "encrypted_sha256": "7e07696ded6735605a4c106790f64fd297469306c4c7fc36496a5cba44667636"
+  },
+  {
+    "key": "gallery-handling-23",
+    "preview": "/assets/gallery/handling-23.webp",
+    "source_sha256": "153f679e96fa50afa8d8d7bee23064e3f8c842f68316fe9df3fc86c6dc58ea66",
+    "encrypted_sha256": "dd291aa03ae5a9640fa9ec83f4d156feaf0f4068282862cf954f32b5e18991a3"
+  },
+  {
+    "key": "gallery-handling-24",
+    "preview": "/assets/gallery/handling-24.webp",
+    "source_sha256": "da1a80aea54460f0df546d62b46d85c374259d05afe36d4aa2accfb9420de332",
+    "encrypted_sha256": "408a3c15738e26add5561a6f7d75de0f933d9a3769ef4102393c08fd782bbca3"
+  },
+  {
+    "key": "gallery-handling-25",
+    "preview": "/assets/gallery/handling-25.webp",
+    "source_sha256": "7ce4f2ab1aa9d9a43376179dbc11a65e1bd5cdaabcd77720b48b5bddefc48e5d",
+    "encrypted_sha256": "42c0125d87205aecfd869d339cb79922540b73c4d6f4d183df9c78e9bac6ded0"
+  },
+  {
+    "key": "gallery-handling-26",
+    "preview": "/assets/gallery/handling-26.webp",
+    "source_sha256": "3bd66704dd361c1e31c454e3abb35bd7d6bbf2f5659a125cd3d89a34009fce3f",
+    "encrypted_sha256": "80d3246b27ab9ec7fa873423b33c4d721b049f6cbdc16f72868500244f0792d3"
+  },
+  {
+    "key": "gallery-handling-27",
+    "preview": "/assets/gallery/handling-27.webp",
+    "source_sha256": "427ebb1dabc1ba1b9120ca021ee77af9279c89768fa0ff00765d4a92db097b8b",
+    "encrypted_sha256": "374b97de876cd72a57d4392ee2f4b635b2b506c39fcf0125564e4b8bd80fc735"
+  },
+  {
+    "key": "gallery-shoe-01",
+    "preview": "/assets/gallery/shoe-01.webp",
+    "source_sha256": "81d8670cbcabad8a69356821d402c73f57866a39bcd658129296b0cfba2038d5",
+    "encrypted_sha256": "8361b3c66fee926800bbc9d3a84c375da3e534b6a46ce6055b9ec71d3e258b73"
+  },
+  {
+    "key": "gallery-shoe-02",
+    "preview": "/assets/gallery/shoe-02.webp",
+    "source_sha256": "84fe6dea7011ad44e154697d53af75a9c7d145cd1cb635e01ccf8f15a0031e50",
+    "encrypted_sha256": "697ff9acb6679ba5816981f0d6cdf45afc3fa3a5e04f757cdf07b328ecb18bdf"
+  },
+  {
+    "key": "gallery-shoe-03",
+    "preview": "/assets/gallery/shoe-03.webp",
+    "source_sha256": "b965b28e4b0ae109496147f60f1453adf8445fa96d2eea51636de1293bb957c8",
+    "encrypted_sha256": "2135ffbed38bc43d609383422d4fdbe013ecdeac09f50fa03c78859c1274cbb9"
+  },
+  {
+    "key": "gallery-shoe-04",
+    "preview": "/assets/gallery/shoe-04.webp",
+    "source_sha256": "653212e9959cd2af90ff1dc63126c277d3aade6f4ef59c3f7666013df32826d5",
+    "encrypted_sha256": "9b6c891c0d27cd352b14d0fae5d95105ba7a1e066b852f096aa36468fd0c009d"
+  },
+  {
+    "key": "gallery-thesis-01",
+    "preview": "/assets/gallery/thesis-01.webp",
+    "source_sha256": "63fc1e97430a982d08e85360f444ee706dba73f67c31ccdddf3fe95fdb2a878c",
+    "encrypted_sha256": "14f302fa16023d6ab74906387e59a07cb62c497286c3a502711916b91da1e37d"
+  },
+  {
+    "key": "gallery-thesis-02",
+    "preview": "/assets/gallery/thesis-02.webp",
+    "source_sha256": "c77d88684999b01a316f177ee57654457b9fd8470b59b557f6c0184767a0f158",
+    "encrypted_sha256": "0971530f5791e709622f2b68ce3ea92e33422d733f60999a71aeb7877aaeeb0f"
+  },
+  {
+    "key": "gallery-thesis-03",
+    "preview": "/assets/gallery/thesis-03.webp",
+    "source_sha256": "0800fe32a1937852c0669b7e853c14961f68460ecefdbf175ed7d8a0f42928d9",
+    "encrypted_sha256": "460ef1a456f2f33d107c9e6c9216574778870c2b051319824a9da5e3506423b6"
+  },
+  {
+    "key": "gallery-thesis-04",
+    "preview": "/assets/gallery/thesis-04.webp",
+    "source_sha256": "04b6310f996b264b179d17260dabb076037452b89faebff3655fd02a17baa57c",
+    "encrypted_sha256": "b73b26221f1ffe007e39483644dedcfd934c473e8134166a538c0c5342d7c49e"
+  },
+  {
+    "key": "gallery-thesis-05",
+    "preview": "/assets/gallery/thesis-05.webp",
+    "source_sha256": "5d5cff42dc8c80eb709b9dbbce0206fd83d6549e8ce2c97aa24af45571884d61",
+    "encrypted_sha256": "b0ec1f96eb4ba514b4caf1ea8babedd3ed3364e34f241f22d7d82eca6c5a3219"
+  },
+  {
+    "key": "gallery-thesis-06",
+    "preview": "/assets/gallery/thesis-06.webp",
+    "source_sha256": "f998e4fb704056210a08e975dd5938921884438c51d6e981fb5271f982d8ba9b",
+    "encrypted_sha256": "94efd9ec35ff11f77d3591e6fc41e4bd8ce3245e6dec9a3e3f0d19d0375e242e"
+  },
+  {
+    "key": "gallery-thesis-07",
+    "preview": "/assets/gallery/thesis-07.webp",
+    "source_sha256": "a63a20781405d754a08f8c6bf0cd005644411d839c9e4db27853db1265c89516",
+    "encrypted_sha256": "5eb33350cf4ab3a2e62274f225da53f1abd3a5eaaa6db572c1fdb2a9b1900280"
+  },
+  {
+    "key": "gallery-thesis-08",
+    "preview": "/assets/gallery/thesis-08.webp",
+    "source_sha256": "147d8d2a5fbea1b06e02d778582bed0380e7118d5d387d17af4985fc92d2d1f3",
+    "encrypted_sha256": "ad74b74ab9144e35b5f86f92b78435e68ce2a1669e63f90bef77369b79a817cb"
+  },
+  {
+    "key": "gallery-thesis-09",
+    "preview": "/assets/gallery/thesis-09.webp",
+    "source_sha256": "0e7658c35da32a10f8dadac6b0ace8c6b34356d2a717c7cd8f570c46bbfbe9f3",
+    "encrypted_sha256": "f03a644c83bed9627036aabb3e77362cabe5b1f4000c00e44abe03b28ad7d97e"
+  },
+  {
+    "key": "gallery-thesis-10",
+    "preview": "/assets/gallery/thesis-10.webp",
+    "source_sha256": "031057684321783d90fef9bb54178713fa3d7c83fee3b379db335793c49cae3c",
+    "encrypted_sha256": "cc947329db2503b2a0526f36f7ace3a9da609b0119c21d6213f67ab4a6e61b45"
+  },
+  {
+    "key": "gallery-thesis-11",
+    "preview": "/assets/gallery/thesis-11.webp",
+    "source_sha256": "9216315a0ee4c69c0a1d836550bc1b016eb9b9448a699cf5625b8022fc7228cd",
+    "encrypted_sha256": "1b6e040ad13cf19811b28e5453a3cfcc4cbad2af772795bcf3a52e3baeb0f95b"
+  },
+  {
+    "key": "project-ansys-static",
+    "preview": "/assets/evidence/ansys-static.webp",
+    "source_sha256": "eec0717a4800557896698e808ea125da1f33d3148803127103b483da7f5e47d7",
+    "encrypted_sha256": "fc2c3e7e6b6955a792a3fe0768a090a4e78364553997bccfcc972e22c8235793"
+  },
+  {
+    "key": "project-ansys-thermal",
+    "preview": "/assets/evidence/ansys-thermal.webp",
+    "source_sha256": "dad084b5dc148ba4e3965d15491dfdb564619274cfdc95fab455e44a5e60de23",
+    "encrypted_sha256": "2b00cc96ab378c0870043ce794f767e1453449b8370f7732b34095aee0b34591"
+  },
+  {
+    "key": "project-frost-results",
+    "preview": "/assets/evidence/frost-results.webp",
+    "source_sha256": "e3c4e6b0072e84b3bf81fb3e920286faa75bd32d04c6ee3794f41f7a92973d8f",
+    "encrypted_sha256": "3bd01b2e0d7d03450a0ed34b4af7dd3381472fe38d9575ec77974f8063694d05"
+  },
+  {
+    "key": "project-handling-assembly",
+    "preview": "/assets/evidence/handling-assembly.webp",
+    "source_sha256": "60e7f7fb1db30090e8d13a52a332571a03822b3059d02936be1d9b2be80005b7",
+    "encrypted_sha256": "bcbf066398bebda5e9bba2ef75283f5caf41d5fa19579b021a3e1d26af02e635"
+  },
+  {
+    "key": "project-process-flow",
+    "preview": "/assets/evidence/process-flow.svg",
+    "source_sha256": "7f3d372bb06bdb1be46252ac799f02e6351ab4cb073e27743fcde379fc9328c6",
+    "encrypted_sha256": "9b0e4a706a75f3575701b12d729dd5b41d7789c6f113916ea9fe7b6cb586c6fd"
+  },
+  {
+    "key": "project-shoe-process",
+    "preview": "/assets/evidence/shoe-process.webp",
+    "source_sha256": "783c31c2d027c73d62b9e5e5d410a0eb6a67ae9c94ab875f0d981c1cc7992e71",
+    "encrypted_sha256": "7a325413fc3109197f0d3419a3443483aa3f132207c571c00949bfb6821ea8ec"
+  },
+  {
+    "key": "portrait",
+    "preview": "/assets/images/sagar-kriplani.webp",
+    "source_sha256": "ee25a352adb1528c918377bbb9747a3f76ddedb785f91920362c5899b4fd581c",
+    "encrypted_sha256": "243631b4a9c36ec90da850c123468b767d4e042e6725ecb06f781ad2ffd75216"
+  }
+]

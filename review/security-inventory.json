@@ -1,0 +1,537 @@
+{
+  "review_date": "2026-10-29",
+  "policy": "All approved previews/data public; official original-file downloads password encrypted. Public previews can be saved/captured. CVs remain public.",
+  "protected_original_count": 132,
+  "images": [
+    {
+      "preview": "/assets/evidence/nx-basic.webp",
+      "encrypted_original": "/assets/protected/nx-basic.skvault"
+    },
+    {
+      "preview": "/assets/evidence/nx-essentials.webp",
+      "encrypted_original": "/assets/protected/nx-essentials.skvault"
+    },
+    {
+      "preview": "/assets/evidence/nc-programming.webp",
+      "encrypted_original": "/assets/protected/nc-programming.skvault"
+    },
+    {
+      "preview": "/assets/evidence/robot-six-axis.webp",
+      "encrypted_original": "/assets/protected/robot-six-axis.skvault"
+    },
+    {
+      "preview": "/assets/evidence/rpt-basics.webp",
+      "encrypted_original": "/assets/protected/rpt-basics.skvault"
+    },
+    {
+      "preview": "/assets/evidence/flexmill.webp",
+      "encrypted_original": "/assets/protected/flexmill.skvault"
+    },
+    {
+      "preview": "/assets/evidence/drafting-essentials.webp",
+      "encrypted_original": "/assets/protected/drafting-essentials.skvault"
+    },
+    {
+      "preview": "/assets/evidence/synchronous-modelling.webp",
+      "encrypted_original": "/assets/protected/synchronous-modelling.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ansys-training.webp",
+      "encrypted_original": "/assets/protected/ansys-training.skvault"
+    },
+    {
+      "preview": "/assets/evidence/engineering-drawings.webp",
+      "encrypted_original": "/assets/protected/engineering-drawings.skvault"
+    },
+    {
+      "preview": "/assets/evidence/learning-nx.webp",
+      "encrypted_original": "/assets/protected/learning-nx.skvault"
+    },
+    {
+      "preview": "/assets/evidence/semiconductor-scale.webp",
+      "encrypted_original": "/assets/protected/semiconductor-scale.skvault"
+    },
+    {
+      "preview": "/assets/evidence/german-b1-plus.webp",
+      "encrypted_original": "/assets/protected/german-b1-plus.skvault"
+    },
+    {
+      "preview": "/assets/evidence/cad-event-coordinator.webp",
+      "encrypted_original": "/assets/protected/cad-event-coordinator.skvault"
+    },
+    {
+      "preview": "/assets/evidence/activity-points.webp",
+      "encrypted_original": "/assets/protected/activity-points.skvault"
+    },
+    {
+      "preview": "/assets/evidence/gsecl-training.webp",
+      "encrypted_original": "/assets/protected/gsecl-training.skvault"
+    },
+    {
+      "preview": "/assets/evidence/nest-reference.webp",
+      "encrypted_original": "/assets/protected/nest-reference.skvault"
+    },
+    {
+      "preview": "/assets/evidence/brooks-reference-1.webp",
+      "encrypted_original": "/assets/protected/brooks-reference-1.skvault"
+    },
+    {
+      "preview": "/assets/evidence/brooks-reference-2.webp",
+      "encrypted_original": "/assets/protected/brooks-reference-2.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ravi-reference.webp",
+      "encrypted_original": "/assets/protected/ravi-reference.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ravi-recommendation.webp",
+      "encrypted_original": "/assets/protected/ravi-recommendation.skvault"
+    },
+    {
+      "preview": "/assets/evidence/master-degree.webp",
+      "encrypted_original": "/assets/protected/master-degree.skvault"
+    },
+    {
+      "preview": "/assets/evidence/master-grades.webp",
+      "encrypted_original": "/assets/protected/master-grades.skvault"
+    },
+    {
+      "preview": "/assets/evidence/master-transcript.webp",
+      "encrypted_original": "/assets/protected/master-transcript.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ects-grade.webp",
+      "encrypted_original": "/assets/protected/ects-grade.skvault"
+    },
+    {
+      "preview": "/assets/evidence/bachelor-degree.webp",
+      "encrypted_original": "/assets/protected/bachelor-degree.skvault"
+    },
+    {
+      "preview": "/assets/evidence/bachelor-transcript.webp",
+      "encrypted_original": "/assets/protected/bachelor-transcript.skvault"
+    },
+    {
+      "preview": "/assets/evidence/diploma-degree.webp",
+      "encrypted_original": "/assets/protected/diploma-degree.skvault"
+    },
+    {
+      "preview": "/assets/evidence/diploma-transcript.webp",
+      "encrypted_original": "/assets/protected/diploma-transcript.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-01.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-01.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-02.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-02.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-03.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-03.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-04.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-04.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-05.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-05.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-06.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-06.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-07.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-07.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-08.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-08.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-09.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-09.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-10.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-10.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-11.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-11.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-12.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-12.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-13.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-13.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-14.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-14.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-15.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-15.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-16.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-16.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-17.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-17.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-18.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-18.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-19.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-19.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-20.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-20.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-21.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-21.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-22.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-22.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-23.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-23.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-24.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-24.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-25.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-25.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-26.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-26.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-27.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-27.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-28.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-28.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-29.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-29.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-30.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-30.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-31.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-31.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-32.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-32.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-33.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-33.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-34.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-34.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-35.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-35.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-36.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-36.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-37.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-37.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-38.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-38.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-39.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-39.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-40.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-40.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-41.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-41.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-42.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-42.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-43.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-43.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-44.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-44.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-45.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-45.skvault"
+    },
+    {
+      "preview": "/assets/gallery/ansys-46.webp",
+      "encrypted_original": "/assets/protected/gallery-ansys-46.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-01.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-01.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-02.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-02.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-03.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-03.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-04.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-04.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-05.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-05.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-06.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-06.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-07.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-07.skvault"
+    },
+    {
+      "preview": "/assets/gallery/frost-08.webp",
+      "encrypted_original": "/assets/protected/gallery-frost-08.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-01.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-01.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-02.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-02.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-03.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-03.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-04.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-04.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-05.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-05.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-06.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-06.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-07.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-07.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-08.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-08.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-09.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-09.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-10.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-10.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-11.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-11.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-12.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-12.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-13.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-13.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-14.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-14.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-15.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-15.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-16.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-16.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-17.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-17.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-18.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-18.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-19.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-19.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-20.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-20.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-21.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-21.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-22.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-22.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-23.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-23.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-24.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-24.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-25.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-25.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-26.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-26.skvault"
+    },
+    {
+      "preview": "/assets/gallery/handling-27.webp",
+      "encrypted_original": "/assets/protected/gallery-handling-27.skvault"
+    },
+    {
+      "preview": "/assets/gallery/shoe-01.webp",
+      "encrypted_original": "/assets/protected/gallery-shoe-01.skvault"
+    },
+    {
+      "preview": "/assets/gallery/shoe-02.webp",
+      "encrypted_original": "/assets/protected/gallery-shoe-02.skvault"
+    },
+    {
+      "preview": "/assets/gallery/shoe-03.webp",
+      "encrypted_original": "/assets/protected/gallery-shoe-03.skvault"
+    },
+    {
+      "preview": "/assets/gallery/shoe-04.webp",
+      "encrypted_original": "/assets/protected/gallery-shoe-04.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-01.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-01.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-02.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-02.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-03.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-03.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-04.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-04.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-05.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-05.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-06.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-06.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-07.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-07.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-08.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-08.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-09.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-09.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-10.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-10.skvault"
+    },
+    {
+      "preview": "/assets/gallery/thesis-11.webp",
+      "encrypted_original": "/assets/protected/gallery-thesis-11.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ansys-static.webp",
+      "encrypted_original": "/assets/protected/project-ansys-static.skvault"
+    },
+    {
+      "preview": "/assets/evidence/ansys-thermal.webp",
+      "encrypted_original": "/assets/protected/project-ansys-thermal.skvault"
+    },
+    {
+      "preview": "/assets/evidence/frost-results.webp",
+      "encrypted_original": "/assets/protected/project-frost-results.skvault"
+    },
+    {
+      "preview": "/assets/evidence/handling-assembly.webp",
+      "encrypted_original": "/assets/protected/project-handling-assembly.skvault"
+    },
+    {
+      "preview": "/assets/evidence/process-flow.svg",
+      "encrypted_original": "/assets/protected/project-process-flow.skvault"
+    },
+    {
+      "preview": "/assets/evidence/shoe-process.webp",
+      "encrypted_original": "/assets/protected/project-shoe-process.skvault"
+    },
+    {
+      "preview": "/assets/images/sagar-kriplani.webp",
+      "encrypted_original": "/assets/protected/portrait.skvault"
+    }
+  ],
+  "raw_sources": "Not hosted; no employer CAD or confidential unredacted source documents published",
+  "historical_exposure": "Prior public originals remain in Git history; new encryption cannot revoke historical copies"
+}
