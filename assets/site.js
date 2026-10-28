@@ -80,12 +80,41 @@
     filterButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
     applyEvidenceFilter();
   }));
+  const galleryCards = [...document.querySelectorAll('[data-gallery-group]')];
+  if (galleryCards.length) {
+    const filters = [...document.querySelectorAll('[data-gallery-filter]')];
+    const more = document.getElementById('gallery-more');
+    let selected = new URLSearchParams(location.search).get('project') || 'all';
+    if (!filters.some(b => b.dataset.galleryFilter === selected)) selected = 'all';
+    let limit = 12;
+    function updateGallery() {
+      const matches = galleryCards.filter(c => selected === 'all' || c.dataset.galleryGroup === selected);
+      galleryCards.forEach(c => { c.hidden = true; });
+      matches.slice(0, limit).forEach(c => { c.hidden = false; });
+      filters.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.galleryFilter === selected)));
+      more.hidden = limit >= matches.length;
+      document.querySelector('.gallery-status').textContent = `${Math.min(limit, matches.length)} / ${matches.length} ${lang === 'de' ? 'Abbildungen' : 'figures'}`;
+      const query = selected === 'all' ? '' : '?project=' + encodeURIComponent(selected);
+      history.replaceState(null, '', location.pathname + query);
+      const languageLink = document.querySelector('.language');
+      if (languageLink) languageLink.search = query;
+    }
+    filters.forEach(b => b.addEventListener('click', () => { selected=b.dataset.galleryFilter;limit=12;updateGallery(); }));
+    more.addEventListener('click', () => { limit+=12;updateGallery(); });
+    updateGallery();
+  }
   const dialog = document.querySelector('.document-viewer');
   if (!dialog || typeof dialog.showModal !== 'function') return;
   const links = [...document.querySelectorAll('a[data-viewer]')];
   let current = null;
+  let zoomLevel = 1;
+  function setZoom(level) { zoomLevel=Math.max(1,Math.min(4,level));const img=dialog.querySelector('.viewer-image');img.style.width=(zoomLevel*100)+'%';img.style.maxWidth='none';img.style.maxHeight=zoomLevel===1?'68dvh':'none';img.style.objectFit='contain'; }
+  dialog.querySelector('.viewer-zoom-in').addEventListener('click',()=>setZoom(zoomLevel+.5));
+  dialog.querySelector('.viewer-zoom-out').addEventListener('click',()=>setZoom(zoomLevel-.5));
+  dialog.querySelector('.viewer-fit').addEventListener('click',()=>setZoom(1));
   function show(link) {
     current = link;
+    setZoom(1);
     const caption = link.dataset.caption || link.querySelector('img')?.alt || '';
     dialog.querySelector('.viewer-image').src = link.href;
     dialog.querySelector('.viewer-image').alt = caption;
@@ -104,6 +133,9 @@
   dialog.querySelector('.viewer-prev').addEventListener('click', () => step(-1));
   dialog.querySelector('.viewer-next').addEventListener('click', () => step(1));
   dialog.addEventListener('keydown', event => {
+    if (event.key === '+') { event.preventDefault(); setZoom(zoomLevel+.5); }
+    if (event.key === '-') { event.preventDefault(); setZoom(zoomLevel-.5); }
+    if (event.key === '0') { event.preventDefault(); setZoom(1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); step(1); }
     if (event.key === 'ArrowLeft') { event.preventDefault(); step(-1); }
   });

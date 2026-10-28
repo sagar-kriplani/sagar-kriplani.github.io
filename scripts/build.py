@@ -3,10 +3,15 @@ from pathlib import Path
 from html import escape
 import json
 import shutil
+from gallery import gallery_strip, gallery_intro, gallery_page, cad_page
 from evidence import enrich_copy, evidence_section, media_section, evidence_page, project_image, viewer, RECORDS
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'dist'
+# Rebuild only the verified generated-output directory, preventing stale excluded assets.
+assert OUT.resolve().parent == ROOT.resolve() and OUT.name == 'dist'
+if OUT.exists():
+    shutil.rmtree(OUT)
 OUT.mkdir(exist_ok=True)
 
 COPY = {
@@ -75,7 +80,7 @@ def header(lang, c, sub=False):
     prefix = '/' + lang + '/'
     links = ''.join(f'<a href="{prefix}#{i}">{escape(t)}</a>' for i,t in zip(['work','experience','expertise','evidence','contact'],c['nav']))
     return f'''<a class="skip" href="#main">{'Skip to content' if lang=='en' else 'Zum Inhalt'}</a>
-    <header class="header"><a class="brand" href="/{lang}/" aria-label="Sagar Kriplani — Home"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{'cv/' if sub=='cv' else 'legal/' if sub=='legal' else 'evidence/' if sub=='evidence' else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">☰</button></div><nav id="mobile-nav" class="mobile-nav" hidden>{links}</nav></header>'''
+    <header class="header"><a class="brand" href="/{lang}/" aria-label="Sagar Kriplani — Home"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{str(sub)+'/' if sub else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">☰</button></div><nav id="mobile-nav" class="mobile-nav" hidden>{links}</nav></header>'''
 
 def head(lang,c,title=None,path=None):
     path = path or f'/{lang}/'
@@ -105,6 +110,7 @@ def home(lang):
     cards=''
     for n,p in enumerate(c['projects']):
         content=''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
+        content+=gallery_strip(p['id'],lang)
         source_art=project_image(p['id'],lang)
         visual=source_art or art(p['art'])
         illustration_label=('CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION') if not source_art else ('SOURCE REPORT EXCERPT' if lang=='en' else 'AUSZUG AUS PROJEKTBERICHT')
@@ -120,7 +126,7 @@ def home(lang):
     <section class="experience section" id="experience"><div class="section-heading"><div><p class="eyebrow">{c['experienceLabel']}</p><h2>{c['experienceTitle']}</h2></div><p>{c['experienceNote']}</p></div><div class="jobs">{jobs(c)}</div></section>
     <section class="expertise section" id="expertise"><p class="eyebrow">{c['expertiseLabel']}</p><h2>{c['expertiseTitle']}</h2><div class="skills">{skills}</div><div class="education"><div><p class="eyebrow">{c['education']}</p>{degrees}</div><div class="languages"><p class="eyebrow">{c['languages']}</p><h3>{c['languageText']}</h3><p>{c['languageNote']}</p><a class="text-link" href="/{lang}/cv/">{c['cv']} ↗</a></div></div></section>
     <section class="contact" id="contact"><p class="eyebrow">{c['contactLabel']}</p><div class="contact-grid"><div><h2>{c['contactTitle']}</h2><p>{c['contactText']}</p></div><div class="contact-links"><a class="email-address" href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com <span>↗</span></a><button class="copy-email" type="button" data-copied="{c['copied']}">{c['copy']}</button><p class="copy-status" role="status" aria-live="polite"></p><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn <span>↗</span></a><a href="https://github.com/sagar-kriplani">GitHub <span>↗</span></a></div></div></section></main>'''+footer(lang,c)
-    result=result.replace('<section class="contact"',evidence_section(lang)+media_section(lang)+'<section class="contact"')
+    result=result.replace('<section class="contact"',gallery_intro(lang)+evidence_section(lang)+media_section(lang)+'<section class="contact"')
     result=result.replace('</main>', '</main>'+viewer(lang))
     return result
 
@@ -144,20 +150,20 @@ def legal(lang):
     return (head(lang,c,c['legalTitle']+' | Sagar Kriplani',f'/{lang}/legal/')+f'<main id="main" class="legal-page"><a href="/{lang}/">← {c["back"]}</a><h1>{c["legalTitle"]}</h1>{body}</main>'+footer(lang,c)).replace(header(lang,c),header(lang,c,'legal'))
 
 for lang in COPY:
-    for sub,html in [('',home(lang)),('cv',cv(lang)),('legal',legal(lang)),('evidence',evidence_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'evidence')))]:
+    for sub,html in [('',home(lang)),('cv',cv(lang)),('legal',legal(lang)),('evidence',evidence_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'evidence'))),('gallery',gallery_page(lang,head,footer,COPY[lang],viewer).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'gallery'))),('cad',cad_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'cad')))]:
         target=OUT/lang/sub
         target.mkdir(parents=True,exist_ok=True)
         (target/'index.html').write_text(html,encoding='utf-8')
 (OUT/'index.html').write_text(home('en').replace('https://sagar-kriplani.github.io/en/\"','https://sagar-kriplani.github.io/\"',1),encoding='utf-8')
 # Keep root entrypoint usable for local review and straightforward Pages fallback.
 (ROOT/'index.html').write_text((OUT/'index.html').read_text(encoding='utf-8'),encoding='utf-8')
-for name in ['site.css','site.js','favicon.svg']:
+for name in ['site.css','site.js','cad-viewer.js','favicon.svg']:
     shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name) if (OUT/'assets').exists() else ((OUT/'assets').mkdir(),shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name))
-for directory in ['images','fonts','evidence']:
+for directory in ['images','fonts','evidence','gallery']:
     shutil.copytree(ROOT/'assets'/directory,OUT/'assets'/directory,dirs_exist_ok=True)
 (OUT/'.nojekyll').write_text('',encoding='utf-8')
 (OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://sagar-kriplani.github.io/sitemap.xml\n',encoding='utf-8')
-urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/evidence/','/de/evidence/']
+urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/evidence/','/de/evidence/','/en/gallery/','/de/gallery/','/en/cad/','/de/cad/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://sagar-kriplani.github.io'+u+'</loc></url>' for u in urls)+'</urlset>',encoding='utf-8')
 (OUT/'404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Sagar Kriplani</title><link rel="stylesheet" href="/assets/site.css"><main class="legal-page"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>Let’s get you<br>back on track.</h1><a class="button primary" href="/">Back to portfolio ↗</a></main></html>',encoding='utf-8')
 print('Built bilingual portfolio, CV pages, legal pages, sitemap and 404 in dist/.')

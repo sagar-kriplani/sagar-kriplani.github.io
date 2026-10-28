@@ -1,3 +1,18 @@
+# NDA and academic-gallery revision — 28 October 2026
+
+This revision takes precedence over the earlier media selections below.
+
+- Removed the Brooks PAU CAD assembly image and both equipment-themed LinkedIn media assets from the current branch and deployment. The existing source documents remain local and are not uploaded.
+- Replaced the PAU image with a simplified, diagram-only SVG based on report Figure 4-4. It contains no text, component IDs, nomenclature, measurements or model geometry.
+- Published 96 selected academic source figures: 27 mechanism/design views, 46 ANSYS training result views, eight numerical frost-model figures, 11 thesis workflow/plot excerpts and four diploma process-planning diagrams. Employer equipment photographs, chamber/fixture/LED hardware CAD and real hardware models are excluded. The thesis selection is limited to a methodology flow and charts; no equipment imagery is included.
+- Figures were extracted from reviewed report-image regions or explicitly selected chart regions. Covers, contributor tables, personal identifiers, private contacts and drawing title blocks were excluded. Raster assets have no personal metadata. Source/page labels identify academic, team and training context; views are not manufacturing validation claims.
+- Added filtered, progressively loaded galleries and zoomable image inspection. Academic Inventor files were located locally, but no native CAD files were published. A candidate STEP file with unrelated company provenance was rejected rather than attributed to the user.
+- Added a browser-local STL/OBJ viewer with orbit, pan, zoom, standard views, keyboard controls, file/triangle limits and invalid-file handling. Tests cover ASCII STL, binary STL and OBJ with negative indices. Selecting a private mesh produced zero network requests. It does not parse native Inventor, STEP or FreeCAD documents, infer units or provide engineering measurement. The initial cube is explicitly a generic demo.
+- Export guidance references Autodesk's documented Inventor export formats and FreeCAD's official STL/OBJ export guide. No native CAD conversion was falsely claimed.
+- Current-site removal does not erase earlier Git commit objects or third-party caches. Git history was not rewritten or force-pushed.
+
+---
+
 # Portfolio evidence audit — 28 October 2026
 
 ## Current review

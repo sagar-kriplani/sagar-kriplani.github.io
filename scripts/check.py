@@ -50,6 +50,13 @@ for lang in ('en','de'):
     # Generic patterns avoid placing the user's actual private identifiers in source control.
     for pattern in [r'(?i)(student id|enrollment number|matrikelnummer)\s*[:=]\s*\d{5,}',r'\b[A-Z]{2}\d{2}(?: ?\d){15,}\b']:
         assert not re.search(pattern, public_text), 'Private-identifier pattern in evidence HTML'
+for forbidden in ['pau-assembly.webp','linkedin-concept.webp','linkedin-concept.webm']:
+    assert not list(ROOT.rglob(forbidden)), 'Excluded employer imagery must not ship'
+for extension in ['*.iam','*.ipt','*.step','*.stp']:
+    assert not list(ROOT.rglob(extension)), 'Raw CAD must remain local'
+assert (ROOT/'assets/evidence/process-flow.svg').exists()
+assert '<text' not in (ROOT/'assets/evidence/process-flow.svg').read_text()
+assert len(list((ROOT/'assets/gallery').glob('*.webp')))==96
 assert not list(ROOT.rglob('*.mp4')), 'Only silent reviewed WebM ships'
 assert not list(ROOT.rglob('*.docx'))
 assert not (ROOT/'reference').exists()

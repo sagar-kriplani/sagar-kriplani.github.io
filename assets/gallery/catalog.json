@@ -1,0 +1,962 @@
+[
+  {
+    "key": "handling-01",
+    "group": "handling",
+    "en": "Foundation and support assembly",
+    "de": "Fundament- und Stützbaugruppe",
+    "source": "Advanced 3D CAD project report",
+    "page": 11,
+    "width": 396,
+    "height": 561
+  },
+  {
+    "key": "handling-02",
+    "group": "handling",
+    "en": "Support-column isometric view",
+    "de": "Isometrische Ansicht der Stützsäule",
+    "source": "Advanced 3D CAD project report",
+    "page": 12,
+    "width": 379,
+    "height": 578
+  },
+  {
+    "key": "handling-03",
+    "group": "handling",
+    "en": "Support-column drawing",
+    "de": "Zeichnung der Stützsäule",
+    "source": "Advanced 3D CAD project report",
+    "page": 12,
+    "width": 355,
+    "height": 576
+  },
+  {
+    "key": "handling-04",
+    "group": "handling",
+    "en": "Upper support geometry",
+    "de": "Geometrie der oberen Abstützung",
+    "source": "Advanced 3D CAD project report",
+    "page": 14,
+    "width": 699,
+    "height": 630
+  },
+  {
+    "key": "handling-05",
+    "group": "handling",
+    "en": "Foundation-plate design",
+    "de": "Konstruktion der Grundplatte",
+    "source": "Advanced 3D CAD project report",
+    "page": 14,
+    "width": 977,
+    "height": 690
+  },
+  {
+    "key": "handling-06",
+    "group": "handling",
+    "en": "Side support and mounting plate",
+    "de": "Seitliche Abstützung und Montageplatte",
+    "source": "Advanced 3D CAD project report",
+    "page": 15,
+    "width": 869,
+    "height": 688
+  },
+  {
+    "key": "handling-07",
+    "group": "handling",
+    "en": "Rotary-mechanism housing",
+    "de": "Gehäuse des Drehmechanismus",
+    "source": "Advanced 3D CAD project report",
+    "page": 16,
+    "width": 343,
+    "height": 391
+  },
+  {
+    "key": "handling-08",
+    "group": "handling",
+    "en": "Rotary-housing drawing",
+    "de": "Zeichnung des Drehgehäuses",
+    "source": "Advanced 3D CAD project report",
+    "page": 17,
+    "width": 549,
+    "height": 577
+  },
+  {
+    "key": "handling-09",
+    "group": "handling",
+    "en": "Vertical guide detail",
+    "de": "Detail der vertikalen Führung",
+    "source": "Advanced 3D CAD project report",
+    "page": 19,
+    "width": 1004,
+    "height": 893
+  },
+  {
+    "key": "handling-10",
+    "group": "handling",
+    "en": "Vertical slide assembly",
+    "de": "Vertikale Schlittenbaugruppe",
+    "source": "Advanced 3D CAD project report",
+    "page": 20,
+    "width": 487,
+    "height": 693
+  },
+  {
+    "key": "handling-11",
+    "group": "handling",
+    "en": "Vertical-column drawing",
+    "de": "Zeichnung der Vertikalsäule",
+    "source": "Advanced 3D CAD project report",
+    "page": 22,
+    "width": 1021,
+    "height": 778
+  },
+  {
+    "key": "handling-12",
+    "group": "handling",
+    "en": "Slider detail drawing",
+    "de": "Detailzeichnung des Schlittens",
+    "source": "Advanced 3D CAD project report",
+    "page": 24,
+    "width": 731,
+    "height": 719
+  },
+  {
+    "key": "handling-13",
+    "group": "handling",
+    "en": "Pneumatic attachment plate",
+    "de": "Befestigungsplatte der Pneumatik",
+    "source": "Advanced 3D CAD project report",
+    "page": 25,
+    "width": 661,
+    "height": 356
+  },
+  {
+    "key": "handling-14",
+    "group": "handling",
+    "en": "Lead-screw detail",
+    "de": "Detail der Leitspindel",
+    "source": "Advanced 3D CAD project report",
+    "page": 26,
+    "width": 497,
+    "height": 531
+  },
+  {
+    "key": "handling-15",
+    "group": "handling",
+    "en": "Pick-and-place gripper assembly",
+    "de": "Pick-and-Place-Greiferbaugruppe",
+    "source": "Advanced 3D CAD project report",
+    "page": 27,
+    "width": 433,
+    "height": 520
+  },
+  {
+    "key": "handling-16",
+    "group": "handling",
+    "en": "Gripper force diagram",
+    "de": "Kraftdiagramm des Greifers",
+    "source": "Advanced 3D CAD project report",
+    "page": 27,
+    "width": 353,
+    "height": 325
+  },
+  {
+    "key": "handling-17",
+    "group": "handling",
+    "en": "Linkage force diagram",
+    "de": "Kraftdiagramm der Kinematik",
+    "source": "Advanced 3D CAD project report",
+    "page": 28,
+    "width": 355,
+    "height": 348
+  },
+  {
+    "key": "handling-18",
+    "group": "handling",
+    "en": "Gripper attachment detail",
+    "de": "Detail der Greiferbefestigung",
+    "source": "Advanced 3D CAD project report",
+    "page": 28,
+    "width": 581,
+    "height": 449
+  },
+  {
+    "key": "handling-19",
+    "group": "handling",
+    "en": "Gripper plate",
+    "de": "Greiferplatte",
+    "source": "Advanced 3D CAD project report",
+    "page": 29,
+    "width": 512,
+    "height": 325
+  },
+  {
+    "key": "handling-20",
+    "group": "handling",
+    "en": "Gripper linkage geometry",
+    "de": "Geometrie der Greiferkinematik",
+    "source": "Advanced 3D CAD project report",
+    "page": 30,
+    "width": 822,
+    "height": 412
+  },
+  {
+    "key": "handling-21",
+    "group": "handling",
+    "en": "Link bending diagram",
+    "de": "Biegediagramm eines Kinematikglieds",
+    "source": "Advanced 3D CAD project report",
+    "page": 30,
+    "width": 337,
+    "height": 314
+  },
+  {
+    "key": "handling-22",
+    "group": "handling",
+    "en": "Pin linkage detail",
+    "de": "Detail der Bolzenkinematik",
+    "source": "Advanced 3D CAD project report",
+    "page": 31,
+    "width": 637,
+    "height": 326
+  },
+  {
+    "key": "handling-23",
+    "group": "handling",
+    "en": "Gripper-rod drawing",
+    "de": "Zeichnung der Greiferstange",
+    "source": "Advanced 3D CAD project report",
+    "page": 31,
+    "width": 737,
+    "height": 343
+  },
+  {
+    "key": "handling-24",
+    "group": "handling",
+    "en": "Fixed linkage drawing",
+    "de": "Zeichnung des festen Kinematikglieds",
+    "source": "Advanced 3D CAD project report",
+    "page": 32,
+    "width": 633,
+    "height": 324
+  },
+  {
+    "key": "handling-25",
+    "group": "handling",
+    "en": "Linkage bracket drawing",
+    "de": "Zeichnung des Kinematikhalters",
+    "source": "Advanced 3D CAD project report",
+    "page": 32,
+    "width": 640,
+    "height": 300
+  },
+  {
+    "key": "handling-26",
+    "group": "handling",
+    "en": "Pneumatic-piston detail",
+    "de": "Detail des Pneumatikkolbens",
+    "source": "Advanced 3D CAD project report",
+    "page": 33,
+    "width": 567,
+    "height": 280
+  },
+  {
+    "key": "handling-27",
+    "group": "handling",
+    "en": "Complete cylindrical handling assembly",
+    "de": "Zylindrische Handhabungsbaugruppe",
+    "source": "Advanced 3D CAD project report",
+    "page": 35,
+    "width": 749,
+    "height": 853
+  },
+  {
+    "key": "ansys-01",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 3,
+    "width": 1499,
+    "height": 670
+  },
+  {
+    "key": "ansys-02",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 4,
+    "width": 1499,
+    "height": 657
+  },
+  {
+    "key": "ansys-03",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 7,
+    "width": 1500,
+    "height": 645
+  },
+  {
+    "key": "ansys-04",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 8,
+    "width": 1500,
+    "height": 809
+  },
+  {
+    "key": "ansys-05",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 12,
+    "width": 1500,
+    "height": 739
+  },
+  {
+    "key": "ansys-06",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 13,
+    "width": 1500,
+    "height": 798
+  },
+  {
+    "key": "ansys-07",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 15,
+    "width": 1500,
+    "height": 789
+  },
+  {
+    "key": "ansys-08",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 16,
+    "width": 1499,
+    "height": 801
+  },
+  {
+    "key": "ansys-09",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 19,
+    "width": 1500,
+    "height": 684
+  },
+  {
+    "key": "ansys-10",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 20,
+    "width": 1499,
+    "height": 668
+  },
+  {
+    "key": "ansys-11",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 22,
+    "width": 1500,
+    "height": 782
+  },
+  {
+    "key": "ansys-12",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 23,
+    "width": 1499,
+    "height": 804
+  },
+  {
+    "key": "ansys-13",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 25,
+    "width": 1500,
+    "height": 781
+  },
+  {
+    "key": "ansys-14",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 26,
+    "width": 1500,
+    "height": 798
+  },
+  {
+    "key": "ansys-15",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 28,
+    "width": 1499,
+    "height": 892
+  },
+  {
+    "key": "ansys-16",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 30,
+    "width": 1499,
+    "height": 757
+  },
+  {
+    "key": "ansys-17",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 33,
+    "width": 1500,
+    "height": 837
+  },
+  {
+    "key": "ansys-18",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 35,
+    "width": 1500,
+    "height": 799
+  },
+  {
+    "key": "ansys-19",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 37,
+    "width": 1500,
+    "height": 630
+  },
+  {
+    "key": "ansys-20",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 38,
+    "width": 1500,
+    "height": 783
+  },
+  {
+    "key": "ansys-21",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 42,
+    "width": 1500,
+    "height": 783
+  },
+  {
+    "key": "ansys-22",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 43,
+    "width": 1500,
+    "height": 789
+  },
+  {
+    "key": "ansys-23",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 46,
+    "width": 1500,
+    "height": 776
+  },
+  {
+    "key": "ansys-24",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 47,
+    "width": 1500,
+    "height": 790
+  },
+  {
+    "key": "ansys-25",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 49,
+    "width": 1500,
+    "height": 801
+  },
+  {
+    "key": "ansys-26",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 50,
+    "width": 1500,
+    "height": 777
+  },
+  {
+    "key": "ansys-27",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 54,
+    "width": 1500,
+    "height": 755
+  },
+  {
+    "key": "ansys-28",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 56,
+    "width": 1500,
+    "height": 787
+  },
+  {
+    "key": "ansys-29",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 60,
+    "width": 1500,
+    "height": 719
+  },
+  {
+    "key": "ansys-30",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 63,
+    "width": 1500,
+    "height": 735
+  },
+  {
+    "key": "ansys-31",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 64,
+    "width": 1500,
+    "height": 762
+  },
+  {
+    "key": "ansys-32",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 67,
+    "width": 1499,
+    "height": 738
+  },
+  {
+    "key": "ansys-33",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 68,
+    "width": 1500,
+    "height": 747
+  },
+  {
+    "key": "ansys-34",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 71,
+    "width": 1500,
+    "height": 745
+  },
+  {
+    "key": "ansys-35",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 73,
+    "width": 1500,
+    "height": 771
+  },
+  {
+    "key": "ansys-36",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 74,
+    "width": 1500,
+    "height": 761
+  },
+  {
+    "key": "ansys-37",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 76,
+    "width": 1500,
+    "height": 742
+  },
+  {
+    "key": "ansys-38",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 77,
+    "width": 1500,
+    "height": 776
+  },
+  {
+    "key": "ansys-39",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 80,
+    "width": 1499,
+    "height": 755
+  },
+  {
+    "key": "ansys-40",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 81,
+    "width": 1500,
+    "height": 787
+  },
+  {
+    "key": "ansys-41",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 83,
+    "width": 1499,
+    "height": 786
+  },
+  {
+    "key": "ansys-42",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 84,
+    "width": 1500,
+    "height": 786
+  },
+  {
+    "key": "ansys-43",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 86,
+    "width": 1500,
+    "height": 669
+  },
+  {
+    "key": "ansys-44",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 89,
+    "width": 1499,
+    "height": 807
+  },
+  {
+    "key": "ansys-45",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 90,
+    "width": 1500,
+    "height": 804
+  },
+  {
+    "key": "ansys-46",
+    "group": "ansys",
+    "en": "ANSYS training result",
+    "de": "ANSYS-Trainingsergebnis",
+    "source": "Analysis tasks in ANSYS · training workbook",
+    "page": 91,
+    "width": 1500,
+    "height": 802
+  },
+  {
+    "key": "frost-01",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 19,
+    "width": 1175,
+    "height": 598
+  },
+  {
+    "key": "frost-02",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 24,
+    "width": 1008,
+    "height": 567
+  },
+  {
+    "key": "frost-03",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 33,
+    "width": 1107,
+    "height": 751
+  },
+  {
+    "key": "frost-04",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 33,
+    "width": 1098,
+    "height": 758
+  },
+  {
+    "key": "frost-05",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 35,
+    "width": 1219,
+    "height": 636
+  },
+  {
+    "key": "frost-06",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 35,
+    "width": 1218,
+    "height": 609
+  },
+  {
+    "key": "frost-07",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 36,
+    "width": 1218,
+    "height": 610
+  },
+  {
+    "key": "frost-08",
+    "group": "frost",
+    "en": "Numerical frost-model figure",
+    "de": "Abbildung zum numerischen Frostmodell",
+    "source": "Bachelor team report · frost-growth modelling",
+    "page": 36,
+    "width": 1219,
+    "height": 639
+  },
+  {
+    "key": "thesis-01",
+    "group": "thesis",
+    "en": "Research methodology flow",
+    "de": "Ablauf der Forschungsmethodik",
+    "source": "Master thesis · comparative heating study",
+    "page": 29,
+    "width": 1387,
+    "height": 534
+  },
+  {
+    "key": "thesis-02",
+    "group": "thesis",
+    "en": "Black-polymer absorbance spectrum",
+    "de": "Absorptionsspektrum schwarzes Polymer",
+    "source": "Master thesis · comparative heating study",
+    "page": 49,
+    "width": 1499,
+    "height": 896
+  },
+  {
+    "key": "thesis-03",
+    "group": "thesis",
+    "en": "Transparent-polymer absorbance spectrum",
+    "de": "Absorptionsspektrum transparentes Polymer",
+    "source": "Master thesis · comparative heating study",
+    "page": 51,
+    "width": 1499,
+    "height": 868
+  },
+  {
+    "key": "thesis-04",
+    "group": "thesis",
+    "en": "LED heating temperature profiles",
+    "de": "Temperaturprofile bei LED-Erwärmung",
+    "source": "Master thesis · comparative heating study",
+    "page": 53,
+    "width": 1338,
+    "height": 684
+  },
+  {
+    "key": "thesis-05",
+    "group": "thesis",
+    "en": "Radiant-heater temperature profiles",
+    "de": "Temperaturprofile bei Strahlungsheizung",
+    "source": "Master thesis · comparative heating study",
+    "page": 58,
+    "width": 1338,
+    "height": 684
+  },
+  {
+    "key": "thesis-06",
+    "group": "thesis",
+    "en": "Heating-cycle comparison",
+    "de": "Vergleich der Heizzyklen",
+    "source": "Master thesis · comparative heating study",
+    "page": 63,
+    "width": 1305,
+    "height": 641
+  },
+  {
+    "key": "thesis-07",
+    "group": "thesis",
+    "en": "Energy-equivalent comparison",
+    "de": "Energieäquivalenter Vergleich",
+    "source": "Master thesis · comparative heating study",
+    "page": 64,
+    "width": 1305,
+    "height": 641
+  },
+  {
+    "key": "thesis-08",
+    "group": "thesis",
+    "en": "Time-scale comparison",
+    "de": "Vergleich der Zeitskalen",
+    "source": "Master thesis · comparative heating study",
+    "page": 65,
+    "width": 1305,
+    "height": 641
+  },
+  {
+    "key": "thesis-09",
+    "group": "thesis",
+    "en": "Transparent-polymer heating comparison",
+    "de": "Vergleich der Erwärmung transparenten Polymers",
+    "source": "Master thesis · comparative heating study",
+    "page": 66,
+    "width": 1305,
+    "height": 641
+  },
+  {
+    "key": "thesis-10",
+    "group": "thesis",
+    "en": "Transparent-polymer equivalent-time comparison",
+    "de": "Äquivalenter Zeitvergleich transparentes Polymer",
+    "source": "Master thesis · comparative heating study",
+    "page": 68,
+    "width": 1305,
+    "height": 641
+  },
+  {
+    "key": "thesis-11",
+    "group": "thesis",
+    "en": "Transparent-polymer normalised comparison",
+    "de": "Normierter Vergleich transparentes Polymer",
+    "source": "Master thesis · comparative heating study",
+    "page": 68,
+    "width": 1305,
+    "height": 663
+  },
+  {
+    "key": "shoe-01",
+    "group": "shoe",
+    "en": "Manufacturing process plan",
+    "de": "Fertigungsablaufplan",
+    "source": "Diploma team report · shoe-polishing-machine concept",
+    "page": 14,
+    "width": 1404,
+    "height": 1775
+  },
+  {
+    "key": "shoe-02",
+    "group": "shoe",
+    "en": "Manufacturing process plan",
+    "de": "Fertigungsablaufplan",
+    "source": "Diploma team report · shoe-polishing-machine concept",
+    "page": 15,
+    "width": 1404,
+    "height": 1775
+  },
+  {
+    "key": "shoe-03",
+    "group": "shoe",
+    "en": "Manufacturing process plan",
+    "de": "Fertigungsablaufplan",
+    "source": "Diploma team report · shoe-polishing-machine concept",
+    "page": 18,
+    "width": 1404,
+    "height": 1775
+  },
+  {
+    "key": "shoe-04",
+    "group": "shoe",
+    "en": "Manufacturing process plan",
+    "de": "Fertigungsablaufplan",
+    "source": "Diploma team report · shoe-polishing-machine concept",
+    "page": 19,
+    "width": 1404,
+    "height": 1775
+  }
+]
