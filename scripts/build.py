@@ -155,9 +155,6 @@ for name in ['site.css','site.js','favicon.svg']:
     shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name) if (OUT/'assets').exists() else ((OUT/'assets').mkdir(),shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name))
 for directory in ['images','fonts','evidence']:
     shutil.copytree(ROOT/'assets'/directory,OUT/'assets'/directory,dirs_exist_ok=True)
-(OUT/'assets/media').mkdir(exist_ok=True)
-for filename in ['linkedin-concept.webp','linkedin-concept.webm']:
-    shutil.copy2(ROOT/'assets/media'/filename,OUT/'assets/media'/filename)
 (OUT/'.nojekyll').write_text('',encoding='utf-8')
 (OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://sagar-kriplani.github.io/sitemap.xml\n',encoding='utf-8')
 urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/evidence/','/de/evidence/']
