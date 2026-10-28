@@ -1,0 +1,11 @@
+{
+  "source_sha256": "beb6dd46808e4bb3637f71e71e467fed815faa4b0f3a88408723c60cc820f806",
+  "pdfs": {
+    "general-de.pdf": "e5094632c0dd60fdf88e52c4eb173796e06a7d9a142d89d066b9976b295a1551",
+    "general-en.pdf": "be0d927f19454877683d4a786b170345899afe7ad42034613e1d745bf7b2332e",
+    "mechanical-de.pdf": "4e0e4ea2a0989b9c64dd9464a2a753fea5b09467f0d210abf4a095c52e5166d5",
+    "mechanical-en.pdf": "3471cbe1279127a1cc94bb9d19b66845b2c02fda0c395e75e8041f8d708f4e29",
+    "rd-de.pdf": "ab8f3896fa39adaaf21c9673779c9c6234edf8ac6fbe6b411ba71bc4b286d362",
+    "rd-en.pdf": "17d63298d1e0297e0025260eb33a46c068079c24a5bc762140ded20ae0b6a641"
+  }
+}

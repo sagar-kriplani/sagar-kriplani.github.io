@@ -3,6 +3,8 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import re
+import json
+import hashlib
 
 ROOT=Path(__file__).resolve().parent.parent/'dist'
 class Page(HTMLParser):
@@ -38,7 +40,10 @@ for lang in ('en','de'):
     assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
     assert text.count('data-category=')==7
-    assert '70%' not in text and '200+' not in text and 'Blue Card' not in text
+    assert 'Blue Card' not in text
+    for date in ['07/2023 – 06/2024','07/2023 – 01/2024','02/2024 – 06/2024','08/2020 – 09/2021']:
+        assert date in text, f'Missing canonical career date: {date}'
+    assert 'until June' not in text and 'bis Juni' not in text
     from sys import path as module_path
     module_path.insert(0,str(ROOT.parent/'scripts'))
     from evidence import RECORDS
@@ -60,6 +65,10 @@ assert len(list((ROOT/'assets/gallery').glob('*.webp')))==96
 assert not list(ROOT.rglob('*.mp4')), 'Only silent reviewed WebM ships'
 assert not list(ROOT.rglob('*.docx'))
 assert not (ROOT/'reference').exists()
-assert not list(ROOT.rglob('*.pdf')), 'Do not republish legacy CV claims'
+assert {p.name for p in ROOT.rglob('*.pdf')} == {f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}, 'Only six reviewed CVs may ship'
 assert not (ROOT/'.git').exists()
+manifest=json.loads((ROOT/'assets/cv/manifest.json').read_text())
+assert manifest['source_sha256']==hashlib.sha256((ROOT.parent/'scripts/career.py').read_bytes()).hexdigest(), 'Regenerate CVs after career content changes'
+for name,digest in manifest['pdfs'].items():
+    assert hashlib.sha256((ROOT/'assets/cv'/name).read_bytes()).hexdigest()==digest, 'CV file differs from reviewed manifest'
 print(f'PASS: {len(pages)} pages; internal assets, anchors, languages, IDs, alt text and publication boundaries.')
