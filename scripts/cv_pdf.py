@@ -78,5 +78,5 @@ for folder in ('cv','assets/docs','public/cv'):
     for old,new in aliases.items():
         dest=ROOT/folder/old
         if dest.exists():shutil.copy2(OUT/new,dest)
-manifest={'source_sha256':hashlib.sha256((ROOT/'scripts/career.py').read_bytes()).hexdigest(),'pdfs':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.glob('*.pdf')}}
+manifest={'source_sha256':hashlib.sha256((ROOT/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest(),'pdfs':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.glob('*.pdf')}}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

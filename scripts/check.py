@@ -68,7 +68,7 @@ assert not (ROOT/'reference').exists()
 assert {p.name for p in ROOT.rglob('*.pdf')} == {f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}, 'Only six reviewed CVs may ship'
 assert not (ROOT/'.git').exists()
 manifest=json.loads((ROOT/'assets/cv/manifest.json').read_text())
-assert manifest['source_sha256']==hashlib.sha256((ROOT.parent/'scripts/career.py').read_bytes()).hexdigest(), 'Regenerate CVs after career content changes'
+assert manifest['source_sha256']==hashlib.sha256((ROOT.parent/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest(), 'Regenerate CVs after career content changes'
 for name,digest in manifest['pdfs'].items():
     assert hashlib.sha256((ROOT/'assets/cv'/name).read_bytes()).hexdigest()==digest, 'CV file differs from reviewed manifest'
 print(f'PASS: {len(pages)} pages; internal assets, anchors, languages, IDs, alt text and publication boundaries.')
