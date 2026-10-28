@@ -1,59 +1,40 @@
-# Sagar Kriplani — Bilingual Engineering Portfolio
+# Sagar Kriplani — Engineering portfolio
 
-[![Deploy to GitHub Pages](https://github.com/sagar-kriplani/Profile-sagarkriplani/actions/workflows/deploy.yml/badge.svg)](https://github.com/sagar-kriplani/Profile-sagarkriplani/actions/workflows/deploy.yml)
+Live: https://sagar-kriplani.github.io/
 
-Live Website: **[https://sagar-kriplani.github.io/](https://sagar-kriplani.github.io/)**
+A responsive bilingual portfolio for mechanical design and development, with original conceptual technical diagrams and Sagar’s supplied CV portrait.
 
-## Overview
+## Build and check
 
-Professional engineering portfolio of **Sagar Kriplani (M.Sc. Scientific Instrumentation)**, featuring two differentiated professional profiles and instant bilingual German/English switching:
-
-1. **Mechanical Design Engineer** (*Konstrukteur Maschinenbau & Sondermaschinen*)
-   - Positioning: Special-purpose machinery, machine enclosures, precision mechanical systems, Trumpf sheet-metal unfolding, welded frames, DFM/DFA, DIN/ISO production drawings, GD&T (DIN EN ISO 1101), cost and weight reduction.
-   - Core Experience: NeSt GmbH Sondermaschinenbau & Anlagenbau (Herbrechtingen), Ravi Brass Industries.
-
-2. **R&D Engineer — M.Sc. Scientific Instrumentation** (*F&E Ingenieur*)
-   - Positioning: Semiconductor equipment, high-vacuum systems (HV/UHV), thermal radiation systems, process air thermodynamics (EUV Pod / FOUP cleaning), optical metrology, coupled ANSYS FEA/CFD simulation, experimental test bench validation.
-   - Core Experience: Brooks Automation (Deutschland) GmbH (Steißlingen), Ernst-Abbe-Hochschule Jena.
-
----
-
-## Key Features
-
-- **Instant Bilingual Switching (DE | EN):** German default with seamless toggling between German and English without full page reloads, maintaining active profile state.
-- **Two Differentiated Profiles:** Dynamic switching between Mechanical Design and R&D views with customized hero, scope metrics, featured case studies, experience records, technical stack, and education.
-- **4 Distinct CV Downloads:**
-  - Mechanical Design Engineer — German CV (`assets/docs/mechanical-design-de.pdf`)
-  - Mechanical Design Engineer — English CV (`assets/docs/mechanical-design-en.pdf`)
-  - R&D Engineer — German CV (`assets/docs/rd-engineer-de.pdf`)
-  - R&D Engineer — English CV (`assets/docs/rd-engineer-en.pdf`)
-- **Contact & Profile Modal:** Interactive profile overlay with verified contact information, work authorization (EU Blue Card), social links, and direct access to all four CV documents.
-- **Theme Switcher:** Dark mode and light mode with persistent storage (`localStorage`) and system preference support.
-- **Responsive Architecture:** Mobile drawer menu, fluid grid layouts, tablet and phone optimization.
-- **Production-Ready & Zero-Dependency:** Ultra-fast static architecture ready for direct GitHub Pages deployment.
-
----
-
-## Repository Structure
+Requires Python 3.8+; no third-party build packages.
 
 ```
-├── .github/workflows/
-│   └── deploy.yml              # GitHub Pages CI/CD workflow
-├── assets/
-│   ├── css/
-│   │   └── style.css           # Core stylesheet (typography, themes, responsive layout)
-│   ├── docs/                   # Public engineering CV variants (DE & EN)
-│   ├── drawings/               # Technical SVG diagrams
-│   └── profile-placeholder.svg # Monogram technical stamp
-├── cv/                         # Mirrored CV directory
-├── public/cv/                  # Public CV directory
-├── index.html                  # Single-page bilingual application
-└── README.md                   # Documentation
+python scripts/build.py
+python scripts/check.py
+python -m http.server 4174 --directory dist
 ```
+
+Open http://localhost:4174. Source copy and page templates live in `scripts/build.py`; styles and interactions in `assets/site.css` and `assets/site.js`. Locally hosted fonts avoid third-party font requests.
+
+## Routes
+
+- `/` and `/en/`: English portfolio
+- `/de/`: German portfolio
+- `/en/cv/` and `/de/cv/`: corrected printable CVs, with browser Print / Save as PDF
+- `/en/legal/` and `/de/legal/`: operator and privacy information
+
+The language selector preserves the CV/legal page type. Project filters, native case-study disclosure, mobile navigation, clipboard copy, theme persistence, and print styles enhance the static content. Content remains readable without JavaScript.
+
+## Content evidence
+
+Read `CONTENT_AUDIT.md` for corrections, evidence, and remaining limits. The PAU project report and submitted thesis support the featured research narrative. Other role details are identified as supplied-CV information. No unsupported Senior title, generalized energy-saving guarantee, or employment authorization claim is published. No confidential reports or employer CAD drawings ship.
+
+Older PDFs and previous assets remain in repository history/source for reference, but are excluded from the public artifact. The public CV pages replace the disputed downloads. `IMPLEMENTATION_BRIEF.md` records the structured task prompt.
 
 ## Deployment
 
-Pushed to GitHub branch `main`. Automatically deployed to GitHub Pages via `.github/workflows/deploy.yml`.
+Push to `main` triggers `.github/workflows/deploy.yml`: build, check, upload **only `dist/`**, then deploy to GitHub Pages. The existing user-site endpoint is preserved. Build failures stop deployment. No Sites hosting account or alternate endpoint is necessary.
 
----
-© 2026 Sagar Kriplani. All rights reserved.
+## Optional browser QA
+
+Install Playwright in your development environment and its browser runtime, then run `node scripts/browser-check.cjs`. An existing installation can be selected through `PLAYWRIGHT_MODULE` and `PLAYWRIGHT_BROWSERS_PATH`. The script expects the local preview on port 4174. It checks bilingual routes, asset responses, layouts at 320/390/768/1024/1440 pixels, filters, disclosure, theme persistence, clipboard, mobile navigation, and no-JavaScript content. QA artifacts are ignored by Git.
