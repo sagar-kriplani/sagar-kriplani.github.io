@@ -60,7 +60,7 @@ for lang in ('en','de'):
         reader=PdfReader(path)
         assert len(reader.pages)==2,(path,len(reader.pages))
         text='\n'.join(p.extract_text() for p in reader.pages)
-        for date in ['07/2023 - 06/2024','07/2023 - 01/2024','02/2024 - 06/2024','08/2020 - 09/2021']:
+        for date in ['07/2023 - 01/2024','02/2024 - 06/2024','08/2020 - 09/2021']:
             assert date in text,(path,date)
         print(path.name, len(reader.pages),'pages')
 

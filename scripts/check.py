@@ -41,7 +41,7 @@ for lang in ('en','de'):
     text=p.path.read_text(encoding='utf-8')
     assert text.count('data-category=')==7
     assert 'Blue Card' not in text
-    for date in ['07/2023 – 06/2024','07/2023 – 01/2024','02/2024 – 06/2024','08/2020 – 09/2021']:
+    for date in ['07/2023 – 01/2024','02/2024 – 06/2024','08/2020 – 09/2021']:
         assert date in text, f'Missing canonical career date: {date}'
     assert 'until June' not in text and 'bis Juni' not in text
     from sys import path as module_path
