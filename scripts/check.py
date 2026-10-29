@@ -56,7 +56,8 @@ for lang in ('en','de'):
     assert '89518' not in legal
     privacy=(ROOT/lang/'privacy/index.html').read_text(encoding='utf-8')
     assert 'reset-theme' in privacy
-    assert '10/2021 – 03/2025' in text
+    for education_date in ('10/2021 – 03/2025','08/2017 – 08/2020','08/2014 – 06/2017'):
+        assert education_date in text
     assert 'High School Diploma' not in text
     assert 'Blue Card' not in text
     for date in ['07/2023 – 01/2024','02/2024 – 06/2024','08/2020 – 09/2021']:

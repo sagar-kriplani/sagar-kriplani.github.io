@@ -23,3 +23,7 @@ Then run `python scripts/build.py` and `python scripts/check.py`. The publicatio
 ## LinkedIn Profile.pdf alignment — education follow-up
 
 Reviewed all four pages of `E:/Linkedin/Profile.pdf` as source data, separately from the attached implementation-prompt text. The profile adds no new supported qualification dates beyond the shared CV data. Added an accessible three-entry education timeline with direct evidence links, matching both languages and the CVs. Bachelor and diploma dates remain year-level because this export specifies only years. The diploma's profile label “High School Diploma” is superseded by the issued mechanical engineering diploma. Retained previously confirmed working-student and internship status; retained documented employer location and past-tense NeSt employment rather than copying the profile's stale present-tense summary. Earlier teaching/consultancy context and the profile-only Design Foundations course remain separately identified in the LinkedIn context section. No source PDF or new private document is published.
+
+## Education month/year consistency correction
+
+Master: 10/2021–03/2025 (Profile.pdf and prior CV). Bachelor: 08/2017–08/2020; diploma: 08/2014–06/2017 (matching education rows in the earlier supplied general and mechanical-design CVs). Profile.pdf itself specifies only years for the latter two. These existing month ranges are restored consistently across both website languages and all six CVs; corrected grades and qualification labels remain unchanged.

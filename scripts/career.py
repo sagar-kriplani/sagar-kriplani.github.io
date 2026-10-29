@@ -16,8 +16,8 @@ JOBS = {
  ['08/2020 – 09/2021','Ravi Brass Industries','Design & Development Engineer','Jamnagar, Indien','Mechanische Bauteile und Baugruppen konstruiert, Fertigungszeichnungen erstellt und Herstellbarkeit sowie Qualität mit der Produktion abgestimmt. Austrittsmonat von mir bestätigt; die Beschäftigungsbestätigung belegt Beginn und Beschäftigung im April 2021.']]
 }
 DEGREES = {
- 'en': [['10/2021 – 03/2025','M.Sc. Scientific Instrumentation','Ernst-Abbe-Hochschule Jena · Grade 1.8 · Thesis 1.3 · 120 ECTS · ECTS B'],['2017 – 2020','B.E. Mechanical Engineering','A. D. Patel Institute of Technology / GTU · CGPA 8.14/10 · First Class with Distinction'],['2014 – 2017','Diploma in Mechanical Engineering','Government Polytechnic Jamnagar / GTU · CGPA 9.50/10']],
- 'de': [['10/2021 – 03/2025','M.Sc. Scientific Instrumentation','Ernst-Abbe-Hochschule Jena · Note 1,8 · Masterarbeit 1,3 · 120 ECTS · ECTS B'],['2017 – 2020','B.E. Mechanical Engineering','A. D. Patel Institute of Technology / GTU · CGPA 8,14/10 · First Class with Distinction'],['2014 – 2017','Diploma in Mechanical Engineering','Government Polytechnic Jamnagar / GTU · CGPA 9,50/10']]
+ 'en': [['10/2021 – 03/2025','M.Sc. Scientific Instrumentation','Ernst-Abbe-Hochschule Jena · Grade 1.8 · Thesis 1.3 · 120 ECTS · ECTS B'],['08/2017 – 08/2020','B.E. Mechanical Engineering','A. D. Patel Institute of Technology / GTU · CGPA 8.14/10 · First Class with Distinction'],['08/2014 – 06/2017','Diploma in Mechanical Engineering','Government Polytechnic Jamnagar / GTU · CGPA 9.50/10']],
+ 'de': [['10/2021 – 03/2025','M.Sc. Scientific Instrumentation','Ernst-Abbe-Hochschule Jena · Note 1,8 · Masterarbeit 1,3 · 120 ECTS · ECTS B'],['08/2017 – 08/2020','B.E. Mechanical Engineering','A. D. Patel Institute of Technology / GTU · CGPA 8,14/10 · First Class with Distinction'],['08/2014 – 06/2017','Diploma in Mechanical Engineering','Government Polytechnic Jamnagar / GTU · CGPA 9,50/10']]
 }
 SUMMARIES = {
  'en': {
