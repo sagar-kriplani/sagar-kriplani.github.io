@@ -76,6 +76,7 @@ def apply_profile(c,lang,profile):
     data=PROFILES[profile][lang]
     for key in ['title','hero','intro']:c[key]=data[key]
     c['skills']=SKILLS[lang]
+    c['read']='Explore case study' if lang=='en' else 'Fallstudie ansehen'
     c['work']='View engineering projects' if lang=='en' else 'Technische Projekte ansehen'
     c['cv']='Download relevant CV' if lang=='en' else 'Passenden Lebenslauf herunterladen'
     c['eyebrow']=data['title']

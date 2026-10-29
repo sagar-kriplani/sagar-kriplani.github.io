@@ -57,8 +57,11 @@ p,li{overflow-wrap:break-word}p{text-align:left}html[lang=de] p,html[lang=de] h2
 @media(max-width:1050px){.industrial-case{gap:25px}.supporting-context{margin-left:32px;margin-right:32px}}
 @media(max-width:760px){.industrial-case{display:grid;grid-template-columns:1fr;gap:22px}.industrial-case .project-art{order:1}.industrial-case .project-content{order:0}.industrial-case h3{font-size:29px}.industrial-case .case-overview{font-size:14px}.industrial-case .project-art .project-source-image img{max-height:280px}.industrial-case .project-art{padding-bottom:32px}.project-archive,.supporting-context{padding-left:15px;padding-right:15px}.project-archive>summary,.supporting-context>summary{font-size:14px}.supporting-context{margin-left:22px;margin-right:22px}.evidence-groups{grid-template-columns:1fr}.project-jumps a{font-size:11px;padding:8px 10px}.industrial-case .case-brief dd{font-size:13px}.industrial-case .project-content .tags{margin-top:15px}}
 
-@media(max-width:760px){.industrial-case{gap:0}.industrial-case .project-content{display:contents}.industrial-case .project-content>.eyebrow{order:0}.industrial-case h3{order:1}.industrial-case .project-period{order:2}.industrial-case .case-overview{order:3}.industrial-case .project-art{order:4;margin-top:20px}.industrial-case .tags{order:5}.industrial-case .case-brief{order:6}.industrial-case .case-source-link{order:7;justify-self:start}.industrial-case .case-details{order:8}.industrial-case .project-content>.eyebrow{padding-top:5px}}
+@media(max-width:760px){.industrial-case{gap:0}.industrial-case .project-content{display:contents}.industrial-case .project-content>.eyebrow{order:0}.industrial-case h3{order:1}.industrial-case .project-period{order:2}.industrial-case .case-overview{order:3}.industrial-case .project-art{order:4;margin-top:20px}.industrial-case .tags{order:5}.industrial-case .case-brief{order:6}.industrial-case .case-source-link{order:8;justify-self:start}.industrial-case .case-details{order:7}.industrial-case .project-content>.eyebrow{padding-top:5px}}
 
 .archive-projects .tags span{font-size:11px}.job-context{margin-top:16px}.job-context summary{font-size:12px;min-height:44px}.job-context p{font-size:12px;line-height:1.9;padding:0 0 15px}
 
 .job .job-description{font-size:13px;max-width:580px;margin-top:14px;line-height:1.8}
+
+/* Keep one consistent case-study action across featured and archived projects. */
+.project details>summary{min-height:48px;font-size:13px}.industrial-case .case-source-link{margin-top:6px}
