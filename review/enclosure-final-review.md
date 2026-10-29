@@ -17,3 +17,9 @@ Modified: scripts/build.py, scripts/recruitment.py, scripts/mechanical_showcase.
 Every project now uses the same image/content card renderer. The project shortcut row and prominent challenge/decision/result blocks are removed. Detailed methodology, results and sources are inside the native case-study disclosure. NeSt remains enclosure-focused and uses the labelled conceptual open/closed enclosure visual. The profile eyebrow is 12 px, up from 10 px. The former featured-card renderer was removed to prevent layout divergence.
 
 Fresh preview: http://127.0.0.1:4176/ (Cache-Control: no-store). Run `python scripts/preview.py` to restart it. Live deployment is unchanged.
+
+## Continuous project list / Konstruktion–F&E consistency
+
+Removed the project archive: all eight projects now appear in the main list. Both profiles use the same card renderer and responsive image/content grid. Mechanical project order remains NeSt, PAU, FOUP, handling, ANSYS training, heat-transfer research, footwear study, personal AI/CAD exploration. Research retains its role-specific ordering. Desktop/tablet cards align the image left and text right; mobile stacks them. Fixed the narrow PAU column at the reported 1074 px width. Case methodology, results and provenance remain within the disclosure.
+
+Validation: 128 card checks across 16 language/profile/viewport combinations (375, 768, 1074, 1440 px); all eight initially visible, matching structure, collapsed details, source access, alignment and no horizontal overflow. PAU visual checked at 1074 px. Static build checks passed for 20 pages. These follow-up changes are local and not deployed.

@@ -89,7 +89,7 @@ for lang in ('en','de'):
         assert 'data-profile="'+profile+'" aria-current="page"' in text
         if profile=='mechanical':
             assert 'industrial-case' not in text
-            assert 'id="project-archive"' in text
+            assert 'id="project-archive"' not in text
             assert 'class="case-brief"' not in text
             assert text.count('class="case-sources"')==8
             assert 'class="evidence-groups"' in text

@@ -6,19 +6,11 @@ def refine_mechanical(c,lang):
     c['contentLanguage']=lang
     c['skills']=[row[:] for row in c['skills']]
     c['intro']=('I develop mechanical assemblies, machine enclosures and manufacturing documentation for industrial machinery. My special-purpose machinery experience is complemented by semiconductor equipment development and an M.Sc. in Scientific Instrumentation.' if en else 'Ich entwickle mechanische Baugruppen, Maschinenverkleidungen und Fertigungsunterlagen für industrielle Maschinen. Meine Praxiserfahrung im Sondermaschinenbau ergänze ich durch die Entwicklung von Halbleiteranlagen und einen M.Sc. Scientific Instrumentation.')
-    c['projectsIntro']=('Three industrial and interdisciplinary cases: enclosure and assembly development at NeSt, process-air development at Brooks, and thermal research as an equipment-engineering differentiator.' if en else 'Drei industrielle und interdisziplinäre Fallstudien: Gehäuse- und Baugruppenentwicklung bei NeSt, Prozessluftentwicklung bei Brooks und thermische Forschung als Ergänzung der Anlagenentwicklung.')
+    c['projectsIntro']=('Industrial design, equipment development and research first, followed by academic, training and personal projects. Each case includes its period, technical approach and sources.' if en else 'Industriekonstruktion, Anlagenentwicklung und Forschung zuerst, gefolgt von Studien-, Trainings- und persönlichen Projekten. Jede Fallstudie zeigt Zeitraum, technisches Vorgehen und Quellen.')
     c['projectsTitle']='Engineering decisions,<br>made tangible.' if en else 'Technische Entscheidungen.<br>Praktisch nachvollziehbar.'
     c['projects']=sorted(c['projects'],key=lambda p:['machine','pau','thesis','handling','ansys','frost','shoe','ai-cad'].index(p['id']))
     c['skills'][0][3]=('Assembly development, sheet-metal and welded structures, mechanical integration and manufacturing-oriented detailing with tolerance considerations.' if en else 'Baugruppenentwicklung, Blech- und Schweißkonstruktionen, mechanische Integration sowie fertigungsgerechte Detaillierung und Toleranzbetrachtung.')
     c['skills'][3][3]=('Manufacturing drawings, sheet-metal developments, BOMs, engineering changes and production coordination. SAGE ERP and Agile PLM support the documented workflow.' if en else 'Fertigungszeichnungen, Blechabwicklungen, Stücklisten, technische Änderungen und Produktionsabstimmung. SAGE ERP und Agile PLM ergänzen den dokumentierten Arbeitsablauf.')
-
-def archive(cards,lang):
-    en=lang=='en'
-    return '<details class="project-archive" id="project-archive" data-context><summary>'+('Project archive · 5 academic, training & experimental projects' if en else 'Projektarchiv · 5 Studien-, Trainings- und Erprobungsprojekte')+'</summary><p>'+('Supporting work remains fully accessible here. ANSYS work is training; academic and personal exploration are not presented as industrial delivery.' if en else 'Ergänzende Arbeiten bleiben hier vollständig zugänglich. ANSYS-Aufgaben sind Training; Studien- und persönliche Erprobungsprojekte werden als solche eingeordnet.')+'</p><div class="projects archive-projects">'+cards+'</div></details>'
-
-def supporting_context(gallery,linkedin,lang):
-    return '<details class="supporting-context" data-context><summary>'+('Academic gallery & additional background' if lang=='en' else 'Akademische Galerie & weiterer Hintergrund')+'</summary>'+gallery+linkedin+'</details>'
-
 
 def enclosure_visual(lang):
     en=lang=='en'

@@ -68,3 +68,13 @@ p,li{overflow-wrap:break-word}p{text-align:left}html[lang=de] p,html[lang=de] h2
 
 /* Requested project-card consistency and profile-label readability. */
 .hero-copy>.eyebrow:first-child{font-size:12px}.enclosure-concept{width:100%;height:auto;display:block}.project .case-sources{margin-top:24px}
+
+/* One continuous list with the same image/content alignment for every project. */
+.work .projects{grid-template-columns:minmax(0,1fr);gap:36px}
+.work .projects>.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:36px;margin:0;grid-column:auto}
+.work .project .project-content{padding:0;min-width:0}
+.work .project h3{font-size:clamp(27px,3vw,38px)}
+.work .project .project-art{width:100%;min-width:0}
+.work .project .project-source-image{padding-top:16px}
+.work .project .project-source-image img{height:auto;max-height:320px;aspect-ratio:1.5;object-fit:contain}
+@media(max-width:760px){.work .projects>.project{grid-template-columns:minmax(0,1fr);gap:22px;padding-bottom:28px}.work .project h3{font-size:30px}}
