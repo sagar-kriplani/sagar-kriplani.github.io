@@ -5,7 +5,7 @@ from html import escape
 import json
 import shutil
 from copy import deepcopy
-from mechanical_showcase import refine_mechanical, featured_card, thesis_visual, project_jumps, archive, supporting_context, manufacturing_visual
+from mechanical_showcase import enclosure_visual, refine_mechanical, archive, supporting_context
 from recruitment import apply_profile, profile_navigation, case_content, case_outcome, PROFILES, manufacturing_diagram as manufacturing_preview
 from ui import UI, icon, prepare_html, language_list
 from projects import extend_projects, period
@@ -134,16 +134,14 @@ def home(lang,profile='mechanical',route=None):
         content=case_content(p,lang) or ''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
         content+=gallery_strip(p['id'],lang)
         source_art=project_image(p['id'],lang)
-        visual=source_art or (manufacturing_preview(lang) if p['id']=='machine' else art(p['art']))
-        if profile=='mechanical' and p['id'] in ('machine','pau','thesis'):
-            cards+=featured_card(p,lang,thesis_visual(lang) if p['id']=='thesis' else manufacturing_visual(lang) if p['id']=='machine' else visual)
-            continue
+        visual=source_art or (art(p['art']))
+        if p['id']=='machine':visual=enclosure_visual(lang)
         illustration_label=('CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION') if not source_art else ('SOURCE REPORT EXCERPT' if lang=='en' else 'AUSZUG AUS PROJEKTBERICHT')
-        card=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div>{case_outcome(p['id'],lang)}<details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
-        if profile=='mechanical':archive_cards+=card
+        card=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div><details class="case-details"><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<section class="case-sources" id="{p['id']}-sources" tabindex="-1"><h4>{'Sources & evidence' if lang=='en' else 'Quellen & Nachweise'}</h4><p class="source">{p['note']}</p></section></div></details></div></article>'''
+        if profile=='mechanical' and p['id'] not in ('machine','pau','thesis'):archive_cards+=card
         else:cards+=card
     archive_html=archive(archive_cards,lang) if profile=='mechanical' else ''
-    jumps=project_jumps(lang) if profile=='mechanical' else ''
+    jumps=''
     filters=''.join(f'<button type="button" data-filter="{v}" aria-pressed="{"true" if i==0 else "false"}">{c["filters"][i]}</button>' for i,v in enumerate(['all','machine','thermal','academic']))
     skills=''.join(f'<article class="skill"><span class="skill-no">{s[0]}</span><h3>{s[1]}</h3><p class="skill-tools">{s[2]}</p><p>{s[3]}</p></article>' for s in c['skills'])
     degree_sources=['master-degree','bachelor-degree','diploma-degree']

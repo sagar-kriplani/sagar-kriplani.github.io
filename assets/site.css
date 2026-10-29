@@ -65,3 +65,6 @@ p,li{overflow-wrap:break-word}p{text-align:left}html[lang=de] p,html[lang=de] h2
 
 /* Keep one consistent case-study action across featured and archived projects. */
 .project details>summary{min-height:48px;font-size:13px}.industrial-case .case-source-link{margin-top:6px}
+
+/* Requested project-card consistency and profile-label readability. */
+.hero-copy>.eyebrow:first-child{font-size:12px}.enclosure-concept{width:100%;height:auto;display:block}.project .case-sources{margin-top:24px}

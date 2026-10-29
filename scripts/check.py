@@ -88,10 +88,10 @@ for lang in ('en','de'):
         assert 'R&amp;D;' not in text and 'F&amp;E;' not in text
         assert 'data-profile="'+profile+'" aria-current="page"' in text
         if profile=='mechanical':
-            assert text.count('class="project featured industrial-case"')==3
+            assert 'industrial-case' not in text
             assert 'id="project-archive"' in text
-            assert text.count('class="case-brief"')==3
-            assert text.count('class="case-sources"')==3
+            assert 'class="case-brief"' not in text
+            assert text.count('class="case-sources"')==8
             assert 'class="evidence-groups"' in text
 
 for forbidden in ['pau-assembly.webp','linkedin-concept.webp','linkedin-concept.webm']:
