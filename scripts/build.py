@@ -4,6 +4,8 @@ from pathlib import Path
 from html import escape
 import json
 import shutil
+from copy import deepcopy
+from recruitment import apply_profile, profile_navigation, case_content, case_outcome, PROFILES, manufacturing_diagram as manufacturing_preview
 from ui import UI, icon, prepare_html, language_list
 from projects import extend_projects, period
 from career import apply_career, cv_body
@@ -75,10 +77,10 @@ apply_career(COPY)
 extend_projects(COPY)
 
 def header(lang, c, sub=False):
-    prefix = '/' + lang + '/'
+    prefix = f'/{lang}/{sub}/' if sub in ('mechanical','research') else f'/{lang}/'
     links = ''.join(f'<a href="{prefix}#{i}">{escape(t)}</a>' for i,t in zip(['work','experience','expertise','evidence','contact'],c['nav']))
     return f'''<a class="skip" href="#main">{'Skip to content' if lang=='en' else 'Zum Inhalt'}</a>
-    <header class="header"><a class="brand" href="/{lang}/" aria-label="{UI[lang]['home']}"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{str(sub)+'/' if sub else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false"><span aria-hidden="true">◐</span></button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">{icon('menu')}</button></div><nav id="mobile-nav" class="mobile-nav" aria-label="{'Mobile navigation' if lang=='en' else 'Mobile Navigation'}" hidden>{links}</nav><noscript><nav class="no-js-nav" aria-label="{'Navigation without JavaScript' if lang=='en' else 'Navigation ohne JavaScript'}">{links}</nav></noscript></header>'''
+    <header class="header"><a class="brand" href="{prefix}" aria-label="{UI[lang]['home']}"><span class="monogram">sk<span>.</span></span><span>SAGAR KRIPLANI<small>M.Sc. Scientific Instrumentation</small></span></a><nav aria-label="{'Main navigation' if lang=='en' else 'Hauptnavigation'}">{links}</nav><div class="utilities"><a class="language" href="/{'de' if lang=='en' else 'en'}/{str(sub)+'/' if sub else ''}" lang="{'de' if lang=='en' else 'en'}">{'DE' if lang=='en' else 'EN'} <span aria-hidden="true">↗</span></a><button class="theme" type="button" aria-label="{'Toggle dark theme' if lang=='en' else 'Dunkles Design umschalten'}" aria-pressed="false"><span aria-hidden="true">◐</span></button><button class="menu-toggle" type="button" aria-expanded="false" aria-label="{'Toggle menu' if lang=='en' else 'Menü umschalten'}" aria-controls="mobile-nav">{icon('menu')}</button></div><nav id="mobile-nav" class="mobile-nav" aria-label="{'Mobile navigation' if lang=='en' else 'Mobile Navigation'}" hidden>{links}</nav><noscript><nav class="no-js-nav" aria-label="{'Navigation without JavaScript' if lang=='en' else 'Navigation ohne JavaScript'}">{links}</nav></noscript></header>'''
 
 def head(lang,c,title=None,path=None):
     path = path or f'/{lang}/'
@@ -107,24 +109,29 @@ def art(kind):
 def jobs(c):
     return ''.join(f'<article class="job"><p class="date">{j[0]}</p><div><h3>{j[1]}</h3><p class="role">{j[2]}</p><p class="place">{j[3]}</p><p>{j[4]}</p></div></article>' for j in c['jobs'])
 
-def home(lang):
-    c=COPY[lang]
+def home(lang,profile='mechanical',route=None):
+    c=deepcopy(COPY[lang])
+    data=apply_profile(c,lang,profile)
+    c['profile']=profile
+    c['hero']=data['title']
+    c['eyebrow']='MECHANICAL DESIGN / DEVELOPMENT' if profile=='mechanical' and lang=='en' else 'KONSTRUKTION / ENTWICKLUNG' if profile=='mechanical' else 'R&D / SCIENTIFIC INSTRUMENTATION' if lang=='en' else 'F&E / WISSENSCHAFTLICHE INSTRUMENTIERUNG'
+    c['metrics']=[('CAD','Manufacturing-ready documentation' if lang=='en' else 'Fertigungsgerechte Dokumentation','Inventor · drawings · BOM' if lang=='en' else 'Inventor · Zeichnungen · Stücklisten'),('DFM','Fabrication & assembly decisions' if lang=='en' else 'Fertigungs- und Montageentscheidungen','Sheet metal · welded structures' if lang=='en' else 'Blech- und Schweißkonstruktionen'),('M.Sc.','Scientific Instrumentation','EAH Jena · 2025')] if profile=='mechanical' else [('IR / LED','Comparative heating research' if lang=='en' else 'Vergleichende Heizversuche','Polymer absorption & temperature' if lang=='en' else 'Polymerabsorption & Temperatur'),('1.3','Master’s thesis grade' if lang=='en' else 'Note der Masterarbeit','Issued final transcript' if lang=='en' else 'Abschließender Notennachweis'),('M.Sc.','Scientific Instrumentation','EAH Jena · 2025')]
     cards=''
     for n,p in enumerate(c['projects']):
-        content=''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
+        content=case_content(p,lang) or ''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
         content+=gallery_strip(p['id'],lang)
         source_art=project_image(p['id'],lang)
-        visual=source_art or art(p['art'])
+        visual=source_art or (manufacturing_preview(lang) if p['id']=='machine' else art(p['art']))
         illustration_label=('CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION') if not source_art else ('SOURCE REPORT EXCERPT' if lang=='en' else 'AUSZUG AUS PROJEKTBERICHT')
-        cards+=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div><details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
+        cards+=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div>{case_outcome(p['id'],lang)}<details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
     filters=''.join(f'<button type="button" data-filter="{v}" aria-pressed="{"true" if i==0 else "false"}">{c["filters"][i]}</button>' for i,v in enumerate(['all','machine','thermal','academic']))
     skills=''.join(f'<article class="skill"><span class="skill-no">{s[0]}</span><h3>{s[1]}</h3><p class="skill-tools">{s[2]}</p><p>{s[3]}</p></article>' for s in c['skills'])
     degree_sources=['master-degree','bachelor-degree','diploma-degree']
     degrees=''.join(f'<li class="education-step"><p class="date">{escape(d[0])}</p><div><h3>{escape(d[1])}</h3><p>{escape(d[2])}</p><a class="text-link education-proof" href="/{lang}/evidence/#{source}">{"View qualification" if lang=="en" else "Abschlussnachweis ansehen"} <span aria-hidden="true">↗</span></a></div></li>' for d,source in zip(c['degrees'],degree_sources))
     metrics=''.join(f'<div class="metric"><strong>{m[0]}</strong><span>{m[1]}</span><small>{m[2]}</small></div>' for m in c['metrics'])
-    result=head(lang,c)+f'''<main id="main"><section class="hero" id="top"><div class="hero-copy"><p class="eyebrow"><span class="tiny-cross">+</span> {c['eyebrow']}</p><h1>{c['hero']}</h1><p class="intro">{c['intro']}</p><div class="hero-actions"><a class="button primary" href="#work">{c['work']} <span>↗</span></a><a class="text-link" href="/{lang}/cv/">{c['cv']} <span>↓</span></a></div><p class="location"><span class="location-dot"></span>{c['location']}</p></div><figure class="portrait"><div class="portrait-frame"><a class="portrait-preview" href="/assets/images/sagar-kriplani.webp" data-viewer data-caption="{c['portrait']}"><img src="/assets/images/sagar-kriplani.webp" alt="{c['portrait']}" width="1000" height="1381" fetchpriority="high"></a></div><figcaption><span>+ M.Sc.</span>{c['caption']}</figcaption></figure></section>
+    result=head(lang,c,path=route or f'/{lang}/').replace(header(lang,c),header(lang,c,profile if route else False)).replace('<body id="page-top">',f'<body id="page-top" data-engineering-profile="{profile}">')+f'''<main id="main">{profile_navigation(lang,profile)}<section class="hero" id="top" data-role-profile="{profile}"><div class="hero-copy"><p class="eyebrow"><span class="tiny-cross">+</span> {c['eyebrow']}</p><h1>{escape(c['hero'])}</h1><p class="profile-industries">{c['industryText']}</p><p class="intro">{c['intro']}</p><ul class="hero-specialisms">{''.join('<li>'+item+'</li>' for item in data['specialisms'])}</ul><p class="role-fit">{escape(data['roles'])}</p><div class="hero-actions"><a class="button primary" href="#work">{c['work']} <span>↗</span></a><a class="button cv-primary" href="/assets/cv/{data['cv']}-{lang}.pdf" data-relevant-cv>{c['cv']} · PDF <span>↓</span></a></div><div class="hero-contact"><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn ↗</a><a href="mailto:sagar.kriplani@outlook.com">{'Contact' if lang=='en' else 'Kontakt'} ↗</a><a href="/{lang}/cv/">{'Read CV online / all versions' if lang=='en' else 'Lebenslauf online / alle Varianten'} ↗</a></div><p class="location"><span class="location-dot"></span>{c['location']}</p></div><figure class="portrait"><div class="portrait-frame"><a class="portrait-preview" href="/assets/images/sagar-kriplani.webp" data-viewer data-caption="{c['portrait']}"><img src="/assets/images/sagar-kriplani.webp" alt="{c['portrait']}" width="1000" height="1381" fetchpriority="high"></a></div><figcaption><span>+ M.Sc.</span>{c['caption']}</figcaption></figure></section>
     <section class="bridge"><p class="eyebrow">{c['bridge']}</p><p>{c['bridgeText']}</p><span aria-hidden="true">{icon('diagonal')}</span></section>
-    <section class="metrics" aria-label="{'PAU project results' if lang=='en' else 'PAU-Projektergebnisse'}">{metrics}</section>
+    <section class="metrics" aria-label="{'Selected technical evidence' if lang=='en' else 'Ausgewählte fachliche Nachweise'}">{metrics}</section>
     <section class="work section" id="work"><div class="section-heading"><div><p class="eyebrow">{c['section']}</p><h2>{c['projectsTitle']}</h2></div><p>{c['projectsIntro']}</p></div><div class="filters" role="group" aria-label="{'Filter projects' if lang=='en' else 'Projekte filtern'}">{filters}</div><p class="filter-status sr-only" role="status" aria-live="polite"></p><div class="projects">{cards}</div></section>
     <section class="experience section" id="experience"><div class="section-heading"><div><p class="eyebrow">{c['experienceLabel']}</p><h2>{c['experienceTitle']}</h2></div><p>{c['experienceNote']}</p></div><div class="jobs">{jobs(c)}</div><a class="text-link education-jump" href="#education">{'Explore my education timeline' if lang=='en' else 'Zur Ausbildungsübersicht'} <span aria-hidden="true">↓</span></a></section>
     <section class="expertise section" id="expertise"><p class="eyebrow">{c['expertiseLabel']}</p><h2>{c['expertiseTitle']}</h2><div class="skills">{skills}</div><div class="education" id="education"><div><p class="eyebrow">{c['education']}</p><h2 class="education-title">{'Education timeline' if lang=='en' else 'Ausbildung im Überblick'}</h2><p class="education-intro">{'From mechanical engineering to scientific instrumentation. Study periods are distinct from the dates on the award certificates.' if lang=='en' else 'Vom Maschinenbau zur wissenschaftlichen Instrumentierung. Studienzeiträume sind von den Ausstellungsdaten der Abschlussurkunden zu unterscheiden.'}</p><ol class="education-timeline">{degrees}</ol></div><div class="languages"><p class="eyebrow">{c['languages']}</p>{language_list(lang)}<p>{c['languageNote']}</p><a class="text-link" href="/{lang}/cv/">{c['cv']} ↗</a></div></div></section>
@@ -175,7 +182,7 @@ def privacy(lang):
 
 
 for lang in COPY:
-    for sub,html in [('',home(lang)),('cv',cv(lang)),('legal',legal(lang)),('privacy',privacy(lang)),('evidence',evidence_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'evidence'))),('gallery',gallery_page(lang,head,footer,COPY[lang],viewer).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'gallery'))),('cad',cad_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'cad')))]:
+    for sub,html in [('',home(lang)),('mechanical',home(lang,'mechanical',f'/{lang}/mechanical/')),('research',home(lang,'research',f'/{lang}/research/')),('cv',cv(lang)),('legal',legal(lang)),('privacy',privacy(lang)),('evidence',evidence_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'evidence'))),('gallery',gallery_page(lang,head,footer,COPY[lang],viewer).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'gallery'))),('cad',cad_page(lang,head,footer,COPY[lang]).replace(header(lang,COPY[lang]),header(lang,COPY[lang],'cad')))]:
         target=OUT/lang/sub
         target.mkdir(parents=True,exist_ok=True)
         (target/'index.html').write_text(html,encoding='utf-8')
@@ -188,7 +195,7 @@ for directory in ['images','fonts','evidence','gallery','cv','protected']:
     shutil.copytree(ROOT/'assets'/directory,OUT/'assets'/directory,dirs_exist_ok=True)
 (OUT/'.nojekyll').write_text('',encoding='utf-8')
 (OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://sagar-kriplani.github.io/sitemap.xml\n',encoding='utf-8')
-urls=['/','/en/','/de/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/privacy/','/de/privacy/','/en/evidence/','/de/evidence/','/en/gallery/','/de/gallery/','/en/cad/','/de/cad/']
+urls=['/','/en/','/de/','/en/mechanical/','/de/mechanical/','/en/research/','/de/research/','/en/cv/','/de/cv/','/en/legal/','/de/legal/','/en/privacy/','/de/privacy/','/en/evidence/','/de/evidence/','/en/gallery/','/de/gallery/','/en/cad/','/de/cad/']
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://sagar-kriplani.github.io'+u+'</loc></url>' for u in urls)+'</urlset>',encoding='utf-8')
 (OUT/'404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Page not found | Sagar Kriplani</title><link rel="stylesheet" href="/assets/site.css"><main class="legal-page"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>Let’s get you<br>back on track.</h1><a class="button primary" href="/">Back to portfolio ↗</a></main></html>',encoding='utf-8')
 print('Built bilingual portfolio, CV pages, legal pages, sitemap and 404 in dist/.')

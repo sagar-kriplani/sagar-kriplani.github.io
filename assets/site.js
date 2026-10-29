@@ -36,7 +36,10 @@
   });
   window.matchMedia('(min-width: 901px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
   const languageLink = document.querySelector('.language');
-  function preserveSection() { if (languageLink) languageLink.hash = location.hash; }
+  function preserveSection() {
+    if (languageLink) languageLink.hash = location.hash;
+    document.querySelectorAll('[data-profile]').forEach(link => { link.hash = location.hash; });
+  }
   preserveSection();
   window.addEventListener('hashchange', preserveSection);
   const topButton = document.querySelector('.back-to-top');

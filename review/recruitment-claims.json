@@ -1,0 +1,124 @@
+{
+  "review_date": "2026-10-29",
+  "pau": {
+    "source": "Internship_Project Report_Final.pdf",
+    "printed_pages": [
+      52,
+      53
+    ],
+    "heater_design_capacity_kw": {
+      "before": 48,
+      "after": 18
+    },
+    "pressure_drop_mbar": {
+      "before_approx": 500,
+      "after_approx": 50
+    },
+    "cost_reduction": "approximately EUR 4200 / 21%, rounded report comparison",
+    "arithmetic_note": "The cost table saving differs by one cent from subtracting its displayed totals. Use the rounded conclusion, not cent-level precision. Internal pricing totals are not republished.",
+    "space_claim": "34% not published: the dimensions stated in the report do not reconcile with the percentage, and the space/length basis is unclear. Underlying equipment dimensions are not republished.",
+    "independent_employer_reference": "Praktikumszeugnis.pdf reports 20%; retained separately, not conflated with report estimate."
+  },
+  "nest_bending": {
+    "source": "Owner confirmations in this chat on 29 October 2026",
+    "thickness_mm": 8,
+    "failure": "Bend-relief slits tore; repair welding and rework followed",
+    "decision": "Two parts with planned welded joining",
+    "outcome": "Owner confirms repair welding/rework eliminated; planned joining remained",
+    "evidence_status": "Owner-confirmed account, not independently established by issued employer reference",
+    "excluded_claims": [
+      "numerical cost saving",
+      "cycle-time saving",
+      "weld specification",
+      "actual customer geometry"
+    ]
+  },
+  "thesis": {
+    "source": "Master_Thesis_Sagar_Kriplani.pdf",
+    "printed_pages": [
+      45,
+      46,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      73,
+      74,
+      75,
+      76
+    ],
+    "conditions": {
+      "ambient_c_reported": 20,
+      "vacuum_kpa_reported": 0.03,
+      "qualification": "Methodology/test assumption, no independent chamber log"
+    },
+    "led_wavelength_nm": 940,
+    "measurement": "Post-cycle infrared camera and irreversible strips; cooling/venting and emissivity limitations",
+    "fig_5_1": {
+      "seconds": [
+        60,
+        120,
+        180
+      ],
+      "led_20mm_c": [
+        46.8,
+        57.2,
+        65.2
+      ],
+      "led_40mm_c": [
+        41.8,
+        49.8,
+        55.1
+      ],
+      "led_60mm_c": [
+        34,
+        36.5,
+        45.8
+      ],
+      "radiant_heater_c": [
+        37.5,
+        51.2,
+        65.2
+      ]
+    },
+    "equivalent_input_basis": {
+      "heater_nominal_w": 550,
+      "led_nominal_w": 150,
+      "heater_seconds_rounded": [
+        16,
+        33,
+        49
+      ],
+      "led_seconds": [
+        60,
+        120,
+        180
+      ],
+      "qualification": "Approximate nominal electrical P*t comparison, not absorbed heat, complete input metering or system efficiency"
+    },
+    "not_promoted_as_verified": [
+      "universal LED replacement",
+      "guaranteed ±2 K production uniformity",
+      "metered full-system energy saving"
+    ]
+  },
+  "unchanged_owner_reported_metrics": {
+    "source": "Owner-supplied profile / career.py",
+    "nest": [
+      "8+ platforms",
+      "approximately 200 drawings/month",
+      "up to 70% component cost reduction",
+      "60% weight reduction"
+    ],
+    "status": "Clearly self-reported in employment description; not added as independently verified headline metrics"
+  },
+  "missing_material": [
+    "independent NeSt fabrication/project acceptance record",
+    "cost/weight/platform/drawing-volume source records",
+    "original time-series data and measurement uncertainty budget",
+    "AI/CAD source code and benchmark",
+    "fully tagged PDF/UA CV source"
+  ]
+}

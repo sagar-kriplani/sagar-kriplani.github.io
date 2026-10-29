@@ -77,6 +77,16 @@ for lang in ('en','de'):
     # Generic patterns avoid placing the user's actual private identifiers in source control.
     for pattern in [r'(?i)(student id|enrollment number|matrikelnummer)\s*[:=]\s*\d{5,}',r'\b[A-Z]{2}\d{2}(?: ?\d){15,}\b']:
         assert not re.search(pattern, public_text), 'Private-identifier pattern in evidence HTML'
+for lang in ('en','de'):
+    for profile in ('mechanical','research'):
+        text=(ROOT/lang/profile/'index.html').read_text(encoding='utf-8')
+        assert text.count('class="engineering-steps"')==3
+        assert text.count('class="project-period"')==8
+        assert 'data-relevant-cv' in text
+        assert f'/assets/cv/{"rd" if profile=="research" else "mechanical"}-{lang}.pdf' in text
+        assert 'R&amp;D;' not in text and 'F&amp;E;' not in text
+        assert 'data-profile="'+profile+'" aria-current="page"' in text
+
 for forbidden in ['pau-assembly.webp','linkedin-concept.webp','linkedin-concept.webm']:
     assert not list(ROOT.rglob(forbidden)), 'Excluded employer imagery must not ship'
 for extension in ['*.iam','*.ipt','*.step','*.stp']:

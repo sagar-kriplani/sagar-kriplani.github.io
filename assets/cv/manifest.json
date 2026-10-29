@@ -1,11 +1,11 @@
 {
   "source_sha256": "e785aa07711c7f6df25ff8ec7d412285f8484dd95bb9b98e3092c32c36205edf",
   "pdfs": {
-    "general-de.pdf": "2da6610e8567b77fdfbfcfe5a1723352b6e1756b7b090775b59a84076f998710",
-    "general-en.pdf": "6f290697a94ce567969bcf130e2211a54fc19a997427d4ceb487fa437645b607",
-    "mechanical-de.pdf": "71641e4477d7c216ab4290d82feb0f1ed2a013b5bd28cd52629132acca8e695d",
-    "mechanical-en.pdf": "28632d914a3dc5571b805fab3b13aea69d7c696754e580843d09c3cc708f11f9",
-    "rd-de.pdf": "5d5ec5848b3e7dc33fb4617961f46b70cba0cec441d433644bd102c0cf69d2e4",
-    "rd-en.pdf": "f7dc21f4bf665a3605c62b1249ffac580ded3db907a0ab66ee91a1da0ebfbd75"
+    "general-de.pdf": "13a52e1a8d9516b1761fc1b50a1fb5c838f0aa9df0e49955c2ea5c522c63091e",
+    "general-en.pdf": "4de66b95ceb9ef574bd6d675c79cb5065b8b372e83b2bf94788d033bc0acb092",
+    "mechanical-de.pdf": "f2c780f8226d629287a1a27dc626ec67c968b646f8aa2449d84d09e291901561",
+    "mechanical-en.pdf": "9bfda7af09c8838ecd88c3c728d042054bf74e94f9a3b253c6adf64a5f1c9133",
+    "rd-de.pdf": "a29b9957225304b446129079e0c78e47770745e7cfc1ccf5899cd127d31ebc9c",
+    "rd-en.pdf": "a6c705a80f08bacbc28f9c60296572d6c0fafb636b07a701abe47851b50b4c20"
   }
 }

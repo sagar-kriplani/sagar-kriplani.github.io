@@ -1,6 +1,7 @@
 """Shared bilingual interface labels and dependency-free SVG controls."""
 from html import escape
 from html.parser import HTMLParser
+from html.entities import html5
 from pathlib import Path
 import json
 
@@ -46,7 +47,7 @@ class ControlIcons(HTMLParser):
             for char,name in ARROWS.items():data=data.replace(char,icon(name))
             if 'summary' in self.stack and data.strip()=='+':data=data.replace('+',icon('plus'))
         self.out.append(data)
-    def handle_entityref(self,name):self.out.append('&'+name+';')
+    def handle_entityref(self,name):self.out.append('&'+name+';' if name+';' in html5 else '&amp;'+name)
     def handle_charref(self,name):self.out.append('&#'+name+';')
     def handle_decl(self,decl):self.out.append('<!'+decl+'>')
     def handle_comment(self,data):self.out.append('<!--'+data+'-->')

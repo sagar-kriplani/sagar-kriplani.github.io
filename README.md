@@ -32,7 +32,7 @@ The language selector preserves the CV/legal page type. Project filters, native 
 
 Read `CONTENT_AUDIT.md` for corrections, evidence, and remaining limits. The PAU project report and submitted thesis support the featured research narrative. Other role details are identified as supplied-CV information. No unsupported Senior title, generalized energy-saving guarantee, or employment authorization claim is published. No raw confidential reports, identity documents or original scans ship. Selected project-report figure excerpts and privacy-redacted certificate/reference/transcript images are explicitly identified. The equipment-themed LinkedIn illustration/animation and Brooks PAU CAD have been removed at the user’s NDA request. A text-free process-flow diagram replaces the PAU model.
 
-Older PDFs and previous assets remain in repository history/source for reference, but are excluded from the public artifact. The public CV pages replace the disputed downloads. `IMPLEMENTATION_BRIEF.md` records the structured task prompt.
+Six reviewed CV PDFs are intentionally public alongside the HTML CV pages. Older document/media copies remain in repository history; current publication boundaries and encrypted-original/public-preview behavior are documented in UX-REVIEW.md. `IMPLEMENTATION_BRIEF.md` records the structured task prompt.
 
 ## Deployment
 
@@ -45,3 +45,12 @@ Install Playwright in your development environment and its browser runtime, then
 The new gallery data is in `assets/gallery/catalog.json`; page rendering is in `scripts/gallery.py`; the dependency-free local mesh viewer is in `assets/cad-viewer.js`. Native CAD files remain local.
 
 Run `node scripts/gallery-check.cjs` with the same Playwright environment for academic-gallery and local mesh-viewer checks. The build recreates only its verified `dist/` output to prevent removed assets surviving a local rebuild.
+
+
+## Recruitment profile paths (local development)
+
+`/en/mechanical/`, `/de/mechanical/`, `/en/research/` and `/de/research/` are static role-specific landing pages. The default home uses the mechanical path. `scripts/recruitment.py` holds role positioning, grouped skills and the three reviewed six-step cases; approved career dates remain in `career.py`. Native links/disclosure work without JavaScript; profile/language switches preserve section hashes when JavaScript is enabled.
+
+Hero CV links point directly to the existing approved mechanical/R&D PDFs. `scripts/pdf_links.py` adds clickable contact/source links, bookmarks and language metadata without changing CV text/layout. After regenerating PDFs with `cv_pdf.py`, run `pdf_links.py`, render/verify all pages, then build/check. This does not create a tagged PDF or claim PDF/UA compliance; HTML CVs remain available.
+
+Run `node scripts/recruitment-check.cjs` with the existing Playwright environment and local preview at port 4174. Source/claim review is in `review/recruitment-claims.json`. The development branch must not be pushed/deployed until the owner approves the reviewed result.
