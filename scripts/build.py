@@ -5,6 +5,7 @@ from html import escape
 import json
 import shutil
 from copy import deepcopy
+from mechanical_showcase import refine_mechanical, featured_card, thesis_visual, project_jumps, archive, supporting_context, manufacturing_visual
 from recruitment import apply_profile, profile_navigation, case_content, case_outcome, PROFILES, manufacturing_diagram as manufacturing_preview
 from ui import UI, icon, prepare_html, language_list
 from projects import extend_projects, period
@@ -107,23 +108,42 @@ def art(kind):
     return common+lines+'</svg>'
 
 def jobs(c):
-    return ''.join(f'<article class="job"><p class="date">{j[0]}</p><div><h3>{j[1]}</h3><p class="role">{j[2]}</p><p class="place">{j[3]}</p><p>{j[4]}</p></div></article>' for j in c['jobs'])
+    result=''
+    for j in c['jobs']:
+        description=j[4];context=''
+        if c.get('focusedMechanical'):
+            for marker in ('Project figures reported by me:', ' Von mir berichtete Projektkennzahlen:', 'Departure month confirmed by me;', 'Austrittsmonat von mir bestätigt;'):
+                if marker in description:
+                    description=description.split(marker,1)[0].strip()
+                    context='<details class="job-context"><summary>'+('Project details & sources' if c.get('contentLanguage')=='en' else 'Projektangaben & Quellen')+'</summary><p>'+escape(j[4])+'</p></details>'
+                    break
+        result+=f'<article class="job"><p class="date">{j[0]}</p><div><h3>{j[1]}</h3><p class="role">{j[2]}</p><p class="place">{j[3]}</p><p class="job-description">{description}</p>{context}</div></article>'
+    return result
 
 def home(lang,profile='mechanical',route=None):
     c=deepcopy(COPY[lang])
     data=apply_profile(c,lang,profile)
+    if profile=='mechanical':refine_mechanical(c,lang)
     c['profile']=profile
     c['hero']=data['title']
     c['eyebrow']='MECHANICAL DESIGN / DEVELOPMENT' if profile=='mechanical' and lang=='en' else 'KONSTRUKTION / ENTWICKLUNG' if profile=='mechanical' else 'R&D / SCIENTIFIC INSTRUMENTATION' if lang=='en' else 'F&E / WISSENSCHAFTLICHE INSTRUMENTIERUNG'
     c['metrics']=[('CAD','Manufacturing-ready documentation' if lang=='en' else 'Fertigungsgerechte Dokumentation','Inventor · drawings · BOM' if lang=='en' else 'Inventor · Zeichnungen · Stücklisten'),('DFM','Fabrication & assembly decisions' if lang=='en' else 'Fertigungs- und Montageentscheidungen','Sheet metal · welded structures' if lang=='en' else 'Blech- und Schweißkonstruktionen'),('M.Sc.','Scientific Instrumentation','EAH Jena · 2025')] if profile=='mechanical' else [('IR / LED','Comparative heating research' if lang=='en' else 'Vergleichende Heizversuche','Polymer absorption & temperature' if lang=='en' else 'Polymerabsorption & Temperatur'),('1.3','Master’s thesis grade' if lang=='en' else 'Note der Masterarbeit','Issued final transcript' if lang=='en' else 'Abschließender Notennachweis'),('M.Sc.','Scientific Instrumentation','EAH Jena · 2025')]
     cards=''
+    archive_cards=''
     for n,p in enumerate(c['projects']):
         content=case_content(p,lang) or ''.join(f'<div><h4>{c[label]}</h4><p>{p[label]}</p></div>' for label in ['problem','approach','result'])
         content+=gallery_strip(p['id'],lang)
         source_art=project_image(p['id'],lang)
         visual=source_art or (manufacturing_preview(lang) if p['id']=='machine' else art(p['art']))
+        if profile=='mechanical' and p['id'] in ('machine','pau','thesis'):
+            cards+=featured_card(p,lang,thesis_visual(lang) if p['id']=='thesis' else manufacturing_visual(lang) if p['id']=='machine' else visual)
+            continue
         illustration_label=('CONCEPTUAL ILLUSTRATION' if lang=='en' else 'SCHEMATISCHE ILLUSTRATION') if not source_art else ('SOURCE REPORT EXCERPT' if lang=='en' else 'AUSZUG AUS PROJEKTBERICHT')
-        cards+=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div>{case_outcome(p['id'],lang)}<details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
+        card=f'''<article class="project {'featured' if n==0 else ''}" data-category="{p['cat']}" id="{p['id']}"><div class="project-art">{visual}<span class="art-label">{illustration_label}</span><span class="art-no">0{n+1}</span></div><div class="project-content"><p class="eyebrow">{p['tag']}</p>{period(p['id'],lang)}<h3>{p['title']}</h3><p>{p['short']}</p><div class="tags">{''.join('<span>'+t+'</span>' for t in p['tools'])}</div>{case_outcome(p['id'],lang)}<details><summary>{c['read']} <span aria-hidden="true">↗</span></summary><div class="case-content">{content}<p class="source">{p['note']}</p></div></details></div></article>'''
+        if profile=='mechanical':archive_cards+=card
+        else:cards+=card
+    archive_html=archive(archive_cards,lang) if profile=='mechanical' else ''
+    jumps=project_jumps(lang) if profile=='mechanical' else ''
     filters=''.join(f'<button type="button" data-filter="{v}" aria-pressed="{"true" if i==0 else "false"}">{c["filters"][i]}</button>' for i,v in enumerate(['all','machine','thermal','academic']))
     skills=''.join(f'<article class="skill"><span class="skill-no">{s[0]}</span><h3>{s[1]}</h3><p class="skill-tools">{s[2]}</p><p>{s[3]}</p></article>' for s in c['skills'])
     degree_sources=['master-degree','bachelor-degree','diploma-degree']
@@ -132,11 +152,12 @@ def home(lang,profile='mechanical',route=None):
     result=head(lang,c,path=route or f'/{lang}/').replace(header(lang,c),header(lang,c,profile if route else False)).replace('<body id="page-top">',f'<body id="page-top" data-engineering-profile="{profile}">')+f'''<main id="main">{profile_navigation(lang,profile)}<section class="hero" id="top" data-role-profile="{profile}"><div class="hero-copy"><p class="eyebrow"><span class="tiny-cross">+</span> {c['eyebrow']}</p><h1>{escape(c['hero'])}</h1><p class="profile-industries">{c['industryText']}</p><p class="intro">{c['intro']}</p><ul class="hero-specialisms">{''.join('<li>'+item+'</li>' for item in data['specialisms'])}</ul><p class="role-fit">{escape(data['roles'])}</p><div class="hero-actions"><a class="button primary" href="#work">{c['work']} <span>↗</span></a><a class="button cv-primary" href="/assets/cv/{data['cv']}-{lang}.pdf" data-relevant-cv>{c['cv']} · PDF <span>↓</span></a></div><div class="hero-contact"><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn ↗</a><a href="mailto:sagar.kriplani@outlook.com">{'Contact' if lang=='en' else 'Kontakt'} ↗</a><a href="/{lang}/cv/">{'Read CV online / all versions' if lang=='en' else 'Lebenslauf online / alle Varianten'} ↗</a></div><p class="location"><span class="location-dot"></span>{c['location']}</p></div><figure class="portrait"><div class="portrait-frame"><a class="portrait-preview" href="/assets/images/sagar-kriplani.webp" data-viewer data-caption="{c['portrait']}"><img src="/assets/images/sagar-kriplani.webp" alt="{c['portrait']}" width="1000" height="1381" fetchpriority="high"></a></div><figcaption><span>+ M.Sc.</span>{c['caption']}</figcaption></figure></section>
     <section class="bridge"><p class="eyebrow">{c['bridge']}</p><p>{c['bridgeText']}</p><span aria-hidden="true">{icon('diagonal')}</span></section>
     <section class="metrics" aria-label="{'Selected technical evidence' if lang=='en' else 'Ausgewählte fachliche Nachweise'}">{metrics}</section>
-    <section class="work section" id="work"><div class="section-heading"><div><p class="eyebrow">{c['section']}</p><h2>{c['projectsTitle']}</h2></div><p>{c['projectsIntro']}</p></div><div class="filters" role="group" aria-label="{'Filter projects' if lang=='en' else 'Projekte filtern'}">{filters}</div><p class="filter-status sr-only" role="status" aria-live="polite"></p><div class="projects">{cards}</div></section>
+    <section class="work section" id="work"><div class="section-heading"><div><p class="eyebrow">{c['section']}</p><h2>{c['projectsTitle']}</h2></div><p>{c['projectsIntro']}</p></div>{jumps}<div class="filters" role="group" aria-label="{'Filter projects' if lang=='en' else 'Projekte filtern'}">{filters}</div><p class="filter-status sr-only" role="status" aria-live="polite"></p><div class="projects" id="featured-projects">{cards}</div>{archive_html}</section>
     <section class="experience section" id="experience"><div class="section-heading"><div><p class="eyebrow">{c['experienceLabel']}</p><h2>{c['experienceTitle']}</h2></div><p>{c['experienceNote']}</p></div><div class="jobs">{jobs(c)}</div><a class="text-link education-jump" href="#education">{'Explore my education timeline' if lang=='en' else 'Zur Ausbildungsübersicht'} <span aria-hidden="true">↓</span></a></section>
     <section class="expertise section" id="expertise"><p class="eyebrow">{c['expertiseLabel']}</p><h2>{c['expertiseTitle']}</h2><div class="skills">{skills}</div><div class="education" id="education"><div><p class="eyebrow">{c['education']}</p><h2 class="education-title">{'Education timeline' if lang=='en' else 'Ausbildung im Überblick'}</h2><p class="education-intro">{'From mechanical engineering to scientific instrumentation. Study periods are distinct from the dates on the award certificates.' if lang=='en' else 'Vom Maschinenbau zur wissenschaftlichen Instrumentierung. Studienzeiträume sind von den Ausstellungsdaten der Abschlussurkunden zu unterscheiden.'}</p><ol class="education-timeline">{degrees}</ol></div><div class="languages"><p class="eyebrow">{c['languages']}</p>{language_list(lang)}<p>{c['languageNote']}</p><a class="text-link" href="/{lang}/cv/">{c['cv']} ↗</a></div></div></section>
     <section class="contact" id="contact"><p class="eyebrow">{c['contactLabel']}</p><div class="contact-grid"><div><h2>{c['contactTitle']}</h2><p>{c['contactText']}</p></div><div class="contact-links"><a class="email-address" href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com <span>↗</span></a><button class="copy-email" type="button" data-copied="{c['copied']}">{c['copy']}</button><p class="copy-status" role="status" aria-live="polite"></p><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn <span>↗</span></a><a href="https://github.com/sagar-kriplani">GitHub <span>↗</span></a></div></div></section></main>'''+footer(lang,c)
-    result=result.replace('<section class="contact"',gallery_intro(lang)+evidence_section(lang)+media_section(lang)+'<section class="contact"')
+    supporting=evidence_section(lang,profile)+supporting_context(gallery_intro(lang),media_section(lang),lang) if profile=='mechanical' else gallery_intro(lang)+evidence_section(lang)+media_section(lang)
+    result=result.replace('<section class="contact"',supporting+'<section class="contact"')
     result=result.replace('</main>', '</main>'+viewer(lang))
     return result
 
