@@ -38,6 +38,10 @@ Six reviewed CV PDFs are intentionally public alongside the HTML CV pages. Older
 
 Push to `main` triggers `.github/workflows/deploy.yml`: build, check, upload **only `dist/`**, then deploy to GitHub Pages. The existing user-site endpoint is preserved. Build failures stop deployment. No Sites hosting account or alternate endpoint is necessary.
 
+## Maintenance branches and approved design
+
+`main` is the production website; `develop` is the ongoing integration branch. The deployed design at `ab199ef` is the approved baseline. New content, project updates and supplied images should fit this design in both DE/EN and the relevant engineering profile. Fix implementation issues while preserving the visual system. Design changes are developed together with the owner on `develop`; production releases occur when explicitly requested. See [AGENTS.md](AGENTS.md) for the persistent maintenance agreement and source-file conventions.
+
 ## Optional browser QA
 
 Install Playwright in your development environment and its browser runtime, then run `node scripts/browser-check.cjs`. An existing installation can be selected through `PLAYWRIGHT_MODULE` and `PLAYWRIGHT_BROWSERS_PATH`. The script expects the local preview on port 4174. It checks bilingual routes, asset responses, layouts at 320/390/768/1024/1440 pixels, filters, disclosure, theme persistence, clipboard, mobile navigation, evidence search and filters, document-viewer keyboard navigation, NDA imagery exclusions, and no-JavaScript content. QA artifacts are ignored by Git.
