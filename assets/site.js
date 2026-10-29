@@ -54,6 +54,8 @@
   document.querySelectorAll('[data-filter]').forEach(button => {
     button.addEventListener('click', () => {
       document.querySelectorAll('[data-filter]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      const archive = document.querySelector('.project-archive');
+      if (archive) archive.open = true;
       let count = 0;
       document.querySelectorAll('[data-category]').forEach(project => {
         project.hidden = button.dataset.filter !== 'all' && project.dataset.category !== button.dataset.filter;
@@ -63,6 +65,23 @@
       if (status) status.textContent = root.lang === 'de' ? `${count} Projekte angezeigt` : `${count} projects shown`;
     });
   });
+  function revealContextTarget() {
+    let id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const target = document.getElementById(id);
+    if (!target) return;
+    const project = target.closest('[data-category]');
+    if (project?.hidden) document.querySelector('[data-filter="all"]')?.click();
+    let parent = target.parentElement;
+    while (parent) { if (parent.tagName === 'DETAILS') parent.open = true; parent = parent.parentElement; }
+  }
+  revealContextTarget();
+  window.addEventListener('hashchange', revealContextTarget);
+  document.querySelectorAll('[data-open-evidence]').forEach(link => link.addEventListener('click', () => {
+    const project = link.closest('.project');
+    if (project) project.querySelector('.case-details').open = true;
+    document.getElementById(link.hash.slice(1))?.focus({preventScroll:true});
+  }));
   document.querySelector('.copy-email')?.addEventListener('click', async event => {
     const status = document.querySelector('.copy-status');
     const copiedMessage = event.currentTarget.dataset.copied;
@@ -82,7 +101,10 @@
   const input = document.getElementById('evidence-search');
   const records = [...document.querySelectorAll('[data-evidence-category]')];
   const filterButtons = [...document.querySelectorAll('[data-evidence-filter]')];
-  let selected = 'all';
+  const evidenceQuery = new URLSearchParams(location.search);
+  let selected = evidenceQuery.get('category') || 'all';
+  if (!filterButtons.some(button => button.dataset.evidenceFilter === selected)) selected = 'all';
+  if (input) input.value = evidenceQuery.get('q') || '';
   function applyEvidenceFilter() {
     const query = (input?.value || '').trim().toLocaleLowerCase(lang);
     let count = 0;
@@ -96,6 +118,14 @@
     if (status) status.textContent = `${count} ${lang === 'de' ? 'Nachweise' : 'records'}`;
     const empty = document.querySelector('.evidence-empty');
     if (empty) empty.hidden = count !== 0;
+    filterButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.evidenceFilter === selected)));
+    const params = new URLSearchParams();
+    if (selected !== 'all') params.set('category', selected);
+    if (input?.value.trim()) params.set('q', input.value.trim());
+    const search = params.toString() ? '?' + params.toString() : '';
+    history.replaceState(null, '', location.pathname + search + location.hash);
+    const languageLink = document.querySelector('.language');
+    if (languageLink) languageLink.search = search;
   }
   input?.addEventListener('input', applyEvidenceFilter);
   filterButtons.forEach(button => button.addEventListener('click', () => {
@@ -103,6 +133,7 @@
     filterButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
     applyEvidenceFilter();
   }));
+  if (records.length) applyEvidenceFilter();
   const galleryCards = [...document.querySelectorAll('[data-gallery-group]')];
   if (galleryCards.length) {
     const filters = [...document.querySelectorAll('[data-gallery-filter]')];

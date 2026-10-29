@@ -1,6 +1,6 @@
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const fs=require('node:fs');const assert=require('node:assert/strict');
-const base='http://127.0.0.1:4174';const widths=[320,375,390,430,768,1024,1440];
+const base=process.env.PORTFOLIO_PREVIEW || 'http://127.0.0.1:4174';const widths=[320,375,390,430,768,1024,1440];
 function luminance(rgb){return rgb.slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0)}
 function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
 (async()=>{

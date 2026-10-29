@@ -9,6 +9,7 @@
     "test:gallery": "node scripts/gallery-check.cjs",
     "test:ux": "node scripts/ux-check.cjs",
     "test:security": "node scripts/security-check.cjs",
-    "test:recruitment": "node scripts/recruitment-check.cjs"
+    "test:recruitment": "node scripts/recruitment-check.cjs",
+    "test:mechanical": "node scripts/mechanical-check.cjs"
   }
 }
