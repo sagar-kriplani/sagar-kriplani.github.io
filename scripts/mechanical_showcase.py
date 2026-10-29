@@ -51,9 +51,9 @@ def thesis_visual(lang):
     caption='FOUP heating comparison · thesis Figure 5-1' if lang=='en' else 'Vergleich der FOUP-Erwärmung · Masterarbeit Abb. 5-1'
     return f'<figure class="project-source-image"><a href="/assets/gallery/thesis-06.webp" data-viewer data-caption="{caption}"><img src="/assets/gallery/thesis-06.webp" alt="{caption}" loading="lazy" width="1200" height="600"></a><figcaption>{caption}</figcaption></figure>'
 
-def project_jumps(lang,hidden=()):
+def project_jumps(lang):
     en=lang=='en'
-    return '<nav class="project-jumps" aria-label="'+('Featured cases' if en else 'Fallstudien auswählen')+'">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in [('machine','NeSt · '+('Manufacturing' if en else 'Industriekonstruktion')),('pau','Brooks · PAU'),('thesis','Brooks / EAH · FOUP'),('project-archive','Archive · 5' if en else 'Projektarchiv · 5')] if key not in hidden)+'</nav>'
+    return '<nav class="project-jumps" aria-label="'+('Featured cases' if en else 'Fallstudien auswählen')+'">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in [('machine','NeSt · '+('Manufacturing' if en else 'Industriekonstruktion')),('pau','Brooks · PAU'),('thesis','Brooks / EAH · FOUP'),('project-archive','Archive · 5' if en else 'Projektarchiv · 5')])+'</nav>'
 
 def archive(cards,lang):
     en=lang=='en'

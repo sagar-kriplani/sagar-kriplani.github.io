@@ -37,10 +37,10 @@ for path,p in pages.items():
             assert url.fragment in pages[target.resolve()].ids, f'Broken anchor: {path} -> {link}'
 for lang in ('en','de'):
     p=pages[(ROOT/lang/'index.html').resolve()]
-    assert {'pau','thesis','handling','work','experience','expertise','contact'}<=p.ids
+    assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
-    assert text.count('data-category=')==7
-    assert text.count('class="project-period"')==7
+    assert text.count('data-category=')==8
+    assert text.count('class="project-period"')==8
     assert text.split('<dl class="language-list">',1)[1].split('</dl>',1)[0].count('<dt>')==5
     assert 'ai-cad' in p.ids
     assert 'education' in p.ids
@@ -73,8 +73,6 @@ for lang in ('en','de'):
         assert (ROOT/'assets/evidence'/(record['key']+'.webp')).exists(), 'Public preview must remain visible'
         assert (ROOT/'assets/protected'/(record['key']+'.skvault')).exists()
     assert library.path.read_text(encoding='utf-8').count('data-download')==29
-    assert 'id="machine"' not in text
-    assert '8-mm-Stahlblech' not in text and '8 mm steel-sheet' not in text
     assert len([r for r in RECORDS if r['group']=='certifications'])==16
     public_text=library.path.read_text(encoding='utf-8')
     # Generic patterns avoid placing the user's actual private identifiers in source control.
@@ -83,17 +81,17 @@ for lang in ('en','de'):
 for lang in ('en','de'):
     for profile in ('mechanical','research'):
         text=(ROOT/lang/profile/'index.html').read_text(encoding='utf-8')
-        assert text.count('class="engineering-steps"')==2
-        assert text.count('class="project-period"')==7
+        assert text.count('class="engineering-steps"')==3
+        assert text.count('class="project-period"')==8
         assert 'data-relevant-cv' in text
         assert f'/assets/cv/{"rd" if profile=="research" else "mechanical"}-{lang}.pdf' in text
         assert 'R&amp;D;' not in text and 'F&amp;E;' not in text
         assert 'data-profile="'+profile+'" aria-current="page"' in text
         if profile=='mechanical':
-            assert text.count('class="project featured industrial-case"')==2
+            assert text.count('class="project featured industrial-case"')==3
             assert 'id="project-archive"' in text
-            assert text.count('class="case-brief"')==2
-            assert text.count('class="case-sources"')==2
+            assert text.count('class="case-brief"')==3
+            assert text.count('class="case-sources"')==3
             assert 'class="evidence-groups"' in text
 
 for forbidden in ['pau-assembly.webp','linkedin-concept.webp','linkedin-concept.webm']:

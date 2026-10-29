@@ -15,7 +15,6 @@ from evidence import enrich_copy, evidence_section, media_section, evidence_page
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'dist'
-HIDDEN_PROJECTS=set(json.loads((ROOT/'content/project-visibility.json').read_text(encoding='utf-8'))['hidden'])
 # Rebuild only the verified generated-output directory, preventing stale excluded assets.
 assert OUT.resolve().parent == ROOT.resolve() and OUT.name == 'dist'
 if OUT.exists():
@@ -124,10 +123,7 @@ def jobs(c):
 def home(lang,profile='mechanical',route=None):
     c=deepcopy(COPY[lang])
     data=apply_profile(c,lang,profile)
-    c['projects']=[project for project in c['projects'] if project['id'] not in HIDDEN_PROJECTS]
-    if profile=='mechanical':
-        refine_mechanical(c,lang)
-        if 'machine' in HIDDEN_PROJECTS:c['projectsIntro']='Two equipment-development cases: process-air design at Brooks and FOUP thermal research. Supporting academic and exploratory projects remain in the archive.' if lang=='en' else 'Zwei Fallstudien aus der Anlagenentwicklung: Prozessluftkonstruktion bei Brooks und thermische FOUP-Forschung. Ergänzende Studien- und Erprobungsprojekte bleiben im Archiv.'
+    if profile=='mechanical':refine_mechanical(c,lang)
     c['profile']=profile
     c['hero']=data['title']
     c['eyebrow']='MECHANICAL DESIGN / DEVELOPMENT' if profile=='mechanical' and lang=='en' else 'KONSTRUKTION / ENTWICKLUNG' if profile=='mechanical' else 'R&D / SCIENTIFIC INSTRUMENTATION' if lang=='en' else 'F&E / WISSENSCHAFTLICHE INSTRUMENTIERUNG'
@@ -147,7 +143,7 @@ def home(lang,profile='mechanical',route=None):
         if profile=='mechanical':archive_cards+=card
         else:cards+=card
     archive_html=archive(archive_cards,lang) if profile=='mechanical' else ''
-    jumps=project_jumps(lang,HIDDEN_PROJECTS) if profile=='mechanical' else ''
+    jumps=project_jumps(lang) if profile=='mechanical' else ''
     filters=''.join(f'<button type="button" data-filter="{v}" aria-pressed="{"true" if i==0 else "false"}">{c["filters"][i]}</button>' for i,v in enumerate(['all','machine','thermal','academic']))
     skills=''.join(f'<article class="skill"><span class="skill-no">{s[0]}</span><h3>{s[1]}</h3><p class="skill-tools">{s[2]}</p><p>{s[3]}</p></article>' for s in c['skills'])
     degree_sources=['master-degree','bachelor-degree','diploma-degree']

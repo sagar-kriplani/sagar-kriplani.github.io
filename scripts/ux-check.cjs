@@ -48,7 +48,7 @@ const widths=[320,375,390,430,768,1024,1440];
   await page.locator('.language').click();
   assert.equal(new URL(page.url()).hash,'#experience');
   await page.goto(`${base}/${lang}/`);
-  for(const [filter,count] of [['machine',1],['thermal',3],['academic',3],['all',7]]){
+  for(const [filter,count] of [['machine',2],['thermal',3],['academic',3],['all',8]]){
    await page.locator(`[data-filter="${filter}"]`).focus();await page.keyboard.press('Enter');
    assert.equal(await page.locator('[data-category]:visible').count(),count);
    assert.equal(await page.locator(`[data-filter="${filter}"]`).getAttribute('aria-pressed'),'true');

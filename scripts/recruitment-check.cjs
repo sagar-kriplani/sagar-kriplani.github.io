@@ -13,9 +13,9 @@ function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+
   assert.ok(!(await page.locator('main').innerText()).includes('R&D;'),'Malformed ampersand entity');
   const expected=`/assets/cv/${profile==='research'?'rd':'mechanical'}-${lang}.pdf`;
   assert.equal(await page.locator('[data-relevant-cv]').getAttribute('href'),expected);assert.equal((await page.request.get(base+expected)).status(),200);
-  assert.equal(await page.locator('[data-category]').first().getAttribute('id'),profile==='research'?'thesis':'pau');
+  assert.equal(await page.locator('[data-category]').first().getAttribute('id'),profile==='research'?'thesis':'machine');
   assert.equal(await page.locator('.skill').count(),4);
-  for(const id of ['pau','thesis'])assert.equal(await page.locator(`#${id} .engineering-steps>li`).count(),6);
+  for(const id of ['machine','pau','thesis'])assert.equal(await page.locator(`#${id} .engineering-steps>li`).count(),6);
   const title=await page.locator('h1').innerText();assert.ok(lang==='de'?/ingenieur/i.test(title):/Engineer/.test(title));
   for(const theme of ['light','dark']){
    await page.evaluate(value=>document.documentElement.dataset.theme=value,theme);
@@ -38,11 +38,11 @@ function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+
  assert.equal(await page.locator('#thesis .research-plots img').count(),2);
  await page.locator('#thesis .research-plots [data-viewer]').first().click();assert.equal(await page.locator('.document-unlock').isVisible(),false);
  assert.equal(await page.locator('.viewer-download').isVisible(),true);await page.keyboard.press('Escape');
- await page.goto(`${base}/en/mechanical/`);await page.locator('#pau summary').click();await page.locator('#pau .engineering-steps').screenshot({path:'qa/recruitment-primary-case.png'});
+ await page.goto(`${base}/en/mechanical/`);await page.locator('#machine summary').click();await page.locator('#machine .engineering-steps').screenshot({path:'qa/recruitment-nest-case.png'});
  await page.goto(`${base}/en/research/`);await page.locator('#thesis summary').click();await page.locator('#thesis .case-table').screenshot({path:'qa/recruitment-thesis-table.png'});
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:1000}});const fallback=await nojs.newPage();
  await fallback.goto(`${base}/de/research/`);assert.equal(await fallback.locator('.profile-switch a').count(),2);await fallback.locator('#thesis summary').click();
  assert.equal(await fallback.locator('#thesis .engineering-steps').isVisible(),true);assert.equal(await fallback.locator('[data-relevant-cv]').count(),1);
- assert.deepEqual(errors,[]);fs.writeFileSync('qa/recruitment-results.json',JSON.stringify({passed:true,browser:'Chromium',widths,profileSamples:observations.length,checks:['role/CV match','all four language/profile paths','two active six-step cases','project priority','four skills groups','profile/language/anchor context','keyboard and no-JavaScript disclosure','body and accent contrast >=4.5:1 in both themes','public research plots and protected-original control'],errors,observations},null,2));
+ assert.deepEqual(errors,[]);fs.writeFileSync('qa/recruitment-results.json',JSON.stringify({passed:true,browser:'Chromium',widths,profileSamples:observations.length,checks:['role/CV match','all four language/profile paths','three six-step cases','project priority','four skills groups','profile/language/anchor context','keyboard and no-JavaScript disclosure','body and accent contrast >=4.5:1 in both themes','public research plots and protected-original control'],errors,observations},null,2));
  await browser.close();console.log('PASS: 28 role/language/viewport samples; role-specific CVs, cases, skills, context and contrast.');
 })().catch(e=>{console.error(e);process.exit(1)});
