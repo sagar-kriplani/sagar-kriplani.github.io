@@ -10,6 +10,7 @@
     "test:ux": "node scripts/ux-check.cjs",
     "test:security": "node scripts/security-check.cjs",
     "test:recruitment": "node scripts/recruitment-check.cjs",
-    "test:mechanical": "node scripts/mechanical-check.cjs"
+    "test:mechanical": "node scripts/mechanical-check.cjs",
+    "test:showcase": "node scripts/showcase-check.cjs"
   }
 }

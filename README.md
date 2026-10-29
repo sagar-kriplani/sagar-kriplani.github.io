@@ -44,6 +44,12 @@ Install Playwright in your development environment and its browser runtime, then
 
 The new gallery data is in `assets/gallery/catalog.json`; page rendering is in `scripts/gallery.py`; the dependency-free local mesh viewer is in `assets/cad-viewer.js`. Native CAD files remain local.
 
+## Selected engineering slideshow
+
+The showcase immediately below the hero uses nine existing public figures: five for mechanical design and four for R&D. `scripts/showcase.py` selects keys from the existing gallery catalog and supplies DE/EN captions; `assets/showcase.css` and `assets/showcase.js` provide the responsive presentation, six-second playback, pause lifecycle, keyboard/touch navigation and separate enlarged view. Image clicks open the matching existing case study. Normal pointer navigation and swipes resume autoplay; keyboard exploration and explicit Pause retain visitor control. Light/dark surfaces and responsive decorative backgrounds follow the existing profile theme. Reduced motion defaults to paused; the first figure and gallery link also work without JavaScript.
+
+Run `npm run test:showcase` against the local preview on port 4174, using the existing Playwright environment described above. See [selection, rationale and verification](review/engineering-showcase.md) and the [complete image inventory](review/engineering-asset-inventory.csv). Development stays local until production deployment is approved.
+
 Run `node scripts/gallery-check.cjs` with the same Playwright environment for academic-gallery and local mesh-viewer checks. The build recreates only its verified `dist/` output to prevent removed assets surviving a local rebuild.
 
 

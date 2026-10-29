@@ -11,6 +11,7 @@ from ui import UI, icon, prepare_html, language_list
 from projects import extend_projects, period
 from career import apply_career, cv_body
 from gallery import gallery_strip, gallery_intro, gallery_page, cad_page
+from showcase import showcase
 from evidence import enrich_copy, evidence_section, media_section, evidence_page, project_image, viewer, RECORDS
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -151,6 +152,9 @@ def home(lang,profile='mechanical',route=None):
     <section class="experience section" id="experience"><div class="section-heading"><div><p class="eyebrow">{c['experienceLabel']}</p><h2>{c['experienceTitle']}</h2></div><p>{c['experienceNote']}</p></div><div class="jobs">{jobs(c)}</div><a class="text-link education-jump" href="#education">{'Explore my education timeline' if lang=='en' else 'Zur Ausbildungsübersicht'} <span aria-hidden="true">↓</span></a></section>
     <section class="expertise section" id="expertise"><p class="eyebrow">{c['expertiseLabel']}</p><h2>{c['expertiseTitle']}</h2><div class="skills">{skills}</div><div class="education" id="education"><div><p class="eyebrow">{c['education']}</p><h2 class="education-title">{'Education timeline' if lang=='en' else 'Ausbildung im Überblick'}</h2><p class="education-intro">{'From mechanical engineering to scientific instrumentation. Study periods are distinct from the dates on the award certificates.' if lang=='en' else 'Vom Maschinenbau zur wissenschaftlichen Instrumentierung. Studienzeiträume sind von den Ausstellungsdaten der Abschlussurkunden zu unterscheiden.'}</p><ol class="education-timeline">{degrees}</ol></div><div class="languages"><p class="eyebrow">{c['languages']}</p>{language_list(lang)}<p>{c['languageNote']}</p><a class="text-link" href="/{lang}/cv/">{c['cv']} ↗</a></div></div></section>
     <section class="contact" id="contact"><p class="eyebrow">{c['contactLabel']}</p><div class="contact-grid"><div><h2>{c['contactTitle']}</h2><p>{c['contactText']}</p></div><div class="contact-links"><a class="email-address" href="mailto:sagar.kriplani@outlook.com">sagar.kriplani@outlook.com <span>↗</span></a><button class="copy-email" type="button" data-copied="{c['copied']}">{c['copy']}</button><p class="copy-status" role="status" aria-live="polite"></p><a href="https://www.linkedin.com/in/sagar-kriplani/">LinkedIn <span>↗</span></a><a href="https://github.com/sagar-kriplani">GitHub <span>↗</span></a></div></div></section></main>'''+footer(lang,c)
+    # Keep the profile introduction first; offer a visual route into the existing cases next.
+    result=result.replace('<section class="bridge">',showcase(lang,profile)+'<section class="bridge">',1)
+    result=result.replace('</head>', '<link rel="stylesheet" href="/assets/showcase.css"><script src="/assets/showcase.js" defer></script></head>',1)
     supporting=gallery_intro(lang)+evidence_section(lang,profile)+media_section(lang)
     result=result.replace('<section class="contact"',supporting+'<section class="contact"')
     result=result.replace('</main>', '</main>'+viewer(lang))
@@ -205,7 +209,7 @@ for lang in COPY:
 (OUT/'index.html').write_text(home('en').replace('https://sagar-kriplani.github.io/en/\"','https://sagar-kriplani.github.io/\"',1),encoding='utf-8')
 # Keep root entrypoint usable for local review and straightforward Pages fallback.
 (ROOT/'index.html').write_text((OUT/'index.html').read_text(encoding='utf-8'),encoding='utf-8')
-for name in ['site.css','site.js','cad-viewer.js','favicon.svg']:
+for name in ['site.css','site.js','showcase.css','showcase.js','cad-viewer.js','favicon.svg']:
     shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name) if (OUT/'assets').exists() else ((OUT/'assets').mkdir(),shutil.copy2(ROOT/'assets'/name,OUT/'assets'/name))
 for directory in ['images','fonts','evidence','gallery','cv','protected']:
     shutil.copytree(ROOT/'assets'/directory,OUT/'assets'/directory,dirs_exist_ok=True)

@@ -1,0 +1,145 @@
+path,format,width,height,aspect_ratio,bytes,kib,selected,usage
+assets/drawings/iso-projection.svg,SVG,100,40,2.5,881,0.86,False,legacy asset; not referenced by current built pages
+assets/drawings/vacuum-foup.svg,SVG,900,620,1.4516,13625,13.31,False,legacy asset; not referenced by current built pages
+assets/evidence/activity-points.webp,WEBP,1200,729,1.6461,67348,65.77,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ansys-static.webp,WEBP,1200,541,2.2181,15352,14.99,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ansys-thermal.webp,WEBP,1200,601,1.9967,41426,40.46,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ansys-training.webp,WEBP,990,1400,0.7071,45732,44.66,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/bachelor-degree.webp,WEBP,1190,1400,0.85,93054,90.87,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/bachelor-transcript.webp,WEBP,1158,1064,1.0883,78756,76.91,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/brooks-reference-1.webp,WEBP,978,1400,0.6986,122498,119.63,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/brooks-reference-2.webp,WEBP,1037,802,1.293,67340,65.76,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/cad-event-coordinator.webp,WEBP,1200,663,1.81,33654,32.87,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/diploma-degree.webp,WEBP,1200,1397,0.859,115324,112.62,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/diploma-transcript.webp,WEBP,1137,1253,0.9074,88846,86.76,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/drafting-essentials.webp,WEBP,1200,565,2.1239,56380,55.06,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ects-grade.webp,WEBP,1054,1070,0.985,14188,13.86,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/engineering-drawings.webp,WEBP,1200,655,1.8321,16694,16.3,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/flexmill.webp,WEBP,1200,584,2.0548,64558,63.04,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/frost-results.webp,WEBP,989,1262,0.7837,36138,35.29,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/german-b1-plus.webp,WEBP,1200,689,1.7417,32326,31.57,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/gsecl-training.webp,WEBP,1200,706,1.6997,41800,40.82,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/handling-assembly.webp,WEBP,567,648,0.875,9004,8.79,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/learning-nx.webp,WEBP,1200,595,2.0168,13682,13.36,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/master-degree.webp,WEBP,1042,1304,0.7991,20502,20.02,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/master-grades.webp,WEBP,981,1400,0.7007,23594,23.04,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/master-transcript.webp,WEBP,1019,1087,0.9374,28058,27.4,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/nc-programming.webp,WEBP,1200,603,1.99,66386,64.83,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/nest-reference.webp,WEBP,1037,1177,0.8811,73086,71.37,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/nx-basic.webp,WEBP,1200,571,2.1016,60204,58.79,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/nx-essentials.webp,WEBP,1200,603,1.99,68358,66.76,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/process-flow.svg,SVG,1000,400,2.5,714,0.7,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ravi-recommendation.webp,WEBP,1025,1024,1.001,79178,77.32,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/ravi-reference.webp,WEBP,1055,819,1.2882,45494,44.43,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/robot-six-axis.webp,WEBP,1200,560,2.1429,56188,54.87,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/rpt-basics.webp,WEBP,1200,592,2.027,59840,58.44,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/semiconductor-scale.webp,WEBP,1200,736,1.6304,23406,22.86,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/shoe-process.webp,WEBP,1066,1380,0.7725,17858,17.44,False,scripts/evidence.py: public evidence or project-report previews
+assets/evidence/synchronous-modelling.webp,WEBP,1200,608,1.9737,63574,62.08,False,scripts/evidence.py: public evidence or project-report previews
+assets/favicon.svg,SVG,64,64,1.0,294,0.29,False,scripts/build.py: favicon
+assets/gallery/ansys-01.webp,WEBP,1200,536,2.2388,18956,18.51,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-02.webp,WEBP,1200,526,2.2814,23668,23.11,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-03.webp,WEBP,1200,516,2.3256,19296,18.84,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-04.webp,WEBP,1200,647,1.8547,54922,53.63,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-05.webp,WEBP,1200,591,2.0305,58458,57.09,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-06.webp,WEBP,1200,638,1.8809,60350,58.94,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-07.webp,WEBP,1200,631,1.9017,53442,52.19,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-08.webp,WEBP,1200,641,1.8721,57764,56.41,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-09.webp,WEBP,1200,547,2.1938,28386,27.72,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-10.webp,WEBP,1200,535,2.243,25358,24.76,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-11.webp,WEBP,1200,626,1.9169,51360,50.16,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-12.webp,WEBP,1200,644,1.8634,53382,52.13,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-13.webp,WEBP,1200,625,1.92,44130,43.1,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-14.webp,WEBP,1200,638,1.8809,45608,44.54,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-15.webp,WEBP,1200,714,1.6807,35810,34.97,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-16.webp,WEBP,1200,606,1.9802,50448,49.27,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-17.webp,WEBP,1200,670,1.791,61730,60.28,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-18.webp,WEBP,1200,639,1.8779,58686,57.31,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-19.webp,WEBP,1200,504,2.381,26232,25.62,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/ansys-20.webp,WEBP,1200,626,1.9169,51272,50.07,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-21.webp,WEBP,1200,626,1.9169,36758,35.9,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-22.webp,WEBP,1200,631,1.9017,55404,54.11,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-23.webp,WEBP,1200,621,1.9324,54578,53.3,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-24.webp,WEBP,1200,632,1.8987,51638,50.43,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-25.webp,WEBP,1200,641,1.8721,60002,58.6,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/ansys-26.webp,WEBP,1200,622,1.9293,53036,51.79,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-27.webp,WEBP,1200,604,1.9868,37512,36.63,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-28.webp,WEBP,1200,630,1.9048,47116,46.01,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-29.webp,WEBP,1200,575,2.087,37222,36.35,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-30.webp,WEBP,1200,588,2.0408,68850,67.24,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-31.webp,WEBP,1200,610,1.9672,69918,68.28,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-32.webp,WEBP,1200,591,2.0305,34516,33.71,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-33.webp,WEBP,1200,598,2.0067,49266,48.11,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-34.webp,WEBP,1200,596,2.0134,30568,29.85,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-35.webp,WEBP,1200,617,1.9449,34846,34.03,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-36.webp,WEBP,1200,609,1.9704,39044,38.13,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-37.webp,WEBP,1200,594,2.0202,40848,39.89,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-38.webp,WEBP,1200,621,1.9324,44586,43.54,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-39.webp,WEBP,1200,604,1.9868,41910,40.93,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-40.webp,WEBP,1200,630,1.9048,49596,48.43,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-41.webp,WEBP,1200,629,1.9078,47772,46.65,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-42.webp,WEBP,1200,629,1.9078,49528,48.37,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-43.webp,WEBP,1200,535,2.243,35340,34.51,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-44.webp,WEBP,1200,646,1.8576,54994,53.71,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-45.webp,WEBP,1200,643,1.8663,56246,54.93,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/ansys-46.webp,WEBP,1200,642,1.8692,59336,57.95,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-01.webp,WEBP,1175,598,1.9649,21044,20.55,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-02.webp,WEBP,1008,567,1.7778,10228,9.99,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-03.webp,WEBP,1107,751,1.474,19100,18.65,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-04.webp,WEBP,1098,758,1.4485,20732,20.25,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-05.webp,WEBP,1200,626,1.9169,53860,52.6,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-06.webp,WEBP,1200,600,2.0,32674,31.91,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-07.webp,WEBP,1200,601,1.9967,34128,33.33,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/frost-08.webp,WEBP,1200,629,1.9078,88628,86.55,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/handling-01.webp,WEBP,396,561,0.7059,5314,5.19,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-02.webp,WEBP,379,578,0.6557,3948,3.86,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-03.webp,WEBP,355,576,0.6163,5652,5.52,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-04.webp,WEBP,699,630,1.1095,6822,6.66,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-05.webp,WEBP,977,690,1.4159,12070,11.79,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/handling-06.webp,WEBP,869,688,1.2631,10476,10.23,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-07.webp,WEBP,343,391,0.8772,2244,2.19,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-08.webp,WEBP,549,577,0.9515,9874,9.64,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-09.webp,WEBP,1004,893,1.1243,20686,20.2,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/handling-10.webp,WEBP,487,693,0.7027,4482,4.38,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-11.webp,WEBP,1021,778,1.3123,20882,20.39,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-12.webp,WEBP,731,719,1.0167,16032,15.66,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-13.webp,WEBP,661,356,1.8567,7756,7.57,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-14.webp,WEBP,497,531,0.936,7162,6.99,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-15.webp,WEBP,433,520,0.8327,3008,2.94,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-16.webp,WEBP,353,325,1.0862,3488,3.41,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-17.webp,WEBP,355,348,1.0201,3754,3.67,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-18.webp,WEBP,581,449,1.294,7554,7.38,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-19.webp,WEBP,512,325,1.5754,3946,3.85,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-20.webp,WEBP,822,412,1.9951,10866,10.61,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-21.webp,WEBP,337,314,1.0732,7264,7.09,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-22.webp,WEBP,637,326,1.954,5936,5.8,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-23.webp,WEBP,737,343,2.1487,9446,9.22,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-24.webp,WEBP,633,324,1.9537,6590,6.44,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-25.webp,WEBP,640,300,2.1333,7294,7.12,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-26.webp,WEBP,567,280,2.025,6980,6.82,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/handling-27.webp,WEBP,749,853,0.8781,15600,15.23,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/shoe-01.webp,WEBP,1107,1400,0.7907,22098,21.58,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/shoe-02.webp,WEBP,1107,1400,0.7907,28820,28.14,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/shoe-03.webp,WEBP,1107,1400,0.7907,34564,33.75,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/shoe-04.webp,WEBP,1107,1400,0.7907,61330,59.89,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-01.webp,WEBP,1200,462,2.5974,24174,23.61,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/thesis-02.webp,WEBP,1200,717,1.6736,30586,29.87,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/thesis-03.webp,WEBP,1200,695,1.7266,32280,31.52,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-04.webp,WEBP,1200,613,1.9576,15066,14.71,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-05.webp,WEBP,1200,613,1.9576,14746,14.4,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-06.webp,WEBP,1200,589,2.0374,14502,14.16,True,catalog.json / scripts/gallery.py: project gallery strips and academic gallery; scripts/showcase.py: selected slide
+assets/gallery/thesis-07.webp,WEBP,1200,589,2.0374,12854,12.55,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-08.webp,WEBP,1200,589,2.0374,13318,13.01,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-09.webp,WEBP,1200,589,2.0374,15470,15.11,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-10.webp,WEBP,1200,589,2.0374,14964,14.61,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/gallery/thesis-11.webp,WEBP,1200,610,1.9672,16418,16.03,False,catalog.json / scripts/gallery.py: project gallery strips and academic gallery
+assets/images/mechanical-environment-mobile.webp,WEBP,800,450,1.7778,33494,32.71,False,assets/site.css: existing profile hero environments (pre-existing local changes)
+assets/images/mechanical-environment.webp,WEBP,1600,900,1.7778,98120,95.82,False,assets/site.css: existing profile hero environments (pre-existing local changes)
+assets/images/research-environment-mobile.webp,WEBP,800,450,1.7778,45464,44.4,False,assets/site.css: existing profile hero environments (pre-existing local changes)
+assets/images/research-environment.webp,WEBP,1600,900,1.7778,120534,117.71,False,assets/site.css: existing profile hero environments (pre-existing local changes)
+assets/images/sagar-kriplani.webp,WEBP,1000,1381,0.7241,46406,45.32,False,scripts/build.py: hero portrait and social metadata
+assets/img/mech-hero-bg.jpg,JPEG,1376,768,1.7917,112611,109.97,False,legacy asset; not referenced by current built pages
+assets/img/mech-hero-bg.webp,WEBP,1376,768,1.7917,75804,74.03,False,legacy asset; not referenced by current built pages
+assets/img/rd-hero-bg.jpg,JPEG,1376,768,1.7917,128708,125.69,False,legacy asset; not referenced by current built pages
+assets/img/rd-hero-bg.webp,WEBP,1376,768,1.7917,74164,72.43,False,legacy asset; not referenced by current built pages
+assets/profile-placeholder.svg,SVG,160,160,1.0,2042,1.99,False,legacy asset; not referenced by current built pages
