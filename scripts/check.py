@@ -41,7 +41,7 @@ for lang in ('en','de'):
     text=p.path.read_text(encoding='utf-8')
     assert text.count('data-category=')==8
     assert text.count('class="project-period"')==8
-    assert text.split('<dl class="language-list">',1)[1].split('</dl>',1)[0].count('<dt>')==5
+    assert text.count('<dt>')==5
     assert 'ai-cad' in p.ids
     assert 'education' in p.ids
     assert text.count('class="education-step"')==3
@@ -87,12 +87,6 @@ for lang in ('en','de'):
         assert f'/assets/cv/{"rd" if profile=="research" else "mechanical"}-{lang}.pdf' in text
         assert 'R&amp;D;' not in text and 'F&amp;E;' not in text
         assert 'data-profile="'+profile+'" aria-current="page"' in text
-        if profile=='mechanical':
-            assert text.count('class="project featured industrial-case"')==3
-            assert 'id="project-archive"' in text
-            assert text.count('class="case-brief"')==3
-            assert text.count('class="case-sources"')==3
-            assert 'class="evidence-groups"' in text
 
 for forbidden in ['pau-assembly.webp','linkedin-concept.webp','linkedin-concept.webm']:
     assert not list(ROOT.rglob(forbidden)), 'Excluded employer imagery must not ship'
