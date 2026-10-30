@@ -11,6 +11,7 @@
     "test:security": "node scripts/security-check.cjs",
     "test:recruitment": "node scripts/recruitment-check.cjs",
     "test:mechanical": "node scripts/mechanical-check.cjs",
-    "test:showcase": "node scripts/showcase-check.cjs"
+    "test:showcase": "node scripts/showcase-check.cjs",
+    "test:theme": "node scripts/theme-check.cjs"
   }
 }

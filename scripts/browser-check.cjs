@@ -33,6 +33,7 @@ const assert=require('node:assert/strict');
   await page.setViewportSize({width,height:900});
   for(const route of ['/en/','/de/','/en/cv/','/de/legal/','/en/evidence/','/de/evidence/']){
    await page.goto('http://127.0.0.1:4174'+route);
+   await page.evaluate(()=>document.fonts.ready);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' overflows at '+width);
   }
  }

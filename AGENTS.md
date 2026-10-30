@@ -8,6 +8,7 @@ Owner instructions from 29 October 2026 apply to this repository and future main
 - Preserve its layout, typography, light/dark themes, responsive backgrounds, slideshow, profile navigation, evidence strips and existing sections.
 - Future supplied updates and images should be integrated into the existing design. Resolve ordinary implementation choices and fix bugs without repeatedly asking for permission.
 - Do not proactively redesign or add a new visual system. Work with the owner on `develop` when a design change is requested. Preserve the baseline until that change is explicitly agreed.
+- Owner-approved refinement (30 October 2026): every page and both profiles use the homepage's shared steel-blue/cyan palette in light and dark mode. Keep colour tokens in the root theme; profile selectors choose decorative scenes, not separate palettes. New visitors start in light mode regardless of OS preference; only an explicit saved visitor choice enables dark mode. Resetting the theme returns to light.
 
 ## Branch and release workflow
 

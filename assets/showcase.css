@@ -1,5 +1,5 @@
 /* A contained engineering exhibition; the existing site theme remains the frame. */
-.engineering-showcase{--showcase-accent:var(--accent);--showcase-muted:var(--muted);--showcase-stage:#e1eaf0;--showcase-control:var(--paper);--showcase-grid:#326c8810;max-width:var(--max);margin:0 auto;background:var(--bg);color:var(--ink);padding:32px 0 20px;overflow:hidden;position:relative;border-block:1px solid var(--line);isolation:isolate}
+.engineering-showcase{--showcase-accent:var(--accent);--showcase-muted:var(--muted);--showcase-stage:var(--media-surface);--showcase-control:var(--paper);--showcase-grid:#326c8810;max-width:var(--max);margin:0 auto;background:var(--bg);color:var(--ink);padding:32px 0 20px;overflow:hidden;position:relative;border-block:1px solid var(--line);isolation:isolate}
 .engineering-showcase::before{content:"";position:absolute;inset:0;background-image:linear-gradient(105deg,rgba(var(--scene-rgb),.98),rgba(var(--scene-rgb),.88)),var(--scene);background-size:cover;background-position:center;pointer-events:none;z-index:-1}
 .engineering-showcase:focus-visible{outline:3px solid var(--showcase-accent);outline-offset:-4px}
 .engineering-showcase a:focus-visible,.engineering-showcase button:focus-visible{outline:3px solid var(--showcase-accent);outline-offset:-4px}
@@ -64,7 +64,7 @@
 @media print{.engineering-showcase{display:none}}
 
 /* Theme-aware image treatment. Existing profile scenes stay decorative. */
-:root[data-theme=dark] .engineering-showcase{--showcase-stage:#142c3d;--showcase-grid:#8ad4ec10;--showcase-control:var(--surface)}
+:root[data-theme=dark] .engineering-showcase{--showcase-grid:#8ad4ec10;--showcase-control:var(--surface)}
 :root[data-theme=dark] .showcase-slide{box-shadow:0 16px 40px #0003}
 :root[data-theme=light] body[data-engineering-profile] .hero::before{background-image:linear-gradient(90deg,rgba(var(--scene-rgb),.98) 0%,rgba(var(--scene-rgb),.93) 36%,rgba(var(--scene-rgb),.5) 100%),linear-gradient(0deg,rgba(var(--scene-rgb),1),rgba(var(--scene-rgb),0) 35%),var(--scene)}
 .showcase-playback>span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--muted);border-radius:50%;margin-right:7px;vertical-align:middle}

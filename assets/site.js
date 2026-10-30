@@ -6,22 +6,19 @@
     root.dataset.theme = value;
     theme?.setAttribute('aria-pressed', String(value === 'dark'));
   }
-  let saved;
-  try { saved = localStorage.getItem('portfolio-theme'); } catch { /* Storage can be disabled. */ }
-  const preference = window.matchMedia('(prefers-color-scheme: dark)');
-  setTheme(saved === 'light' || saved === 'dark' ? saved : preference.matches ? 'dark' : 'light');
+  // theme.js restores an explicit choice before first paint; OS preferences do not
+  // override the owner's light-first default or a visitor's chosen appearance.
+  setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
   theme?.addEventListener('click', () => {
-    saved = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    setTheme(saved);
-    try { localStorage.setItem('portfolio-theme', saved); } catch { /* Preference remains session-local. */ }
+    const value = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(value);
+    try { localStorage.setItem('portfolio-theme', value); } catch { /* Preference remains session-local. */ }
   });
   document.querySelector('.reset-theme')?.addEventListener('click', () => {
-    saved = null;
     try { localStorage.removeItem('portfolio-theme'); } catch { /* Storage can be disabled. */ }
-    setTheme(preference.matches ? 'dark' : 'light');
-    document.querySelector('.theme-reset-status').textContent = root.lang === 'de' ? 'Gespeicherte Darstellung entfernt. Die Systemeinstellung wird verwendet.' : 'Saved theme removed. Using your system setting.';
+    setTheme('light');
+    document.querySelector('.theme-reset-status').textContent = root.lang === 'de' ? 'Gespeicherte Darstellung entfernt. Das helle Design wird verwendet.' : 'Saved theme removed. Using the default light theme.';
   });
-  preference.addEventListener('change', event => { if (!saved) setTheme(event.matches ? 'dark' : 'light'); });
   const menu = document.querySelector('.menu-toggle');
   const nav = document.getElementById('mobile-nav');
   function closeMenu() { if (nav) nav.hidden = true; menu?.setAttribute('aria-expanded', 'false'); }

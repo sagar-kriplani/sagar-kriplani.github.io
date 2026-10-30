@@ -16,12 +16,17 @@
   }
   const program = gl.createProgram();
   gl.attachShader(program, shader(gl.VERTEX_SHADER, `attribute vec3 p;attribute vec3 n;uniform vec2 angles;uniform vec2 pan;uniform float zoom;uniform float aspect;varying vec3 normal;vec3 rot(vec3 v){float a=angles.x,b=angles.y;vec3 q=vec3(cos(a)*v.x+sin(a)*v.z,v.y,-sin(a)*v.x+cos(a)*v.z);return vec3(q.x,cos(b)*q.y-sin(b)*q.z,sin(b)*q.y+cos(b)*q.z);}void main(){vec3 q=rot(p);gl_Position=vec4((q.x*zoom+pan.x)/aspect,q.y*zoom+pan.y,-q.z*.2,1.);normal=rot(n);}`));
-  gl.attachShader(program, shader(gl.FRAGMENT_SHADER, `precision mediump float;varying vec3 normal;void main(){float l=.35+.65*abs(dot(normalize(normal),normalize(vec3(.4,.8,1.))));gl_FragColor=vec4(vec3(.25,.55,.59)*l,1.);}`));
+  gl.attachShader(program, shader(gl.FRAGMENT_SHADER, `precision mediump float;varying vec3 normal;uniform vec3 meshColour;void main(){float l=.35+.65*abs(dot(normalize(normal),normalize(vec3(.4,.8,1.))));gl_FragColor=vec4(meshColour*l,1.);}`));
   gl.linkProgram(program); if (!gl.getProgramParameter(program,gl.LINK_STATUS)) return;
   gl.useProgram(program);
   const positions = gl.createBuffer(), normals = gl.createBuffer();
   let count=0, yaw=.65, pitch=.4, zoom=.52, pan=[0,0];
   let dragging=null;
+  function themeColour(name) {
+    // Theme tokens are six-digit hex colours shared with the homepage.
+    const hex=getComputedStyle(canvas).getPropertyValue(name).trim().slice(1);
+    return [0,2,4].map(offset=>parseInt(hex.slice(offset,offset+2),16)/255);
+  }
   function setBuffer(buffer,name,data) {
     gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
     const loc=gl.getAttribLocation(program,name);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,3,gl.FLOAT,false,0,0);
@@ -29,7 +34,9 @@
   function draw() {
     const r=canvas.getBoundingClientRect(), ratio=Math.min(devicePixelRatio||1,2);
     canvas.width=Math.max(1,Math.floor(r.width*ratio));canvas.height=Math.max(1,Math.floor(r.height*ratio));
-    gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(.91,.93,.91,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.enable(gl.DEPTH_TEST);
+    const background=themeColour('--media-surface');
+    gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...background,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.enable(gl.DEPTH_TEST);
+    gl.uniform3fv(gl.getUniformLocation(program,'meshColour'),themeColour('--accent'));
     gl.uniform2f(gl.getUniformLocation(program,'angles'),yaw,pitch);
     gl.uniform2fv(gl.getUniformLocation(program,'pan'),pan);
     gl.uniform1f(gl.getUniformLocation(program,'zoom'),zoom);
@@ -88,6 +95,7 @@
   document.querySelectorAll('[data-cad-action]').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.cadAction;if(a==='reset')return reset();if(a==='zoom-in')zoom=Math.min(8,zoom*1.2);if(a==='zoom-out')zoom=Math.max(.1,zoom/1.2);if(a==='front'){yaw=0;pitch=0;}if(a==='top'){yaw=0;pitch=Math.PI/2;}draw();}));
   canvas.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','-','0'].includes(e.key))return;e.preventDefault();if(e.key==='0')return reset();if(e.key==='ArrowLeft')yaw-=.12;if(e.key==='ArrowRight')yaw+=.12;if(e.key==='ArrowUp')pitch-=.12;if(e.key==='ArrowDown')pitch+=.12;if(e.key==='+')zoom=Math.min(8,zoom*1.2);if(e.key==='-')zoom=Math.max(.1,zoom/1.2);draw();});
   new ResizeObserver(draw).observe(canvas);
+  new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   const corners=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]],triangles=[[0,1,2],[0,2,3],[4,6,5],[4,7,6],[0,4,5],[0,5,1],[3,2,6],[3,6,7],[0,3,7],[0,7,4],[1,5,6],[1,6,2]];
   loadMesh(triangles.flatMap(t=>t.flatMap(i=>corners[i])),de?'Demo-Würfel, kein Projektmodell':'Demo cube, not a project model');
 })();
