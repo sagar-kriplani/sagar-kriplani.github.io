@@ -105,6 +105,9 @@ body[data-engineering-profile] a:focus-visible,body[data-engineering-profile] bu
 @media print{body[data-engineering-profile]{background:#fff}body[data-engineering-profile] .hero::before,body[data-engineering-profile] .hero::after{display:none}}
 
 /* Technical evidence follows the selected theme, including labels and source notes. */
+.evidence-page-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin-top:18px}
+.evidence-page-links>span{font-family:GeistMono,monospace;font-size:10px;color:var(--muted)}
+.evidence-page-links>a{display:inline-flex;align-items:center;gap:5px;min-height:44px;font-size:12px;color:var(--accent)}
 body[data-engineering-profile] .metrics{
   max-width:var(--max);
   margin:0 auto;

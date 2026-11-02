@@ -790,5 +790,15 @@
     "preview": "/assets/images/sagar-kriplani.webp",
     "source_sha256": "ee25a352adb1528c918377bbb9747a3f76ddedb785f91920362c5899b4fd581c",
     "encrypted_sha256": "243631b4a9c36ec90da850c123468b767d4e042e6725ecb06f781ad2ffd75216"
+  },
+  {
+    "key": "brooks-thesis-reference",
+    "preview": "/assets/evidence/brooks-thesis-reference.webp",
+    "source_sha256": "7a07103d070d20ec6320b8fa0f464f8fe36bf5d70a792d694f4344774b6f868c",
+    "encrypted_sha256": "6e9325b7b74662a8b16ce1f7d3f4a7087173bb7caf82ea613365250abed50b4d",
+    "previews": [
+      "/assets/evidence/brooks-thesis-reference-2.webp",
+      "/assets/evidence/brooks-thesis-reference-3.webp"
+    ]
   }
 ]

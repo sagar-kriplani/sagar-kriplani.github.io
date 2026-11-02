@@ -65,14 +65,14 @@ for lang in ('en','de'):
     assert 'until June' not in text and 'bis Juni' not in text
     from sys import path as module_path
     module_path.insert(0,str(ROOT.parent/'scripts'))
-    from evidence import RECORDS
+    from evidence import RECORDS, preview_paths
     library=pages[(ROOT/lang/'evidence/index.html').resolve()]
-    assert len(RECORDS)==29
+    assert len({r['key'] for r in RECORDS})==len(RECORDS)
     assert all(r['key'] in library.ids for r in RECORDS)
     for record in RECORDS:
-        assert (ROOT/'assets/evidence'/(record['key']+'.webp')).exists(), 'Public preview must remain visible'
+        assert all((ROOT/path.lstrip('/')).exists() for path in preview_paths(record)), 'Every public page preview must remain visible'
         assert (ROOT/'assets/protected'/(record['key']+'.skvault')).exists()
-    assert library.path.read_text(encoding='utf-8').count('data-download')==29
+    assert library.path.read_text(encoding='utf-8').count('data-download')==sum(r.get('pages',1) for r in RECORDS)
     assert len([r for r in RECORDS if r['group']=='certifications'])==16
     public_text=library.path.read_text(encoding='utf-8')
     # Generic patterns avoid placing the user's actual private identifiers in source control.
@@ -107,9 +107,13 @@ assert not (ROOT/'reference').exists()
 assert {p.name for p in ROOT.rglob('*.pdf')} == {f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}, 'Only six reviewed CVs may ship'
 assert not (ROOT/'.git').exists()
 protected=json.loads((ROOT/'assets/protected/manifest.json').read_text())
-assert len(protected)==132
+document_preview_names={Path(path).stem for record in RECORDS for path in preview_paths(record)}
+expected_protected={r['key'] for r in RECORDS}|{'gallery-'+p.stem for p in (ROOT/'assets/gallery').glob('*.webp')}|{'portrait'}
+expected_protected|={'project-'+p.stem for p in (ROOT/'assets/evidence').glob('*') if p.suffix in ('.webp','.svg') and p.stem not in document_preview_names}
+assert {r['key'] for r in protected}==expected_protected and len(protected)==len(expected_protected), 'Missing, duplicate or unexpected protected original'
 for record in protected:
     assert (ROOT/record['preview'].lstrip('/')).exists(), 'Public image preview missing'
+    assert all((ROOT/path.lstrip('/')).exists() for path in record.get('previews',[])), 'Public page preview missing'
     assert hashlib.sha256((ROOT/'assets/protected'/(record['key']+'.skvault')).read_bytes()).hexdigest()==record['encrypted_sha256']
 assert not list(ROOT.rglob('*password*')), 'No password file may be published'
 manifest=json.loads((ROOT/'assets/cv/manifest.json').read_text())

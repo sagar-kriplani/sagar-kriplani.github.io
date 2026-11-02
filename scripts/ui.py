@@ -29,7 +29,7 @@ class ControlIcons(HTMLParser):
         super().__init__(convert_charrefs=False);self.out=[];self.stack=[]
         manifest=Path(__file__).resolve().parent.parent/'assets/protected/manifest.json'
         records=json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else []
-        self.downloads={r['preview']:'/assets/protected/'+r['key']+'.skvault' for r in records if 'preview' in r}
+        self.downloads={preview:'/assets/protected/'+r['key']+'.skvault' for r in records for preview in [r.get('preview'),*r.get('previews',[])] if preview}
     def handle_starttag(self,tag,attrs):
         markup=self.get_starttag_text()
         values=dict(attrs)

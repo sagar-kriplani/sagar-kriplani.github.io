@@ -16,7 +16,7 @@ const base=process.env.PORTFOLIO_PREVIEW || 'http://127.0.0.1:4174';
   assert.ok((await page.locator('.job-context').first().textContent()).includes('70'));
   assert.ok((await page.locator('.job-context').first().textContent()).includes(lang==='de'?'bestätigt':'established'));
   const cards=await page.locator('.evidence-intro .proof-card').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
-  assert.ok(cards[0].endsWith('#nest-reference')&&cards[1].endsWith('#brooks-reference-2'));
+  assert.ok(cards[0].endsWith('#nest-reference')&&cards[1].endsWith('#brooks-thesis-reference'));
   const prominent=await page.locator('.project h3,.project-content>p:not(.eyebrow)').allTextContents();
   assert.ok(!/Eigentümer|nach eigener Angabe|owner-confirmed|owner reports/i.test(prominent.join(' ')));
   assert.equal(await page.locator('[data-relevant-cv]').getAttribute('href'),`/assets/cv/mechanical-${lang}.pdf`);

@@ -24,7 +24,7 @@ Open http://localhost:4174. Source copy and page templates live in `scripts/buil
 - `/en/legal/` and `/de/legal/`: operator and privacy information
 - `/en/gallery/` and `/de/gallery/`: 96 academic figures, project filters, progressive loading and image zoom
 - `/en/cad/` and `/de/cad/`: local-only STL/OBJ mesh viewer; no file upload or storage
-- `/en/evidence/` and `/de/evidence/`: searchable evidence gallery with 29 redacted document excerpts
+- `/en/evidence/` and `/de/evidence/`: searchable evidence gallery with 30 records and 32 redacted document-page previews
 
 The language selector preserves the CV/legal page type. Project filters, native case-study disclosure, mobile navigation, clipboard copy, theme persistence, and print styles enhance the static content. Content remains readable without JavaScript.
 
@@ -33,6 +33,8 @@ The language selector preserves the CV/legal page type. Project filters, native 
 Read `CONTENT_AUDIT.md` for corrections, evidence, and remaining limits. The PAU project report and submitted thesis support the featured research narrative. Other role details are identified as supplied-CV information. No unsupported Senior title, generalized energy-saving guarantee, or employment authorization claim is published. No raw confidential reports, identity documents or original scans ship. Selected project-report figure excerpts and privacy-redacted certificate/reference/transcript images are explicitly identified. The equipment-themed LinkedIn illustration/animation and Brooks PAU CAD have been removed at the user’s NDA request. A text-free process-flow diagram replaces the PAU model.
 
 Six reviewed CV PDFs are intentionally public alongside the HTML CV pages. Older document/media copies remain in repository history; current publication boundaries and encrypted-original/public-preview behavior are documented in UX-REVIEW.md. `IMPLEMENTATION_BRIEF.md` records the structured task prompt.
+
+The three-page Brooks thesis/working-student reference supplied on 2 November 2026 is available as one evidence record with three redacted WebP previews. All page links unlock the same unchanged original PDF with the existing password. The original is stored privately and only its AES-GCM package is public. `scripts/evidence.py` defines multi-page metadata; `scripts/protect_evidence.py --only brooks-thesis-reference` updates this package without rewriting other originals/previews (use the existing Python environment with Pillow and cryptography). See [source, privacy and verification notes](review/brooks-reference-2026.md).
 
 ## Deployment
 

@@ -200,7 +200,7 @@
       if (packageText.length > 16000000) throw Error('Package too large');
       const packet = JSON.parse(packageText);
       if (packet.format !== 'SK-EVIDENCE-v1' || packet.iterations !== 600000 ||
-          !/^[a-z0-9-]+\.(webp|svg)$/.test(packet.filename)) throw Error('Invalid package');
+          !/^[a-z0-9-]+\.(webp|svg|pdf)$/.test(packet.filename)) throw Error('Invalid package');
       const decode = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
       const salt = decode(packet.salt), iv = decode(packet.iv);
       if (salt.length !== 16 || iv.length !== 12) throw Error('Invalid parameters');
@@ -208,7 +208,9 @@
       const key = await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);
       const data = await crypto.subtle.decrypt({name:'AES-GCM',iv,additionalData:new TextEncoder().encode('SK-EVIDENCE-v1:'+packet.filename),tagLength:128},key,decode(packet.ciphertext));
       if (version !== unlockVersion || !dialog.open || current !== selected) return;
-      decryptedURL = URL.createObjectURL(new Blob([data], {type:packet.filename.endsWith('.svg')?'image/svg+xml':'image/webp'}));
+      const type = {'svg':'image/svg+xml','webp':'image/webp','pdf':'application/pdf'}[packet.filename.split('.').pop()];
+      if (type === 'application/pdf' && new TextDecoder().decode(new Uint8Array(data,0,Math.min(5,data.byteLength))) !== '%PDF-') throw Error('Invalid PDF');
+      decryptedURL = URL.createObjectURL(new Blob([data], {type}));
       const download = dialog.querySelector('.viewer-original-download');
       download.href = decryptedURL; download.download = packet.filename; download.hidden = false;
       imageStage.hidden = false; unlockForm.hidden = true;
