@@ -9,7 +9,7 @@ import hashlib
 ROOT=Path(__file__).resolve().parent.parent/'dist'
 class Page(HTMLParser):
     def __init__(self,path):
-        super().__init__(); self.path=path; self.ids=set(); self.links=[]; self.lang=None; self.h1=0
+        super().__init__(); self.path=path; self.ids=set(); self.links=[]; self.pdf_downloads=[]; self.lang=None; self.h1=0
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if 'id' in a:
@@ -18,6 +18,8 @@ class Page(HTMLParser):
         if tag=='html': self.lang=a.get('lang')
         if tag=='h1': self.h1+=1
         if tag=='img': assert a.get('alt'), f'Missing alt in {self.path}'
+        if tag=='a' and a.get('href','').startswith('/assets/cv/'):
+            self.pdf_downloads.append((a['href'], a.get('download')))
         for attr in ('href','src'):
             if a.get(attr): self.links.append(a[attr])
 
@@ -37,6 +39,14 @@ for path,p in pages.items():
             assert url.fragment in pages[target.resolve()].ids, f'Broken anchor: {path} -> {link}'
 for lang in ('en','de'):
     p=pages[(ROOT/lang/'index.html').resolve()]
+    filename='CV_Sagar_Kriplani_EN.pdf' if lang=='en' else 'Lebenslauf_Sagar_Kriplani_DE.pdf'
+    download=(f'/assets/cv/general-{lang}.pdf', filename)
+    profile_paths=[ROOT/lang/'index.html', ROOT/lang/'mechanical/index.html', ROOT/lang/'research/index.html']
+    if lang=='en':
+        profile_paths.append(ROOT/'index.html')
+    for path in profile_paths:
+        assert pages[path.resolve()].pdf_downloads==[download, download], f'Incorrect CV links on {path}'
+    assert pages[(ROOT/lang/'cv/index.html').resolve()].pdf_downloads==[download]
     assert {'pau','machine','thesis','handling','work','experience','expertise','contact'}<=p.ids
     text=p.path.read_text(encoding='utf-8')
     assert text.count('data-category=')==8
@@ -84,7 +94,6 @@ for lang in ('en','de'):
         assert text.count('class="engineering-steps"')==3
         assert text.count('class="project-period"')==8
         assert 'data-relevant-cv' in text
-        assert f'/assets/cv/{"rd" if profile=="research" else "mechanical"}-{lang}.pdf' in text
         assert 'R&amp;D;' not in text and 'F&amp;E;' not in text
         assert 'data-profile="'+profile+'" aria-current="page"' in text
         if profile=='mechanical':
@@ -104,7 +113,8 @@ assert len(list((ROOT/'assets/gallery').glob('*.webp')))==96
 assert not list(ROOT.rglob('*.mp4')), 'Only silent reviewed WebM ships'
 assert not list(ROOT.rglob('*.docx'))
 assert not (ROOT/'reference').exists()
-assert {p.name for p in ROOT.rglob('*.pdf')} == {f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}, 'Only six reviewed CVs may ship'
+cv_names={f'{kind}-{lang}.pdf' for kind in ('general','mechanical','rd') for lang in ('en','de')}
+assert {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.pdf')} == {f'assets/cv/{name}' for name in cv_names}, 'Only six reviewed CVs may ship'
 assert not (ROOT/'.git').exists()
 protected=json.loads((ROOT/'assets/protected/manifest.json').read_text())
 document_preview_names={Path(path).stem for record in RECORDS for path in preview_paths(record)}
@@ -118,6 +128,7 @@ for record in protected:
 assert not list(ROOT.rglob('*password*')), 'No password file may be published'
 manifest=json.loads((ROOT/'assets/cv/manifest.json').read_text())
 assert manifest['source_sha256']==hashlib.sha256((ROOT.parent/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest(), 'Regenerate CVs after career content changes'
+assert set(manifest['pdfs'])==cv_names, 'Every shipped CV must be in the reviewed manifest'
 for name,digest in manifest['pdfs'].items():
     assert hashlib.sha256((ROOT/'assets/cv'/name).read_bytes()).hexdigest()==digest, 'CV file differs from reviewed manifest'
 print(f'PASS: {len(pages)} pages; internal assets, anchors, languages, IDs, alt text and publication boundaries.')

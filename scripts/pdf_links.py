@@ -1,4 +1,4 @@
-"""Add navigation/language metadata to approved CVs without changing text or page layout.
+"""Add navigation/language metadata to generated role-specific CVs without changing text or page layout.
 
 Requires pypdf and pdfplumber. This does not claim PDF/UA or tagged-PDF compliance.
 """
@@ -13,7 +13,8 @@ from pypdf.generic import NameObject, TextStringObject
 
 ROOT=Path(__file__).resolve().parent.parent
 OUT=ROOT/'assets/cv'
-for file in OUT.glob('*.pdf'):
+role_cvs=sorted([*OUT.glob('mechanical-*.pdf'), *OUT.glob('rd-*.pdf')])
+for file in role_cvs:
     reader=PdfReader(file)
     before=[page.extract_text() for page in reader.pages]
     writer=PdfWriter();writer.clone_document_from_reader(reader)
@@ -44,11 +45,11 @@ for file in OUT.glob('*.pdf'):
     file.write_bytes(temporary.read_bytes());temporary.unlink()
     print(file.name,'2 pages; text preserved;',count,'links; language metadata set')
 
-aliases={'CV_Sagar_Kriplani_General_EN.pdf':'general-en.pdf','CV_Sagar_Kriplani_Mechanical_Design_EN.pdf':'mechanical-en.pdf','CV_Sagar_Kriplani_RD_Engineer_EN.pdf':'rd-en.pdf','Lebenslauf_Sagar_Kriplani_Allgemein_DE.pdf':'general-de.pdf','Lebenslauf_Sagar_Kriplani_Konstruktion_DE.pdf':'mechanical-de.pdf','Lebenslauf_Sagar_Kriplani_FE_Entwicklung_DE.pdf':'rd-de.pdf','mechanical-design-en.pdf':'mechanical-en.pdf','mechanical-design-de.pdf':'mechanical-de.pdf','rd-engineer-en.pdf':'rd-en.pdf','rd-engineer-de.pdf':'rd-de.pdf'}
+aliases={'CV_Sagar_Kriplani_Mechanical_Design_EN.pdf':'mechanical-en.pdf','CV_Sagar_Kriplani_RD_Engineer_EN.pdf':'rd-en.pdf','Lebenslauf_Sagar_Kriplani_Konstruktion_DE.pdf':'mechanical-de.pdf','Lebenslauf_Sagar_Kriplani_FE_Entwicklung_DE.pdf':'rd-de.pdf','mechanical-design-en.pdf':'mechanical-en.pdf','mechanical-design-de.pdf':'mechanical-de.pdf','rd-engineer-en.pdf':'rd-en.pdf','rd-engineer-de.pdf':'rd-de.pdf'}
 for folder in ('cv','assets/docs','public/cv'):
     for old,new in aliases.items():
         target=ROOT/folder/old
         if target.exists():shutil.copy2(OUT/new,target)
 manifest=json.loads((OUT/'manifest.json').read_text())
-manifest['pdfs']={file.name:hashlib.sha256(file.read_bytes()).hexdigest() for file in OUT.glob('*.pdf')}
+manifest['pdfs'].update({file.name:hashlib.sha256(file.read_bytes()).hexdigest() for file in role_cvs})
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

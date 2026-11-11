@@ -11,7 +11,7 @@ function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${lang}/${profile} ${width} overflow`);
   assert.equal(await page.locator('h1').count(),1);assert.equal(await page.locator('.profile-switch [aria-current="page"]').getAttribute('data-profile'),profile);
   assert.ok(!(await page.locator('main').innerText()).includes('R&D;'),'Malformed ampersand entity');
-  const expected=`/assets/cv/${profile==='research'?'rd':'mechanical'}-${lang}.pdf`;
+  const expected=`/assets/cv/general-${lang}.pdf`;
   assert.equal(await page.locator('[data-relevant-cv]').getAttribute('href'),expected);assert.equal((await page.request.get(base+expected)).status(),200);
   assert.equal(await page.locator('[data-category]').first().getAttribute('id'),profile==='research'?'thesis':'machine');
   assert.equal(await page.locator('.skill').count(),4);
@@ -43,6 +43,6 @@ function contrast(a,b){const x=luminance(a),y=luminance(b);return(Math.max(x,y)+
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:1000}});const fallback=await nojs.newPage();
  await fallback.goto(`${base}/de/research/`);assert.equal(await fallback.locator('.profile-switch a').count(),2);await fallback.locator('#thesis summary').click();
  assert.equal(await fallback.locator('#thesis .engineering-steps').isVisible(),true);assert.equal(await fallback.locator('[data-relevant-cv]').count(),1);
- assert.deepEqual(errors,[]);fs.writeFileSync('qa/recruitment-results.json',JSON.stringify({passed:true,browser:'Chromium',widths,profileSamples:observations.length,checks:['role/CV match','all four language/profile paths','three six-step cases','project priority','four skills groups','profile/language/anchor context','keyboard and no-JavaScript disclosure','body and accent contrast >=4.5:1 in both themes','public research plots and protected-original control'],errors,observations},null,2));
- await browser.close();console.log('PASS: 28 role/language/viewport samples; role-specific CVs, cases, skills, context and contrast.');
+ assert.deepEqual(errors,[]);fs.writeFileSync('qa/recruitment-results.json',JSON.stringify({passed:true,browser:'Chromium',widths,profileSamples:observations.length,checks:['language/CV match','all four language/profile paths','three six-step cases','project priority','four skills groups','profile/language/anchor context','keyboard and no-JavaScript disclosure','body and accent contrast >=4.5:1 in both themes','public research plots and protected-original control'],errors,observations},null,2));
+ await browser.close();console.log('PASS: 28 role/language/viewport samples; language-matched CVs, cases, skills, context and contrast.');
 })().catch(e=>{console.error(e);process.exit(1)});

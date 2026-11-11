@@ -19,7 +19,7 @@ const base=process.env.PORTFOLIO_PREVIEW || 'http://127.0.0.1:4174';
   assert.ok(cards[0].endsWith('#nest-reference')&&cards[1].endsWith('#brooks-thesis-reference'));
   const prominent=await page.locator('.project h3,.project-content>p:not(.eyebrow)').allTextContents();
   assert.ok(!/Eigentümer|nach eigener Angabe|owner-confirmed|owner reports/i.test(prominent.join(' ')));
-  assert.equal(await page.locator('[data-relevant-cv]').getAttribute('href'),`/assets/cv/mechanical-${lang}.pdf`);
+  assert.equal(await page.locator('[data-relevant-cv]').getAttribute('href'),`/assets/cv/general-${lang}.pdf`);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   for(const id of ['machine','pau','thesis']){
    assert.equal(await page.locator(`#${id} .case-details`).getAttribute('open'),null);
@@ -46,9 +46,10 @@ const base=process.env.PORTFOLIO_PREVIEW || 'http://127.0.0.1:4174';
   await page.locator(`[data-filter="${filter}"]`).click();assert.equal(await page.locator('[data-category]:visible').count(),count);
  }
  await page.goto(`${base}/de/evidence/?category=references`);
- assert.equal(await page.locator('[data-evidence-category]:visible').count(),5);
+ assert.equal(await page.locator('[data-evidence-category]:visible').count(),6);
+ assert.equal(await page.locator('#brooks-thesis-reference').isVisible(),true);
  await page.locator('.language').click();assert.match(page.url(),/en\/evidence\/\?category=references/);
- assert.equal(await page.locator('[data-evidence-category]:visible').count(),5);
+ assert.equal(await page.locator('[data-evidence-category]:visible').count(),6);
  await page.goto(`${base}/de/evidence/?category=certifications&q=NX`);
  await page.waitForFunction(()=>[...document.querySelectorAll('[data-evidence-category]')].filter(e=>!e.hidden).length===3);
  assert.equal(await page.locator('[data-evidence-category]:visible').count(),3);

@@ -1,4 +1,4 @@
-"""Generate six reviewed two-page CVs. Requires ReportLab and pypdf."""
+"""Generate the four role-specific CVs. The supplied general PDFs are maintained separately. Requires ReportLab and pypdf."""
 from pathlib import Path
 from html import escape
 import hashlib
@@ -37,8 +37,8 @@ def footer(canvas,doc):
 
 for lang in ('en','de'):
     en=lang=='en'
-    for kind in ('general','mechanical','rd'):
-        title=({'general':'Mechanical Design & Development Engineer','mechanical':'Mechanical Design Engineer','rd':'Mechanical Engineer | Research & Development'} if en else {'general':'Konstrukteur | Mechanische Entwicklung','mechanical':'Konstrukteur | Maschinenbau','rd':'Maschinenbauingenieur | Forschung & Entwicklung'})[kind]
+    for kind in ('mechanical','rd'):
+        title=({'mechanical':'Mechanical Design Engineer','rd':'Mechanical Engineer | Research & Development'} if en else {'mechanical':'Konstrukteur | Maschinenbau','rd':'Maschinenbauingenieur | Forschung & Entwicklung'})[kind]
         story=[para('Sagar Kriplani','name'),para(title,'title'),para('Heidenheim an der Brenz, Germany | +49 157 582 90324','small'),para('sagar.kriplani@outlook.com | linkedin.com/in/sagar-kriplani','small'),para(SUMMARIES[lang][kind]),para('EXPERIENCE' if en else 'BERUFSERFAHRUNG','h2')]
         for date,employer,role,place,desc in JOBS[lang]:
             # Retain claim provenance while keeping the CV readable.
@@ -64,12 +64,10 @@ for lang in ('en','de'):
             assert date in text,(path,date)
         print(path.name, len(reader.pages),'pages')
 
-# Replace legacy repository copies as well, so old files cannot contradict the website.
+# Refresh legacy copies of the generated role-specific CVs.
 aliases={
- 'CV_Sagar_Kriplani_General_EN.pdf':'general-en.pdf',
  'CV_Sagar_Kriplani_Mechanical_Design_EN.pdf':'mechanical-en.pdf',
  'CV_Sagar_Kriplani_RD_Engineer_EN.pdf':'rd-en.pdf',
- 'Lebenslauf_Sagar_Kriplani_Allgemein_DE.pdf':'general-de.pdf',
  'Lebenslauf_Sagar_Kriplani_Konstruktion_DE.pdf':'mechanical-de.pdf',
  'Lebenslauf_Sagar_Kriplani_FE_Entwicklung_DE.pdf':'rd-de.pdf',
  'mechanical-design-en.pdf':'mechanical-en.pdf','mechanical-design-de.pdf':'mechanical-de.pdf',
@@ -78,5 +76,8 @@ for folder in ('cv','assets/docs','public/cv'):
     for old,new in aliases.items():
         dest=ROOT/folder/old
         if dest.exists():shutil.copy2(OUT/new,dest)
-manifest={'source_sha256':hashlib.sha256((ROOT/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest(),'pdfs':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.glob('*.pdf')}}
+manifest=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
+manifest['source_sha256']=hashlib.sha256((ROOT/'scripts/career.py').read_text(encoding='utf-8').encode('utf-8')).hexdigest()
+for name in set(aliases.values()):
+    manifest['pdfs'][name]=hashlib.sha256((OUT/name).read_bytes()).hexdigest()
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

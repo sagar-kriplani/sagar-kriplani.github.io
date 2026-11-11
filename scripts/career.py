@@ -1,4 +1,4 @@
-"""Canonical reviewed career content shared by the website and downloadable CVs."""
+"""Reviewed career content and links to the supplied CV PDFs."""
 from html import escape
 
 JOBS = {
@@ -46,12 +46,18 @@ def apply_career(copy):
         c['languageText']=('German: professional working · English: full professional' if en else 'Deutsch: berufliche Arbeitskenntnisse · Englisch: professionelle Kenntnisse')+'<br>Hindi · Gujarati · Sindhi: '+('native/bilingual' if en else 'muttersprachlich/zweisprachig')
         c['languageNote']=('Self-reported language proficiency; the supplied German certificate documents B1-plus coursework, not a B2 examination.' if en else 'Sprachkenntnisse nach Selbsteinschätzung; der vorliegende Deutsch-Nachweis belegt einen B1-plus-Kurs, keine B2-Prüfung.')
 
+def cv_download_attrs(lang):
+    filename = {
+        'en': 'CV_Sagar_Kriplani_EN.pdf',
+        'de': 'Lebenslauf_Sagar_Kriplani_DE.pdf',
+    }[lang]
+    return f'href="/assets/cv/general-{lang}.pdf" download="{filename}"'
+
+
 def cv_body(lang,c):
     en=lang=='en'
-    out='<div class="cv-downloads"><h2>'+('Download a CV' if en else 'Lebenslauf herunterladen')+'</h2><p>'
-    for key,label in [('general','General' if en else 'Allgemein'),('mechanical','Mechanical Design' if en else 'Konstruktion'),('rd','Research & Development' if en else 'Forschung & Entwicklung')]:
-        out+=f'<a class="button" href="/assets/cv/{key}-{lang}.pdf">{label} · PDF ↓</a> '
-    out+='</p></div><h2>'+('Experience' if en else 'Berufserfahrung')+'</h2>'
+    out=f'<div class="cv-downloads"><p><a class="button" {cv_download_attrs(lang)}>{c["cv"]} · PDF ↓</a></p></div>'
+    out+='<h2>'+('Experience' if en else 'Berufserfahrung')+'</h2>'
     for date,employer,title,place,description in JOBS[lang]:
         out+=f'<article class="cv-project"><h3>{escape(employer)} · {escape(title)}</h3><p class="date">{date} · {place}</p><p>{description}</p></article>'
     out+='<h2>'+('Selected projects' if en else 'Ausgewählte Projekte')+'</h2>'
