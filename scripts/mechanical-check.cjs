@@ -46,10 +46,11 @@ const base=process.env.PORTFOLIO_PREVIEW || 'http://127.0.0.1:4174';
   await page.locator(`[data-filter="${filter}"]`).click();assert.equal(await page.locator('[data-category]:visible').count(),count);
  }
  await page.goto(`${base}/de/evidence/?category=references`);
- assert.equal(await page.locator('[data-evidence-category]:visible').count(),6);
+ assert.equal(await page.locator('[data-evidence-category]:visible').count(),7);
  assert.equal(await page.locator('#brooks-thesis-reference').isVisible(),true);
+ assert.equal(await page.locator('#nest-recommendation').isVisible(),true);
  await page.locator('.language').click();assert.match(page.url(),/en\/evidence\/\?category=references/);
- assert.equal(await page.locator('[data-evidence-category]:visible').count(),6);
+ assert.equal(await page.locator('[data-evidence-category]:visible').count(),7);
  await page.goto(`${base}/de/evidence/?category=certifications&q=NX`);
  await page.waitForFunction(()=>[...document.querySelectorAll('[data-evidence-category]')].filter(e=>!e.hidden).length===3);
  assert.equal(await page.locator('[data-evidence-category]:visible').count(),3);

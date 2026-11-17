@@ -1,6 +1,9 @@
 /* Verify real encrypted delivery without printing or persisting the access password. */
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
+const {createHash}=require('node:crypto');
+const originals=new Map(JSON.parse(fs.readFileSync('assets/protected/manifest.json','utf8')).map(record=>[record.key,record.source_sha256]));
+const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 (async()=>{
  const privateRoot=path.resolve('..','private-portfolio-access');
  const password=fs.readFileSync(path.join(privateRoot,'evidence-password.txt'),'utf8').trim();
@@ -12,11 +15,11 @@ const fs=require('node:fs');const path=require('node:path');const assert=require
   page.on('request',r=>{if(r.url().startsWith('http'))requests.push({url:r.url(),body:r.postData()||''})});
   for(const lang of ['en','de']){
    await page.goto(`http://127.0.0.1:4174/${lang}/evidence/`);
-   assert.equal(await page.locator('[data-download]').count(),32);
-   assert.equal(await page.locator('img[src*="/assets/evidence/"]').count(),30);
+   assert.equal(await page.locator('[data-download]').count(),33);
+   assert.equal(await page.locator('img[src*="/assets/evidence/"]').count(),31);
    const plaintext=await page.request.get('http://127.0.0.1:4174/assets/evidence/nest-reference.webp');
    assert.equal(plaintext.status(),200);
-   assert.ok(!Buffer.from(await plaintext.body()).equals(fs.readFileSync(path.join(privateRoot,'evidence','nest-reference.webp'))),'Preview must be a separate derivative');
+   assert.notEqual(digest(await plaintext.body()),originals.get('nest-reference'),'Preview must be a separate derivative');
    await page.locator('#nest-reference [data-download]').click();
    assert.equal(await page.locator('.document-unlock').isVisible(),false);
    await page.waitForFunction(()=>document.querySelector('.viewer-image').complete&&document.querySelector('.viewer-image').naturalWidth>0);
@@ -41,7 +44,7 @@ const fs=require('node:fs');const path=require('node:path');const assert=require
    const download=await downloadEvent;
    assert.equal(download.suggestedFilename(),'nest-reference.webp');
    const recovered=fs.readFileSync(await download.path());
-   assert.ok(recovered.equals(fs.readFileSync(path.join(privateRoot,'evidence','nest-reference.webp'))),'Decrypted download must match the private original');
+   assert.equal(digest(recovered),originals.get('nest-reference'),'Decrypted download must match the private original');
    await page.keyboard.press('Escape');
    assert.equal(await page.locator('.viewer-image').getAttribute('src'),null);
    assert.equal(await page.locator('.viewer-original-download').getAttribute('href'),null);
@@ -50,43 +53,47 @@ const fs=require('node:fs');const path=require('node:path');const assert=require
    await page.locator('.viewer-download').click();
    assert.equal(await page.locator('.document-unlock').isVisible(),true,'Original download must require password again');
    await page.keyboard.press('Escape');
-   // The new three-page reference has public raster redactions and one encrypted,
-   // byte-identical original PDF shared by all page links.
-   const reference=page.locator('#brooks-thesis-reference');
-   assert.equal(await reference.locator('[data-viewer]').count(),3);
-   assert.deepEqual(await reference.locator('[data-viewer]').evaluateAll(links=>[...new Set(links.map(a=>a.dataset.download))]),['/assets/protected/brooks-thesis-reference.skvault']);
-   for(let i=0;i<3;i++) {
-    await reference.locator('[data-viewer]').nth(i).click();
-    assert.equal(await page.locator('.document-unlock').isVisible(),false);
-    await page.waitForFunction(()=>document.querySelector('.viewer-image').complete&&document.querySelector('.viewer-image').naturalWidth>0);
-    assert.ok((await page.locator('#viewer-caption').textContent()).includes(lang==='de'?`Seite ${i+1} von 3`:`Page ${i+1} of 3`));
-    await page.locator('.viewer-download').click();
-    await page.locator('#document-password').fill('incorrect-pdf-password');await page.locator('.document-unlock button').click();
-    await page.waitForFunction(()=>!document.querySelector('.document-unlock button').disabled);
-    assert.equal(await page.locator('.viewer-original-download').isVisible(),false);
-    await page.locator('#document-password').fill(password);await page.locator('.document-unlock button').click();
-    await page.waitForFunction(()=>!document.querySelector('.viewer-original-download').hidden);
-    assert.equal(await page.evaluate(async()=>{const response=await fetch(document.querySelector('.viewer-original-download').href);return response.headers.get('content-type')}),'application/pdf');
-    const pdfEvent=page.waitForEvent('download');await page.locator('.viewer-original-download').click();
-    const pdf=await pdfEvent;assert.equal(pdf.suggestedFilename(),'brooks-thesis-reference.pdf');
-    assert.ok(fs.readFileSync(await pdf.path()).equals(fs.readFileSync(path.join(privateRoot,'originals/documents/brooks-thesis-reference.pdf'))),'Recovered PDF must match the private original exactly');
-    await page.keyboard.press('Escape');
-    assert.equal(await page.locator('.viewer-original-download').getAttribute('href'),null);
+   for(const [key,pages] of [['brooks-thesis-reference',3],['nest-recommendation',1]]) {
+    const reference=page.locator('#'+key);
+    assert.equal(await reference.locator('[data-viewer]').count(),pages);
+    assert.deepEqual(await reference.locator('[data-viewer]').evaluateAll(links=>[...new Set(links.map(a=>a.dataset.download))]),['/assets/protected/'+key+'.skvault']);
+    for(let i=0;i<pages;i++) {
+     await reference.locator('[data-viewer]').nth(i).click();
+     assert.equal(await page.locator('.document-unlock').isVisible(),false);
+     await page.waitForFunction(()=>document.querySelector('.viewer-image').complete&&document.querySelector('.viewer-image').naturalWidth>0);
+     if(pages>1)assert.ok((await page.locator('#viewer-caption').textContent()).includes(lang==='de'?`Seite ${i+1} von ${pages}`:`Page ${i+1} of ${pages}`));
+     await page.locator('.viewer-download').click();
+     await page.locator('#document-password').fill('incorrect-pdf-password');await page.locator('.document-unlock button').click();
+     await page.waitForFunction(()=>!document.querySelector('.document-unlock button').disabled);
+     assert.equal(await page.locator('.viewer-original-download').isVisible(),false);
+     await page.locator('#document-password').fill(password);await page.locator('.document-unlock button').click();
+     await page.waitForFunction(()=>!document.querySelector('.viewer-original-download').hidden);
+     assert.equal(await page.evaluate(async()=>{const response=await fetch(document.querySelector('.viewer-original-download').href);return response.headers.get('content-type')}),'application/pdf');
+     const pdfEvent=page.waitForEvent('download');await page.locator('.viewer-original-download').click();
+     const pdf=await pdfEvent;
+     assert.equal(pdf.suggestedFilename(),key+'.pdf');
+     assert.equal(digest(fs.readFileSync(await pdf.path())),originals.get(key),'Recovered PDF must match the private original exactly');
+     await pdf.delete();
+     await page.keyboard.press('Escape');
+     assert.equal(await page.locator('.viewer-original-download').getAttribute('href'),null);
+    }
    }
    for(const profile of ['mechanical','research']) {
     await page.goto(`http://127.0.0.1:4174/${lang}/${profile}/`);
     assert.equal(await page.locator(`.proof-card[href="/${lang}/evidence/#brooks-thesis-reference"]`).count(),1);
+    if(profile==='mechanical')assert.equal(await page.locator(`.evidence-groups a[href="/${lang}/evidence/#nest-recommendation"]`).count(),1);
    }
   }
   // Project gallery, diagram and portrait use the same download-only password flow.
   for(const sample of [
-   {route:'en/gallery/',selector:'.gallery-card:visible [data-viewer]',folder:'gallery'},
-   {route:'en/',selector:'#pau .project-source-image [data-viewer]',folder:'evidence'},
-   {route:'en/',selector:'.portrait-preview',folder:'images'}
+   {route:'en/gallery/',selector:'.gallery-card:visible [data-viewer]'},
+   {route:'en/',selector:'#pau .project-source-image [data-viewer]'},
+   {route:'en/',selector:'.portrait-preview'}
   ]){
    await page.goto('http://127.0.0.1:4174/'+sample.route);
    const link=page.locator(sample.selector).first();
-   assert.ok(await link.getAttribute('data-download'),'Every image viewer must have a protected original download');
+   const encrypted=await link.getAttribute('data-download');
+   assert.ok(encrypted,'Every image viewer must have a protected original download');
    const preview=await link.getAttribute('href');
    await link.click();
    assert.equal(await page.locator('.document-unlock').isVisible(),false);
@@ -97,7 +104,7 @@ const fs=require('node:fs');const path=require('node:path');const assert=require
    assert.ok((await page.locator('.viewer-image').getAttribute('src')).endsWith(preview),'Unlocking a download must not replace the public preview');
    const event=page.waitForEvent('download');await page.locator('.viewer-original-download').click();
    const downloaded=await event;
-   assert.ok(fs.readFileSync(await downloaded.path()).equals(fs.readFileSync(path.join(privateRoot,'originals',sample.folder,downloaded.suggestedFilename()))),'Project original must download byte-exactly');
+   assert.equal(digest(fs.readFileSync(await downloaded.path())),originals.get(path.basename(encrypted,'.skvault')),'Project original must download byte-exactly');
    await page.keyboard.press('Escape');
   }
   await page.goto('http://127.0.0.1:4174/de/evidence/');
@@ -118,7 +125,7 @@ const fs=require('node:fs');const path=require('node:path');const assert=require
   assert.ok(requests.every(r=>new URL(r.url).hostname==='127.0.0.1'),'No third-party request');
   assert.equal(await page.evaluate(()=>Object.keys(localStorage).some(k=>k!=='portfolio-theme')),false);
   assert.equal((await context.cookies()).length,0);assert.deepEqual(errors,[]);
-  fs.writeFileSync('qa/security-results.json',JSON.stringify({passed:true,protectedRecords:30,protectedOriginals:133,publicDocumentPages:32,tests:['public previews visible without password','separate encrypted original downloads','three-page redacted reference in both languages/profiles','original PDF MIME type and byte-exact download from every page','gallery/diagram/portrait originals','wrong password rejected','correct password decrypts','download byte-identical','tampering rejected','password editing preserves selection','password not transmitted','password not persisted','close revokes image/download','reopening requires password'],errors},null,2));
-  console.log('PASS: 30 records / 32 public document pages / 133 protected originals; three-page PDF, byte-exact decryption, wrong-password/tamper rejection, profiles/languages and no password transmission/storage.');
+  fs.writeFileSync('qa/security-results.json',JSON.stringify({passed:true,protectedRecords:31,protectedOriginals:originals.size,publicDocumentPages:33,tests:['public previews visible without password','separate encrypted original downloads','Brooks reference and NeSt recommendation in both languages','original PDF MIME type and byte-exact download from every page','gallery/diagram/portrait originals','wrong password rejected','correct password decrypts','download byte-identical','tampering rejected','password editing preserves selection','password not transmitted','password not persisted','close revokes image/download','reopening requires password'],errors},null,2));
+  console.log(`PASS: 31 records / 33 public document pages / ${originals.size} protected originals; byte-exact PDF downloads, wrong-password/tamper rejection, profiles/languages and no password transmission/storage.`);
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exit(1)});

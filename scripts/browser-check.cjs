@@ -38,13 +38,14 @@ const assert=require('node:assert/strict');
   }
  }
  await page.goto('http://127.0.0.1:4174/en/evidence/');
- assert.equal(await page.locator('[data-evidence-category]:visible').count(),30);
+ assert.equal(await page.locator('[data-evidence-category]:visible').count(),31);
  await page.locator('[data-evidence-filter="certifications"]').click();assert.equal(await page.locator('[data-evidence-category]:visible').count(),16);
  await page.locator('#evidence-search').fill('NX');assert.equal(await page.locator('[data-evidence-category]:visible').count(),3);
  await page.locator('#evidence-search').fill('no-such-record-123');assert.equal(await page.locator('[data-evidence-category]:visible').count(),0);assert.equal(await page.locator('.evidence-empty').isVisible(),true);
- await page.locator('#evidence-search').fill('');await page.locator('[data-evidence-filter="references"]').click();assert.equal(await page.locator('[data-evidence-category]:visible').count(),6);
+ await page.locator('#evidence-search').fill('');await page.locator('[data-evidence-filter="references"]').click();assert.equal(await page.locator('[data-evidence-category]:visible').count(),7);
  await page.locator('#nest-reference [data-viewer]').click();assert.equal(await page.locator('dialog').isVisible(),true);
- await page.locator('.viewer-close').focus();await page.keyboard.press('ArrowRight');assert.match(await page.locator('#viewer-caption').textContent(),/Brooks/);
+ await page.locator('.viewer-close').focus();await page.keyboard.press('ArrowRight');assert.match(await page.locator('#viewer-caption').textContent(),/NeSt.*Colleague Recommendation/);
+ await page.keyboard.press('ArrowRight');assert.match(await page.locator('#viewer-caption').textContent(),/Brooks/);
  await page.keyboard.press('Escape');assert.equal(await page.locator('dialog').isVisible(),false);
  await page.locator('[data-evidence-filter="education"]').click();assert.equal(await page.locator('[data-evidence-category]:visible').count(),8);
  await page.locator('.language').click();assert.match(page.url(),/de\/evidence/);

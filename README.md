@@ -24,7 +24,7 @@ Open http://localhost:4174. Source copy and page templates live in `scripts/buil
 - `/en/legal/` and `/de/legal/`: operator and privacy information
 - `/en/gallery/` and `/de/gallery/`: 96 academic figures, project filters, progressive loading and image zoom
 - `/en/cad/` and `/de/cad/`: local-only STL/OBJ mesh viewer; no file upload or storage
-- `/en/evidence/` and `/de/evidence/`: searchable evidence gallery with 30 records and 32 redacted document-page previews
+- `/en/evidence/` and `/de/evidence/`: searchable evidence gallery with 31 records and 33 redacted document-page previews
 
 The language selector preserves the CV/legal page type. Project filters, native case-study disclosure, mobile navigation, clipboard copy, theme persistence, and print styles enhance the static content. Content remains readable without JavaScript.
 

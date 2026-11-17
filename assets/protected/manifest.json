@@ -800,5 +800,11 @@
       "/assets/evidence/brooks-thesis-reference-2.webp",
       "/assets/evidence/brooks-thesis-reference-3.webp"
     ]
+  },
+  {
+    "key": "nest-recommendation",
+    "preview": "/assets/evidence/nest-recommendation.webp",
+    "source_sha256": "90ced4a98d65e35738bfa5d7d445b456a5c10596650c5fc176b726d8f993aa13",
+    "encrypted_sha256": "cb292416739ce75b932c0c25a3e6a71f0923c7a0389ba93f83b2af5a09bb33af"
   }
 ]

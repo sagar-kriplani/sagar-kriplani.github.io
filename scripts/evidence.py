@@ -33,6 +33,11 @@ record('activity-points','certifications','100 Activity Points Programme','Gujar
 record('gsecl-training','certifications','Vocational Training — Sikka Thermal Power Station','Gujarat State Electricity Corporation Limited','3–12 June 2019','The certificate confirms a curriculum training visit. It explicitly states that no independent work was assigned.','Bescheinigt einen studienbezogenen Ausbildungsbesuch. Das Dokument hält ausdrücklich fest, dass keine selbstständigen Aufgaben übertragen wurden.')
 
 record('nest-reference','references','NeSt — Employment Reference','NeSt GmbH','30 September 2026','Confirms employment as Konstrukteur from 1 September 2025 to 30 September 2026. Describes drawings, sheet-metal developments, Autodesk Inventor, complex assemblies, independent product development and documentation. Signature and contact block are excluded.','Bestätigt die Tätigkeit als Konstrukteur vom 1. September 2025 bis 30. September 2026. Nennt Zeichnungs- und Abwicklungserstellung, Autodesk Inventor, komplexe Baugruppen, eigenverantwortliche Produktentwicklung und Dokumentation. Unterschrift und Kontaktblock sind ausgeblendet.')
+record('nest-recommendation','references','NeSt — Colleague Recommendation',
+       'NeSt GmbH · Former senior design engineer','11 November 2026',
+       'A former colleague describes machine enclosures, structural analysis in Inventor Nastran, design revisions and collaboration with production. The public excerpt omits the author’s name, contact details and signature.',
+       'Ein ehemaliger Kollege beschreibt Maschinenverkleidungen, Strukturanalyse mit Inventor Nastran, konstruktive Anpassungen und die Zusammenarbeit mit der Fertigung. Der öffentliche Auszug enthält weder Namen noch Kontaktdaten oder Unterschrift des Verfassers.',
+       original='nest-recommendation.pdf',title_de='NeSt — Empfehlungsschreiben eines Kollegen')
 record('brooks-thesis-reference','references','Brooks — Thesis & Working Student Reference','Brooks Automation (Germany) GmbH','28 October 2026',
        'Three-page employment reference covering the master’s thesis and subsequent working-student role. Describes IR quartz-heater/LED comparisons for FOUP polymers, spectroscopy, vacuum test-system development, experimental evaluation and CAD/PLM work. Birth details and the complete signature block are removed from the public pages. The unchanged original PDF requires the access password.',
        'Dreiseitiges Arbeitszeugnis zur Masterarbeit und anschließenden Werkstudententätigkeit. Beschreibt den Vergleich von IR-Quarzheizern und LEDs für FOUP-Kunststoffe, Spektroskopie, die Entwicklung eines Vakuum-Versuchsaufbaus, Versuchsauswertung und CAD-/PLM-Aufgaben. Geburtsangaben und der vollständige Unterschriftenblock sind aus den öffentlichen Seiten entfernt. Die unveränderte Original-PDF erfordert das Zugangspasswort.',
@@ -91,7 +96,7 @@ def evidence_section(lang,profile=None):
 def evidence_groups(lang):
     en=lang=='en'
     groups=[
-      ('Employment references' if en else 'Arbeitszeugnisse',[(f'/{lang}/evidence/?category=references','NeSt · Brooks · Ravi Brass')]),
+      ('References & recommendations' if en else 'Zeugnisse & Empfehlungen',[(f'/{lang}/evidence/?category=references','NeSt · Brooks · Ravi Brass'),(f'/{lang}/evidence/#nest-recommendation','NeSt colleague recommendation' if en else 'NeSt-Empfehlungsschreiben')]),
       ('Education & qualifications' if en else 'Studium & Abschlüsse',[(f'/{lang}/evidence/?category=education','M.Sc. · B.E. · Diploma')]),
       ('CAD & design' if en else 'CAD & Konstruktion',[(f'/{lang}/evidence/?category=certifications&q=NX','Siemens NX'),(f'/{lang}/gallery/?project=handling','Academic handling design' if en else 'Akademische Handhabungskonstruktion')]),
       ('Simulation & research' if en else 'Simulation & Forschung',[(f'/{lang}/gallery/?project=ansys','ANSYS training' if en else 'ANSYS-Training'),(f'/{lang}/gallery/?project=thesis','Thesis graphs' if en else 'Thesis-Diagramme'),(f'/{lang}/gallery/?project=frost','MATLAB frost model' if en else 'MATLAB-Frostmodell')]),

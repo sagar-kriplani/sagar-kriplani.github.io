@@ -32,7 +32,10 @@ old_manifest=json.loads((OUT/'manifest.json').read_text()) if (OUT/'manifest.jso
 old={r['key']:r for r in old_manifest}
 items=[]
 for record in RECORDS:
-    key=record['key'];name=key+'.webp'
+    key=record['key']
+    if args.only and key!=args.only:
+        continue
+    name=key+'.webp'
     previews=[ROOT/path.lstrip('/') for path in preview_paths(record)]
     if record.get('original'):
         original=record['original']
